@@ -10,9 +10,9 @@ COLOR_ERROR   = \033[31m
 ## Help
 help:
 	printf "${COLOR_COMMENT}Usage:${COLOR_RESET}\n"
-	printf " make [target] type=[type]\n\n"
+	printf " make [target]\n\n"
 	printf "${COLOR_COMMENT}Available targets:${COLOR_RESET}\n"
-	awk '/^[a-zA-Z\-\_0-9\.]+:/ { \
+	awk '/^[a-zA-Z\-\_0-9\.@]+:/ { \
 		helpMessage = match(lastLine, /^## (.*)/); \
 		if (helpMessage) { \
 			helpCommand = substr($$1, 0, index($$1, ":")); \
@@ -21,15 +21,37 @@ help:
 		} \
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
-	printf "\n${COLOR_COMMENT}Available types:${COLOR_RESET}\n"
-	printf " ${COLOR_INFO}virtualbox${COLOR_RESET} Virtualbox\n"
-	printf " ${COLOR_INFO}docker ${COLOR_RESET} Docker\n"
 
 ## Build
-build:
+build: build@jessie build@wheezy
+
+## Build - Jessie
+build@jessie:
 	docker build \
-		--pull \
-		--rm=true \
-		--force-rm \
-		--tag=manala/build-debian:jessie \
-		.
+	    --pull \
+	    --rm \
+	    --force-rm \
+	    --tag manala/build-debian:jessie \
+	    --file Dockerfile.jessie \
+	    .
+
+## Build - Wheezy
+build@wheezy:
+	docker build \
+	    --pull \
+	    --rm \
+	    --force-rm \
+	    --tag manala/build-debian:wheezy \
+	    --file Dockerfile.wheezy \
+	    .
+
+## Push
+push: push@jessie push@wheezy
+
+## Push - Jessie
+push@jessie:
+	docker push manala/build-debian:jessie
+
+## Push - Wheezy
+push@wheezy:
+	docker push manala/build-debian:wheezy
