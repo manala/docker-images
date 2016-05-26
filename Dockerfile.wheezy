@@ -2,10 +2,26 @@ FROM debian:wheezy
 
 MAINTAINER Manala <contact@manala.io>
 
-RUN apt-get update \
-    && apt-get -y upgrade \
-    && apt-get -y install \
+# Set the env variable DEBIAN_FRONTEND to noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN echo "deb http://httpredir.debian.org/debian wheezy-backports main" > /etc/apt/sources.list.d/backports.list \
+    && echo "Package: *\n\
+Pin: release a=wheezy-backports\n\
+Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
+    && echo "deb http://httpredir.debian.org/debian wheezy-backports-sloppy main" > /etc/apt/sources.list.d/backports-sloppy.list \
+    && echo "Package: *\n\
+Pin: release a=wheezy-backports-sloppy\n\
+Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
+    && apt-get update \
+    && apt-get -y dist-upgrade \
+    && apt-get -y --no-install-recommends install \
+        unzip \
         curl \
+        ca-certificates \
+        build-essential \
         devscripts \
+        fakeroot \
+        lintian \
         pkg-php-tools \
     && rm -rf /var/lib/apt/lists/*

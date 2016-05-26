@@ -2,10 +2,22 @@ FROM debian:jessie
 
 MAINTAINER Manala <contact@manala.io>
 
-RUN apt-get update \
+# Set the env variable DEBIAN_FRONTEND to noninteractive
+ENV DEBIAN_FRONTEND noninteractive
+
+RUN echo "deb http://httpredir.debian.org/debian jessie-backports main" > /etc/apt/sources.list.d/backports.list \
+    && echo "Package: *\n\
+Pin: release a=jessie-backports\n\
+Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
+    && apt-get update \
     && apt-get -y upgrade \
-    && apt-get -y install \
+    && apt-get -y --no-install-recommends install \
+        unzip \
         curl \
-        devscripts \
+        ca-certificates \
+        build-essential \
+        devscripts/jessie-backports \
+        fakeroot \
+        lintian/jessie-backports \
         pkg-php-tools \
     && rm -rf /var/lib/apt/lists/*
