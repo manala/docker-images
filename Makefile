@@ -22,36 +22,68 @@ help:
 	} \
 	{ lastLine = $$0 }' $(MAKEFILE_LIST)
 
-## Build
-build: build@jessie build@wheezy
+#######
+# Dev #
+#######
 
-## Build - Jessie
-build@jessie:
-	docker build \
-	    --pull \
-	    --rm \
-	    --force-rm \
-	    --tag manala/build-debian:jessie \
-	    --file Dockerfile.jessie \
-	    .
+## Dev - Wheezy
+dev@wheezy:
+	docker run \
+		--rm \
+		--volume `pwd`:/srv \
+		--tty --interactive \
+		manala/build-debian:wheezy \
+		/bin/bash
+
+## Dev - Jessie
+dev@jessie:
+	docker run \
+		--rm \
+		--volume `pwd`:/srv \
+		--tty --interactive \
+		manala/build-debian:jessie \
+		/bin/bash
+
+#########
+# Build #
+#########
+
+## Build
+build: build@wheezy build@jessie
 
 ## Build - Wheezy
 build@wheezy:
 	docker build \
-	    --pull \
-	    --rm \
-	    --force-rm \
-	    --tag manala/build-debian:wheezy \
-	    --file Dockerfile.wheezy \
-	    .
+		--pull \
+		--rm \
+		--force-rm \
+		--no-cache \
+		--tag manala/build-debian:wheezy \
+		--file Dockerfile.wheezy \
+		.
+
+## Build - Jessie
+build@jessie:
+	docker build \
+		--pull \
+		--rm \
+		--force-rm \
+		--no-cache \
+		--tag manala/build-debian:jessie \
+		--file Dockerfile.jessie \
+		.
+
+########
+# Push #
+########
 
 ## Push
-push: push@jessie push@wheezy
-
-## Push - Jessie
-push@jessie:
-	docker push manala/build-debian:jessie
+push: push@wheezy push@jessie
 
 ## Push - Wheezy
 push@wheezy:
 	docker push manala/build-debian:wheezy
+
+## Push - Jessie
+push@jessie:
+	docker push manala/build-debian:jessie

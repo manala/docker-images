@@ -2,9 +2,9 @@ FROM debian:wheezy
 
 MAINTAINER Manala <contact@manala.io>
 
-# Set the env variable DEBIAN_FRONTEND to noninteractive
-ENV DEBIAN_FRONTEND noninteractive
+WORKDIR /tmp
 
+# Apt
 RUN echo "deb http://httpredir.debian.org/debian wheezy-backports main" > /etc/apt/sources.list.d/backports.list \
     && echo "Package: *\n\
 Pin: release a=wheezy-backports\n\
@@ -14,8 +14,8 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
 Pin: release a=wheezy-backports-sloppy\n\
 Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
     && apt-get update \
-    && apt-get -y dist-upgrade \
-    && apt-get -y --no-install-recommends install \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
         unzip \
         curl \
         ca-certificates \
@@ -23,5 +23,9 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
         devscripts \
         fakeroot \
         lintian \
-        pkg-php-tools \
-    && rm -rf /var/lib/apt/lists/*
+        pkg-php-tools
+
+# Clean
+RUN rm -rf * /var/lib/apt/lists/*
+
+WORKDIR /srv
