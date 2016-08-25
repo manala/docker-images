@@ -17,6 +17,7 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
         ca-certificates \
         build-essential \
         devscripts/jessie-backports \
+        dh-exec \
         fakeroot \
         lintian/jessie-backports \
         pkg-php-tools

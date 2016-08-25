@@ -21,6 +21,7 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
         ca-certificates \
         build-essential \
         devscripts \
+        dh-exec \
         fakeroot \
         lintian \
         pkg-php-tools
