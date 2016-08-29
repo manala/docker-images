@@ -28,6 +28,6 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
         pkg-php-tools
 
 # Clean
-RUN rm -rf * /var/lib/apt/lists/*
+RUN apt-get clean
 
 WORKDIR /srv

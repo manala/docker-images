@@ -24,6 +24,6 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
         pkg-php-tools
 
 # Clean
-RUN rm -rf * /var/lib/apt/lists/*
+RUN apt-get clean
 
 WORKDIR /srv
