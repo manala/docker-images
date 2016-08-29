@@ -5,11 +5,19 @@ MAINTAINER Manala <contact@manala.io>
 WORKDIR /tmp
 
 # Apt
-RUN echo "deb http://httpredir.debian.org/debian wheezy-backports main" > /etc/apt/sources.list.d/backports.list \
+RUN echo "deb http://httpredir.debian.org/debian wheezy main\n\
+deb-src http://httpredir.debian.org/debian wheezy main\n\
+deb http://httpredir.debian.org/debian wheezy-updates main\n\
+deb-src http://httpredir.debian.org/debian wheezy-updates main\n\
+deb http://security.debian.org wheezy/updates main\n\
+deb-src http://security.debian.org wheezy/updates main\n\
+deb http://httpredir.debian.org/debian wheezy-backports main\n\
+deb-src http://httpredir.debian.org/debian wheezy-backports main\n\
+deb http://httpredir.debian.org/debian wheezy-backports-sloppy main\n\
+deb-src http://httpredir.debian.org/debian wheezy-backports-sloppy main\n" > /etc/apt/sources.list \
     && echo "Package: *\n\
 Pin: release a=wheezy-backports\n\
 Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
-    && echo "deb http://httpredir.debian.org/debian wheezy-backports-sloppy main" > /etc/apt/sources.list.d/backports-sloppy.list \
     && echo "Package: *\n\
 Pin: release a=wheezy-backports-sloppy\n\
 Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
