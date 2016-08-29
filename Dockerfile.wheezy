@@ -22,6 +22,7 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
         build-essential \
         devscripts \
         dh-exec \
+        dh-systemd/wheezy-backports \
         fakeroot \
         lintian \
         pkg-php-tools
