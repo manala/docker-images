@@ -8,6 +8,7 @@ RUN \
     eslint \
     eslint-plugin-react \
     eslint-plugin-react-native \
+    eslint-plugin-jsx-a11y \
     eslint-config-airbnb \
   && rm -rf /root/.npm
 
