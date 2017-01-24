@@ -8,6 +8,7 @@ RUN \
     eslint \
     eslint-plugin-react \
     eslint-plugin-react-native \
+    eslint-config-airbnb \
   && rm -rf /root/.npm
 
 # Switch node user to lint

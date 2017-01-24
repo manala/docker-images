@@ -2,4 +2,6 @@
 
 - Make
 - Node
-- ESLint (plugins react, react-native)
+- ESLint
+  * plugins: react, react-native
+  * config: airbnb
