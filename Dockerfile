@@ -11,6 +11,7 @@ RUN \
     eslint-plugin-jsx-a11y \
     eslint-plugin-import \
     eslint-config-airbnb \
+    babel-eslint \
   && rm -rf /root/.npm
 
 # Switch node user to lint

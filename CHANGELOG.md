@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - ESLint - Plugin - jsx-a11y 3.0.2
 - ESLint - Plugin - import 2.2.0
 - ESLint - Config - airbnb 14.0.0
+- Babel ESLint 7.1.1
 
 ## [0.0.1] - 2017-01-24
 ### Added
