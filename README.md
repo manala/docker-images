@@ -35,3 +35,30 @@ Zsh alias
 ```
 alias eslint='f() { docker run --rm -ti -v ${PWD}:${PWD} -w ${PWD} manala/lint-js eslint ${*} };f'
 ```
+
+## Development
+
+Requirements:
+- Docker
+- Make
+
+Build
+```
+make build
+```
+
+Dev
+```
+make dev
+```
+
+Test
+```
+make test
+```
+
+Updates:
+- Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [yarn](https://github.com/yarnpkg/yarn/releases) release and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [npm packages](https://www.npmjs.com/) versions and update "Dockerfile" and "goss.yaml" accordingly
