@@ -48,3 +48,15 @@ build:
 		--no-cache \
 		--tag manala/lint-js \
 		.
+
+#########
+# Test #
+#########
+
+## Test
+test:
+	docker run \
+		--rm \
+		--volume `pwd`:/srv \
+		manala/lint-js \
+		goss --gossfile /srv/goss.yaml validate
