@@ -10,4 +10,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Make 4.1
 - Git 2.8.3
 - Php 7.1.1
-- Composer ...
+- Composer 1.3.2
+- PHP-CS-Fixer 2.0.0

@@ -7,11 +7,8 @@
 Provides php linting tools, and related plugins and configs.
 
 - Php
-- Composer ***
-- ESLint
-  - Plugins: react, react-native, jsx-a11y, import
-  - Config: airbnb
-- Babel ESLint
+- Composer
+- PHP-CS-Fixer
 
 Provides also useful development tools.
 
@@ -21,19 +18,19 @@ Provides also useful development tools.
 
 ## Integration
 
-Run eslint
+Run php-cs-fixer
 ```
-docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php eslint --version
+docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer --version
 ```
 
 Zsh function
 ```
-eslint() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php eslint ${*} }
+php-cs-fixer() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} }
 ```
 
 Zsh alias
 ```
-alias eslint='f() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php eslint ${*} };f'
+alias php-cs-fixer='f() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} };f'
 ```
 
 ## Development
@@ -60,10 +57,5 @@ make test
 Updates:
 - Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update "Dockerfile" and "goss.yaml" accordingly
 - Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-
-
-
-- Check for new [yarn](https://github.com/yarnpkg/yarn/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-
-
-- Check for new [npm packages](https://www.npmjs.com/) versions and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [composer](https://github.com/composer/composer/releases) release and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases) release and update "Dockerfile" and "goss.yaml" accordingly
