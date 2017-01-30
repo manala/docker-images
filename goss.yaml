@@ -1,0 +1,58 @@
+############
+# Packages #
+############
+
+package:
+  # Make
+  make:
+    installed: true
+    versions:
+      - 4.1-r1
+  # Git
+  git:
+    installed: true
+    versions:
+      - 2.8.3-r0
+
+############
+# Commands #
+############
+
+command:
+  # Php
+  php --version:
+    exit-status: 0
+    stdout:
+      - PHP 7.1.1
+  # Composer
+  composer --version:
+    exit-status: 0
+    stdout:
+      - Composer version 1.3.2
+  # Npm packages
+  composer global info:
+    exit-status: 0
+    stdout:
+      - friendsofphp/php-cs-fixer v2.0.0
+
+##########
+# Groups #
+##########
+
+group:
+  # Lint
+  lint:
+    exists: true
+
+#########
+# Users #
+#########
+
+user:
+  # Lint
+  lint:
+    exists: true
+    groups:
+      - lint
+    home: /home/lint
+    shell: ""
