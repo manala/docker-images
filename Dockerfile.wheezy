@@ -25,8 +25,11 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
     && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
         unzip \
-        curl \
-        ca-certificates \
+        wget curl ca-certificates less \
+        apt-transport-https \
+        make \
+        procps \
+        vim/wheezy-backports \
         build-essential \
         devscripts \
         dh-exec \
@@ -36,6 +39,6 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
         pkg-php-tools
 
 # Clean
-RUN apt-get clean
+RUN rm -rf * /var/lib/apt/lists/*
 
 WORKDIR /srv
