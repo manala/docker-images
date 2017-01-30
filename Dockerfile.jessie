@@ -18,10 +18,12 @@ Pin: release a=jessie-backports\n\
 Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
     && apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
-    && apt-get -y --no-install-recommends install \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
         unzip \
-        curl \
-        ca-certificates \
+        wget curl ca-certificates less \
+        apt-transport-https \
+        make \
+        vim \
         build-essential \
         devscripts/jessie-backports \
         dh-exec \
@@ -31,6 +33,6 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
         pkg-php-tools
 
 # Clean
-RUN apt-get clean
+RUN rm -rf * /var/lib/apt/lists/*
 
 WORKDIR /srv
