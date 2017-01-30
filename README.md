@@ -4,7 +4,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/manala/lint-php.svg)]()
 [![Docker Automated buil](https://img.shields.io/docker/automated/manala/lint-php.svg)]()
 
-Provides javascript linting tools, and related plugins and configs.
+Provides php linting tools, and related plugins and configs.
 
 - Php
 - Composer ***
