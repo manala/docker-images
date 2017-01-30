@@ -8,3 +8,6 @@ lint:
 
 lint@test:
 	${DOCKER} manala/lint-js eslint --format junit --output-file build/lint/eslint.xml --cache example.js
+
+lint-fix:
+	${DOCKER} manala/lint-js eslint --fix example.js
