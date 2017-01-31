@@ -24,15 +24,11 @@ command:
     exit-status: 0
     stdout:
       - v7.4.0
-    stderr: []
-    timeout: 0
   # Yarn
   yarn --version:
     exit-status: 0
     stdout:
       - 0.19.1
-    stderr: []
-    timeout: 0
   # Npm packages
   npm --global list --depth=1:
     exit-status: 0
