@@ -23,17 +23,17 @@ Provides also useful development tools.
 
 Run eslint
 ```
-docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint --version
+docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint --version
 ```
 
 Zsh function
 ```
-eslint() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint ${*} }
+eslint() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint ${*} }
 ```
 
 Zsh alias
 ```
-alias eslint='f() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint ${*} };f'
+alias eslint='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint ${*} };f'
 ```
 
 ## Development
