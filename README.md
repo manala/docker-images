@@ -58,4 +58,4 @@ Updates:
 - Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update "Dockerfile" and "goss.yaml" accordingly
 - Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update "Dockerfile" and "goss.yaml" accordingly
 - Check for new [composer](https://github.com/composer/composer/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases) release and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [composer packages](https://packagist.org/) versions and update "Dockerfile" and "goss.yaml" accordingly
