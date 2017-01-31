@@ -4,8 +4,6 @@ MAINTAINER Manala <contact@manala.io>
 
 ENV GOSS_VERSION         0.2.5
 ENV COMPOSER_VERSION     1.3.2
-ENV COMPOSER_HOME        /usr/local/share/composer
-ENV COMPOSER_BIN_DIR     /usr/local/bin
 ENV PHP_CS_FIXER_VERSION 2.0.0
 
 # Goss
@@ -23,7 +21,7 @@ RUN apk add --no-cache --virtual=composer-dependencies curl && \
     apk del composer-dependencies
 
 # Composer packages
-RUN composer global require \
+RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       friendsofphp/php-cs-fixer:${PHP_CS_FIXER_VERSION} \
     && rm -rf /root/.composer
 
