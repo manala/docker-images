@@ -1,14 +1,36 @@
 .SILENT:
-.PHONY: lint
+.PHONY: lint fix
 
-DOCKER = docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd`
+DOCKER = docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd`
+
+##############
+# Lint / Fix #
+##############
+
+APP_SRC_PHP = example.php
 
 lint:
-	${DOCKER} manala/lint-php php-cs-fixer --dry-run --diff --verbose fix example.php
+	-${MAKE} lint-php
 
-lint@test:
+lint-php:
+ifdef APP_SRC_PHP
+	$(info Lint Php)
+	${DOCKER} manala/lint-php php-cs-fixer --ansi --dry-run --diff --verbose fix ${APP_SRC_PHP}
+else
+	$(info Lint Php (Skipping…))
+endif
+
+lint-php@test:
 	mkdir -p build/lint
-	${DOCKER} manala/lint-php php-cs-fixer --dry-run --diff --verbose --format=junit fix example.php > build/lint/php-cs-fixer.xml
+	${DOCKER} manala/lint-php php-cs-fixer --dry-run --diff --verbose --format=junit fix ${APP_SRC_PHP} > build/lint/php-cs-fixer.xml
 
-lint-fix:
-	${DOCKER} manala/lint-php php-cs-fixer fix example.php
+fix:
+	-${MAKE} fix-php
+
+fix-php:
+ifdef APP_SRC_PHP
+	$(info Fix Php…)
+	${DOCKER} manala/lint-php php-cs-fixer --ansi fix ${APP_SRC_PHP}
+else
+	$(info Fix Php (Skipping…))
+endif
