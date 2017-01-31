@@ -30,7 +30,6 @@ fix:
 fix-css:
 ifdef APP_SRC_CSS
 	$(info Fix Css…)
-	#${DOCKER} manala/lint-css eslint --color --cache --fix ${APP_SRC_CSS}
 	${DOCKER} manala/lint-css stylefmt ${APP_SRC_CSS}
 else
 	$(info Fix Css (Skipping…))
