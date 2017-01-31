@@ -14,8 +14,10 @@ lint:
 
 lint-js:
 ifdef APP_SRC_JS
-	$(info Lint Js…)
+	$(info Lint Js)
 	${DOCKER} manala/lint-js eslint --cache ${APP_SRC_JS}
+else
+	$(info Lint Js (Skipping…))
 endif
 
 lint-js@test:
@@ -28,4 +30,6 @@ fix-js:
 ifdef APP_SRC_JS
 	$(info Fix Js…)
 	${DOCKER} manala/lint-js eslint --fix ${APP_SRC_JS}
+else
+	$(info Fix Js (Skipping…))
 endif
