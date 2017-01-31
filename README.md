@@ -20,17 +20,17 @@ Provides also useful development tools.
 
 Run php-cs-fixer
 ```
-docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer --version
+docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer --version
 ```
 
 Zsh function
 ```
-php-cs-fixer() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} }
+php-cs-fixer() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} }
 ```
 
 Zsh alias
 ```
-alias php-cs-fixer='f() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} };f'
+alias php-cs-fixer='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} };f'
 ```
 
 ## Development
