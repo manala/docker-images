@@ -7,7 +7,7 @@ DOCKER = docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd`
 # Lint / Fix #
 ##############
 
-APP_SRC_PHP = example.php
+APP_SRC_PHP = .
 
 lint:
 	-${MAKE} lint-php
