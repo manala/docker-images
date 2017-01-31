@@ -11,6 +11,7 @@ Provides css linting tools, and related plugins and configs.
 - Stylelint
   - Config: standard, elao
   - Formatter: junit
+- Stylefmt
 
 Provides also useful development tools.
 
@@ -22,16 +23,16 @@ Provides also useful development tools.
 
 Run stylelint
 ```
-docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint --version
+docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint --version
 ```
 
 Zsh function
 ```
-stylelint() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint
+stylelint() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint
 
 Zsh alias
 ```
-alias stylelint='f() { docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint ${*} };f'
+alias stylelint='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint ${*} };f'
 ```
 
 ## Development

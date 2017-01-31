@@ -15,3 +15,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Stylelint - Config - standard 15.0.1
 - Stylelint - Config - elao 0.2.1
 - Stylelint - Formatter - junit 0.1.0
+- Stylefmt 5.1.1

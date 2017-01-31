@@ -37,6 +37,7 @@ command:
       - stylelint-config-standard@15.0.1
       - stylelint-config-elao@0.2.1
       - stylelint-junit-formatter@0.1.0
+      - stylefmt@5.1.1
 
 ##########
 # Groups #

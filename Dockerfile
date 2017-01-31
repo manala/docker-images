@@ -8,6 +8,7 @@ ENV STYLELINT_VERSION                 7.7.1
 ENV STYLELINT_CONFIG_STANDARD_VERSION 15.0.1
 ENV STYLELINT_CONFIG_ELAO_VERSION     0.2.1
 ENV STYLELINT_JUNIT_FORMATTER_VERSION 0.1.0
+ENV STYLEFMT_VERSION                  5.1.1
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
@@ -32,6 +33,7 @@ RUN npm --global install \
       stylelint-config-standard@${STYLELINT_CONFIG_STANDARD_VERSION} \
       stylelint-config-elao@${STYLELINT_CONFIG_ELAO_VERSION} \
       stylelint-junit-formatter@${STYLELINT_JUNIT_FORMATTER_VERSION} \
+      stylefmt@${STYLEFMT_VERSION} \
     && rm -rf /root/.npm
 
 # Lint user
