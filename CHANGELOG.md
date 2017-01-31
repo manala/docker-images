@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.9.0] - 2017-01-31
 ### Added
 - Install wget (follow manala/ansible-debian)
 - Install less (follow manala/ansible-debian)
@@ -17,8 +19,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Fixed
 - Use ```DEBIAN_FRONTEND=noninteractive``` in jessie packages installation
-
-### Changed
 
 ## [0.8.0] - 2017-01-02
 ### Changed
