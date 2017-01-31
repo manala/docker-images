@@ -3,11 +3,29 @@
 
 DOCKER = docker run --rm --tty --interactive --volume `pwd`:`pwd` --workdir `pwd`
 
+##############
+# Lint / Fix #
+##############
+
+APP_SRC_JS = example.js
+
 lint:
-	${DOCKER} manala/lint-js eslint --cache example.js
+	-${MAKE} lint-js
 
-lint@test:
-	${DOCKER} manala/lint-js eslint --format junit --output-file build/lint/eslint.xml --cache example.js
+lint-js:
+ifdef APP_SRC_JS
+	$(info Lint Js…)
+	${DOCKER} manala/lint-js eslint --cache ${APP_SRC_JS}
+endif
 
-lint-fix:
-	${DOCKER} manala/lint-js eslint --fix example.js
+lint-js@test:
+	${DOCKER} manala/lint-js eslint --format junit --output-file build/lint/eslint.xml --cache ${APP_SRC_JS}
+
+fix:
+	-${MAKE} fix-js
+
+fix-js:
+ifdef APP_SRC_JS
+	$(info Fix Js…)
+	${DOCKER} manala/lint-js eslint --fix ${APP_SRC_JS}
+endif
