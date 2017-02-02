@@ -55,7 +55,7 @@ make test
 ```
 
 Updates:
-- Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [composer](https://github.com/composer/composer/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [composer packages](https://packagist.org/) versions and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update Dockerfile and goss.yaml accordingly
+- Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update Dockerfile accordingly
+- Check for new [composer](https://github.com/composer/composer/releases) release and update Dockerfile and goss.yaml accordingly
+- Check for new [composer packages](https://packagist.org/) versions and update Dockerfile and goss.yaml accordingly
