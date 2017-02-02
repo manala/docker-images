@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Don't specify goss bin destination, as /usr/local/bin is the default one
 
 ## [0.1.0] - 2017-02-02
 ### Added
