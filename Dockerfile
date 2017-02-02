@@ -14,7 +14,7 @@ ENV BABEL_ESLINT_VERSION               7.1.1
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
-    curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} GOSS_DST=/usr/local/bin sh && \
+    curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh && \
     apk del goss-dependencies
 
 # Alpine packages
