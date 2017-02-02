@@ -29,6 +29,8 @@ docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-c
 Zsh function
 ```
 stylelint() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint
+```
+
 
 Zsh alias
 ```
@@ -57,7 +59,7 @@ make test
 ```
 
 Updates:
-- Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [yarn](https://github.com/yarnpkg/yarn/releases) release and update "Dockerfile" and "goss.yaml" accordingly
-- Check for new [npm packages](https://www.npmjs.com/) versions and update "Dockerfile" and "goss.yaml" accordingly
+- Check for new [docker alpine node image](https://hub.docker.com/_/node) version and update Dockerfile and goss.yaml accordingly
+- Check for new [goss](https://github.com/aelsabbahy/goss/releases) release and update Dockerfile accordingly
+- Check for new [yarn](https://github.com/yarnpkg/yarn/releases) release and update Dockerfile and goss.yaml accordingly
+- Check for new [npm packages](https://www.npmjs.com/) versions and update Dockerfile and goss.yaml accordingly
