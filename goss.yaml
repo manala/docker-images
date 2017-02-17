@@ -39,6 +39,7 @@ command:
       - eslint-plugin-jsx-a11y@3.0.2
       - eslint-config-airbnb@14.0.0
       - eslint-plugin-import@2.2.0
+      - eslint-formatter-relative-junit@0.0.2
       - babel-eslint@7.1.1
 
 ##########

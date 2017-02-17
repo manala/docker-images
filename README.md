@@ -11,6 +11,7 @@ Provides javascript linting tools, and related plugins and configs.
 - ESLint
   - Plugins: react, react-native, jsx-a11y, import
   - Config: airbnb
+  - Formatter: relative-junit
 - Babel ESLint
 
 Provides also useful development tools.
