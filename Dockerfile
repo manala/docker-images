@@ -38,7 +38,7 @@ RUN npm --global install \
       eslint-plugin-jsx-a11y@${ESLINT_PLUGIN_JSX_A11Y_VERSION} \
       eslint-plugin-import@${ESLINT_PLUGIN_IMPORT_VERSION} \
       eslint-config-airbnb@${ESLINT_CONFIG_AIRBNB_VERSION} \
-      eslint-formatter-relative-junit @${ESLINT_FORMATTER_RELATIVE_JUNIT} \
+      eslint-formatter-relative-junit@${ESLINT_FORMATTER_RELATIVE_JUNIT} \
       babel-eslint@${BABEL_ESLINT_VERSION} \
     && rm -rf /root/.npm
 
