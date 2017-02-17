@@ -5,8 +5,19 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.1] - 2017-02-17
+### Added
+- ESLint - Formatter - relative-junit 0.0.2
+
 ### Changed
 - Don't specify goss bin destination, as /usr/local/bin is the default one
+- Update Node 7.5.0
+- Update Yarn 0.20.3
+- Update ESLint 3.15.0
+- Update ESLint - Plugin - react 6.10.0
+- Update ESLint - Plugin - jsx-a11y 4.0.0
+- Update ESLint - Config - airbnb 14.1.0
 
 ## [0.1.0] - 2017-01-26
 ### Added
