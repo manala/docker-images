@@ -20,7 +20,7 @@ else
 	$(info Lint Css (Skipping…))
 endif
 
-lint-js@test:
+lint-css@test:
 	mkdir -p build/lint
 	${DOCKER} manala/lint-css stylelint --custom-formatter /usr/local/lib/node_modules/stylelint-junit-formatter/index.js ${APP_SRC_CSS} > build/lint/stylelint.xml
 
