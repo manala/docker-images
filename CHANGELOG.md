@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Don't specify goss bin destination, as /usr/local/bin is the default one
+- Update PHP-CS-Fixer 2.1.0
 
 ## [0.1.0] - 2017-02-02
 ### Added

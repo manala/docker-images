@@ -4,7 +4,7 @@ MAINTAINER Manala <contact@manala.io>
 
 ENV GOSS_VERSION         0.2.5
 ENV COMPOSER_VERSION     1.3.2
-ENV PHP_CS_FIXER_VERSION 2.0.0
+ENV PHP_CS_FIXER_VERSION 2.1.0
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
