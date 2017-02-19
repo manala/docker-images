@@ -1,35 +1,31 @@
 .SILENT:
 .PHONY: lint fix
 
-DOCKER = docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd`
+DOCKER = DIR=`pwd`; docker run \
+	--rm \
+	--interactive --tty \
+	--volume $$DIR:$$DIR \
+	--workdir $$DIR \
+	manala/lint-js
 
 ##############
 # Lint / Fix #
 ##############
 
-APP_SRC_JS = example.js
+## Lint
+lint: lint-js
 
-lint:
-	-${MAKE} lint-js
-
+## Lint - Js
 lint-js:
-ifdef APP_SRC_JS
-	$(info Lint Js)
-	${DOCKER} manala/lint-js eslint --color --cache ${APP_SRC_JS}
-else
-	$(info Lint Js (Skipping…))
-endif
+	-${DOCKER} eslint --cache src
 
 lint-js@test:
-	${DOCKER} manala/lint-js eslint --format junit --output-file build/lint/eslint.xml --cache ${APP_SRC_JS}
+	${DOCKER} eslint --format /usr/local/lib/node_modules/eslint-formatter-relative-junit/formatter --output-file build/lint/eslint.xml --cache src
 
-fix:
-	-${MAKE} fix-js
+## Fix
+fix: fix-js
 
+## Fix - Js
 fix-js:
-ifdef APP_SRC_JS
-	$(info Fix Js…)
-	${DOCKER} manala/lint-js eslint --color --cache --fix ${APP_SRC_JS}
-else
-	$(info Fix Js (Skipping…))
-endif
+	-${DOCKER} eslint --cache --fix src
+

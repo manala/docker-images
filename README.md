@@ -22,19 +22,60 @@ Provides also useful development tools.
 
 ## Integration
 
-Run eslint
+### ESLint
+
+Run
 ```
-docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint --version
+DIR=`pwd`; docker run \
+  --rm \
+  --interactive --tty \
+  --volume $DIR:$DIR \
+  --workdir $DIR \
+  manala/lint-js \
+  eslint --help
 ```
 
 Zsh function
 ```
-eslint() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint ${*} }
+stylelint() {
+  DIR=`pwd`
+  docker run \
+    --rm \
+    --interactive --tty \
+    --volume $DIR:$DIR \
+    --workdir $DIR \
+    manala/lint-js \
+    eslint "$@"
+}
 ```
 
 Zsh alias
 ```
-alias eslint='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-js eslint ${*} };f'
+alias eslint='f() {
+  DIR=`pwd`
+  docker run \
+    --rm \
+    --interactive --tty \
+    --volume $DIR:$DIR \
+    --workdir $DIR \
+    manala/lint-js \
+    eslint "$@"
+};f'
+```
+
+Script `/usr/local/bin/eslint`
+```
+#!/bin/sh
+
+DIR=`pwd`
+docker run \
+  --rm \
+  --interactive --tty \
+  --volume $DIR:$DIR \
+  --workdir $DIR \
+  manala/lint-js \
+  eslint "$@"
+
 ```
 
 ## Development
