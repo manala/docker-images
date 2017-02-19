@@ -22,17 +22,41 @@ Provides also useful development tools.
 
 Run
 ```
-docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer --version
+DIR=`pwd`; docker run \
+  --rm \
+  --interactive \
+  --volume $DIR:$DIR \
+  --workdir $DIR \
+  manala/lint-php \
+  php-cs-fixer --help
 ```
 
 Zsh function
 ```
-php-cs-fixer() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} }
+php-cs-fixer() {
+  DIR=`pwd`
+  docker run \
+    --rm \
+    --interactive \
+    --volume $DIR:$DIR \
+    --workdir $DIR \
+    manala/lint-php \
+    php-cs-fixer "$@"
+}
 ```
 
 Zsh alias
 ```
-alias php-cs-fixer='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} };f'
+alias php-cs-fixer='f() {
+  DIR=`pwd`
+  docker run \
+    --rm \
+    --interactive \
+    --volume $DIR:$DIR \
+    --workdir $DIR \
+    manala/lint-php \
+    php-cs-fixer "$@"
+};f'
 ```
 
 Script /usr/local/binphp-cs-fixer
@@ -40,7 +64,13 @@ Script /usr/local/binphp-cs-fixer
 #!/bin/sh
 
 DIR=`pwd`
-docker run --rm --interactive --volume ${DIR}:${DIR} --workdir ${DIR} manala/lint-php php-cs-fixer "$@"
+docker run \
+  --rm \
+  --interactive \
+  --volume $DIR:$DIR \
+  --workdir $DIR \
+  manala/lint-php \
+  php-cs-fixer "$@"
 
 ```
 
