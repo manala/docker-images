@@ -18,7 +18,9 @@ Provides also useful development tools.
 
 ## Integration
 
-Run php-cs-fixer
+### PHP-CS-Fixer
+
+Run
 ```
 docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer --version
 ```
@@ -31,6 +33,15 @@ php-cs-fixer() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `p
 Zsh alias
 ```
 alias php-cs-fixer='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-php php-cs-fixer ${*} };f'
+```
+
+Script /usr/local/binphp-cs-fixer
+```
+#!/bin/sh
+
+DIR=`pwd`
+docker run --rm --interactive --volume ${DIR}:${DIR} --workdir ${DIR} manala/lint-php php-cs-fixer "$@"
+
 ```
 
 ## Development

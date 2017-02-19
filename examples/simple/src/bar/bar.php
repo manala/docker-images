@@ -1,10 +1,10 @@
 <?
 
-class foo
+class bar
 {
   protected $_BAR;
 
-      function foo ( $foo ) {
+      function bar ( $bar ) {
         $a =    12;
       }
 }
