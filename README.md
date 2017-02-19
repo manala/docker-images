@@ -59,7 +59,7 @@ alias php-cs-fixer='f() {
 };f'
 ```
 
-Script /usr/local/binphp-cs-fixer
+Script `/usr/local/bin/php-cs-fixer`
 ```
 #!/bin/sh
 
