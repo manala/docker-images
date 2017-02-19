@@ -1,11 +1,14 @@
 .SILENT:
 .PHONY: help dev build test
 
-## Colors
+# Colors
 COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
 COLOR_COMMENT = \033[33m
 COLOR_ERROR   = \033[31m
+
+# Docker
+DOCKER_IMAGE = manala/lint-php
 
 ## Help
 help:
@@ -32,7 +35,7 @@ dev:
 		--rm \
 		--volume `pwd`:/srv \
 		--tty --interactive \
-		manala/lint-php:dev \
+		${DOCKER_IMAGE}:dev \
 		/bin/sh
 
 #########
@@ -46,7 +49,7 @@ build:
 		--rm \
 		--force-rm \
 		--no-cache \
-		--tag manala/lint-php:dev \
+		--tag ${DOCKER_IMAGE}:dev \
 		.
 
 #########
@@ -58,5 +61,5 @@ test:
 	docker run \
 		--rm \
 		--volume `pwd`:/srv \
-		manala/lint-php:dev \
+		${DOCKER_IMAGE}:dev \
 		goss --gossfile /srv/goss.yaml validate
