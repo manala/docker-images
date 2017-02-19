@@ -1,14 +1,14 @@
-FROM node:7.4.0-alpine
+FROM node:7.5.0-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
 ENV GOSS_VERSION                      0.2.5
-ENV YARN_VERSION                      0.19.1
-ENV STYLELINT_VERSION                 7.7.1
-ENV STYLELINT_CONFIG_STANDARD_VERSION 15.0.1
+ENV YARN_VERSION                      0.20.3
+ENV STYLELINT_VERSION                 7.9.0
+ENV STYLELINT_CONFIG_STANDARD_VERSION 16.0.0
 ENV STYLELINT_CONFIG_ELAO_VERSION     0.2.1
-ENV STYLELINT_JUNIT_FORMATTER_VERSION 0.1.0
-ENV STYLEFMT_VERSION                  5.1.1
+ENV STYLELINT_JUNIT_FORMATTER_VERSION 0.2.0
+ENV STYLEFMT_VERSION                  5.1.2
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \

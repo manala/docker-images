@@ -5,8 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.1] - 2017-02-19
 ### Changed
 - Don't specify goss bin destination, as /usr/local/bin is the default one
+- Update Node 7.5.0
+- Update Yarn 0.20.3
+- Update Stylelint 7.9.0
+- Update Stylelint - Config - standard 16.0.0
+- Update Stylelint - Formatter - junit 0.2.0
+- Update Stylefmt 5.1.2
 
 ## [0.1.0] - 2017-02-02
 ### Added

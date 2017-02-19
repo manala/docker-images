@@ -21,20 +21,60 @@ Provides also useful development tools.
 
 ## Integration
 
-Run stylelint
+### Stylelint
+
+Run
 ```
-docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint --version
+DIR=`pwd`; docker run \
+  --rm \
+  --interactive --tty \
+  --volume $DIR:$DIR \
+  --workdir $DIR \
+  manala/lint-css \
+  stylelint --help
 ```
 
 Zsh function
 ```
-stylelint() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint
+stylelint() {
+  DIR=`pwd`
+  docker run \
+    --rm \
+    --interactive --tty \
+    --volume $DIR:$DIR \
+    --workdir $DIR \
+    manala/lint-css \
+    stylelint "$@"
+}
 ```
-
 
 Zsh alias
 ```
-alias stylelint='f() { docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd` manala/lint-css stylelint ${*} };f'
+alias stylelint='f() {
+  DIR=`pwd`
+  docker run \
+    --rm \
+    --interactive --tty \
+    --volume $DIR:$DIR \
+    --workdir $DIR \
+    manala/lint-css \
+    stylelint "$@"
+};f'
+```
+
+Script `/usr/local/bin/stylelint`
+```
+#!/bin/sh
+
+DIR=`pwd`
+docker run \
+  --rm \
+  --interactive --tty \
+  --volume $DIR:$DIR \
+  --workdir $DIR \
+  manala/lint-css \
+  stylelint "$@"
+
 ```
 
 ## Development
