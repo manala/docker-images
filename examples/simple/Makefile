@@ -12,7 +12,7 @@ DOCKER = DIR=`pwd`; docker run \
 # Lint / Fix #
 ##############
 
-# Lint
+## Lint
 lint: lint-php
 
 ## Lint - Php
