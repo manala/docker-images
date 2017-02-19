@@ -1,36 +1,31 @@
 .SILENT:
 .PHONY: lint fix
 
-DOCKER = docker run --rm --interactive --volume `pwd`:`pwd` --workdir `pwd`
+DOCKER = DIR=`pwd`; docker run \
+	--rm \
+	--interactive --tty \
+	--volume $$DIR:$$DIR \
+	--workdir $$DIR \
+	manala/lint-css
 
 ##############
 # Lint / Fix #
 ##############
 
-APP_SRC_CSS = example.css
+## Lint
+lint: lint-css
 
-lint:
-	-${MAKE} lint-css
-
+## Lint - Css
 lint-css:
-ifdef APP_SRC_CSS
-	$(info Lint Css)
-	${DOCKER} manala/lint-css stylelint --color ${APP_SRC_CSS}
-else
-	$(info Lint Css (Skipping…))
-endif
+	-${DOCKER} stylelint src/**/*
 
 lint-css@test:
 	mkdir -p build/lint
-	${DOCKER} manala/lint-css stylelint --custom-formatter /usr/local/lib/node_modules/stylelint-junit-formatter/index.js ${APP_SRC_CSS} > build/lint/stylelint.xml
+	${DOCKER} stylelint --custom-formatter /usr/local/lib/node_modules/stylelint-junit-formatter/index src/**/* > build/lint/stylelint.xml
 
-fix:
-	-${MAKE} fix-css
+## Fix
+fix: fix-css
 
+## Fix - Css
 fix-css:
-ifdef APP_SRC_CSS
-	$(info Fix Css…)
-	${DOCKER} manala/lint-css stylefmt ${APP_SRC_CSS}
-else
-	$(info Fix Css (Skipping…))
-endif
+	-${DOCKER} stylefmt --recursive src/**/*
