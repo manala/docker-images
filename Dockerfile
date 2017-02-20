@@ -2,7 +2,7 @@ FROM node:7.5.0-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV GOSS_VERSION                       0.2.5
+ENV GOSS_VERSION                       0.2.6
 ENV YARN_VERSION                       0.20.3
 ENV ESLINT_VERSION                     3.15.0
 ENV ESLINT_PLUGIN_REACT_VERSION        6.10.0
