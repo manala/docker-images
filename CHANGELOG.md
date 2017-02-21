@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.2] - 2017-02-21
 ### Changed
 - Update Goss 0.2.6
 - Update Stylelint - Config - elao 0.3.0
