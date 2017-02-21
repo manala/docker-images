@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.3] - 2017-02-21
+### Changed
+- Update Stylelint - Config - elao 0.3.1
+
 ## [0.1.2] - 2017-02-21
 ### Changed
 - Update Goss 0.2.6
