@@ -2,13 +2,15 @@ FROM node:7.5.0-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV GOSS_VERSION                      0.2.6
-ENV YARN_VERSION                      0.20.3
-ENV STYLELINT_VERSION                 7.9.0
-ENV STYLELINT_CONFIG_STANDARD_VERSION 16.0.0
-ENV STYLELINT_CONFIG_ELAO_VERSION     0.2.1
-ENV STYLELINT_JUNIT_FORMATTER_VERSION 0.2.0
-ENV STYLEFMT_VERSION                  5.1.2
+ENV GOSS_VERSION                               0.2.6
+ENV YARN_VERSION                               0.20.3
+ENV STYLELINT_VERSION                          7.9.0
+ENV STYLELINT_SCSS_VERSION                     1.4.3
+ENV STYLELINT_CONFIG_STANDARD_VERSION          16.0.0
+ENV STYLELINT_CONFIG_ELAO_VERSION              0.3.0
+ENV STYLELINT_JUNIT_FORMATTER_VERSION          0.2.0
+ENV STYLELINT_FORMATTER_RELATIVE_JUNIT_VERSION 0.0.1
+ENV STYLEFMT_VERSION                           5.1.2
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
@@ -30,9 +32,11 @@ RUN apk add --no-cache --virtual=yarn-dependencies curl tar && \
 # Npm packages
 RUN npm --global install \
       stylelint@${STYLELINT_VERSION} \
+      stylelint-scss@${STYLELINT_SCSS_VERSION} \
       stylelint-config-standard@${STYLELINT_CONFIG_STANDARD_VERSION} \
       stylelint-config-elao@${STYLELINT_CONFIG_ELAO_VERSION} \
       stylelint-junit-formatter@${STYLELINT_JUNIT_FORMATTER_VERSION} \
+      stylelint-formatter-relative-junit@${STYLELINT_FORMATTER_RELATIVE_JUNIT_VERSION} \
       stylefmt@${STYLEFMT_VERSION} \
     && rm -rf /root/.npm
 

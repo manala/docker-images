@@ -34,9 +34,11 @@ command:
     exit-status: 0
     stdout:
       - stylelint@7.9.0
+      - stylelint-scss@1.4.3
       - stylelint-config-standard@16.0.0
-      - stylelint-config-elao@0.2.1
+      - stylelint-config-elao@0.3.0
       - stylelint-junit-formatter@0.2.0
+      - stylelint-formatter-relative-junit@0.0.1
       - stylefmt@5.1.2
 
 ##########

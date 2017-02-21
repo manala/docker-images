@@ -9,8 +9,9 @@ Provides css linting tools, and related plugins and configs.
 - Node
 - Yarn
 - Stylelint
+  - Scss
   - Config: standard, elao
-  - Formatter: junit
+  - Formatter: junit, relative-junit
 - Stylefmt
 
 Provides also useful development tools.

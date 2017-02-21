@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Goss 0.2.6
+- Update Stylelint - Config - elao 0.3.0
+
+### Added
+- Stylelint Scss 1.4.3
+- Stylelint - Formatter - relative junit 0.0.1
 
 ## [0.1.1] - 2017-02-19
 ### Changed
