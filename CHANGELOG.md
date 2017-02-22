@@ -5,8 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.2] - 2017-02-22
 ### Changed
 - Update Goss 0.2.6
+- Update Php 7.1.2
 
 ## [0.1.1] - 2017-02-18
 ### Changed

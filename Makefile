@@ -23,7 +23,7 @@ help:
 			printf " ${COLOR_INFO}%-16s${COLOR_RESET} %s\n", helpCommand, helpMessage; \
 		} \
 	} \
-	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+	{ lastLine = $$0 }' ${MAKEFILE_LIST}
 
 #######
 # Dev #

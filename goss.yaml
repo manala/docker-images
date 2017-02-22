@@ -23,7 +23,7 @@ command:
   php --version:
     exit-status: 0
     stdout:
-      - PHP 7.1.1
+      - PHP 7.1.2
   # Composer
   composer --version:
     exit-status: 0
