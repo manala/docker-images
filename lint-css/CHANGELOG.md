@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Node 7.6.0
 - Update Stylelint - Config - elao 0.3.2
 
+### Removed
+- Stylelint - Formatter - junit
+
 ## [0.1.4] - 2017-02-22
 ### Changed
 - Update Stylelint - Formatter - relative junit 0.0.1
