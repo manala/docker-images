@@ -1,0 +1,65 @@
+############
+# Packages #
+############
+
+package:
+  # Make
+  make:
+    installed: true
+    versions:
+      - 4.1-r1
+  # Git
+  git:
+    installed: true
+    versions:
+      - 2.8.3-r0
+
+############
+# Commands #
+############
+
+command:
+  # Node
+  node --version:
+    exit-status: 0
+    stdout:
+      - v7.5.0
+  # Yarn
+  yarn --version:
+    exit-status: 0
+    stdout:
+      - 0.20.3
+  # Npm packages
+  npm --global list --depth=1:
+    exit-status: 0
+    stdout:
+      - eslint@3.16.0
+      - eslint-plugin-react@6.10.0
+      - eslint-plugin-react-native@2.2.1
+      - eslint-plugin-jsx-a11y@4.0.0
+      - eslint-config-airbnb@14.1.0
+      - eslint-plugin-import@2.2.0
+      - eslint-formatter-relative-junit@0.0.3
+      - babel-eslint@7.1.1
+
+##########
+# Groups #
+##########
+
+group:
+  # Lint
+  lint:
+    exists: true
+
+#########
+# Users #
+#########
+
+user:
+  # Lint
+  lint:
+    exists: true
+    groups:
+      - lint
+    home: /home/lint
+    shell: ""
