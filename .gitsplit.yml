@@ -1,0 +1,14 @@
+# List of splits.
+splits:
+  - prefix: lint-css
+    target: git@github.com:manala/docker-image-lint-css.git
+  - prefix: lint-js
+    target: git@github.com:manala/docker-image-lint-js.git
+  - prefix: lint-php
+    target: git@github.com:manala/docker-image-lint-php.git
+  - prefix: security-php
+    target: git@github.com:manala/docker-image-security-php.git
+
+# List of references to split (defined as regexp)
+origins:
+  - ^master$
