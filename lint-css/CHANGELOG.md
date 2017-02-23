@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.1.5] - 2017-02-23
+### Changed
+- Update Node 7.6.0
 ## [0.1.4] - 2017-02-22
 ### Changed
 - Update Stylelint - Formatter - relative junit 0.0.1
