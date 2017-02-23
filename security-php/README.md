@@ -4,6 +4,10 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/manala/security-php.svg)]()
 [![Docker Automated buil](https://img.shields.io/docker/automated/manala/security-php.svg)]()
 
+:exclamation: [Report issues](https://github.com/manala/docker-images/issues) and [send Pull Requests](https://github.com/manala/docker-images/pulls) in the [main Docker Images repository](https://github.com/manala/docker-images) :exclamation:
+
+## Introduction
+
 Provides php security tools, and related plugins and configs.
 
 - Php
