@@ -1,0 +1,58 @@
+############
+# Packages #
+############
+
+package:
+  # Make
+  make:
+    installed: true
+    versions:
+      - 4.1-r1
+  # Git
+  git:
+    installed: true
+    versions:
+      - 2.8.3-r0
+
+############
+# Commands #
+############
+
+command:
+  # Php
+  php --version:
+    exit-status: 0
+    stdout:
+      - PHP 7.1.2
+  # Composer
+  composer --version:
+    exit-status: 0
+    stdout:
+      - Composer version 1.3.2
+  # Npm packages
+  COMPOSER_HOME=/usr/local/share/composer composer global info:
+    exit-status: 0
+    stdout:
+      - sensiolabs/security-checker v4.0.1
+
+##########
+# Groups #
+##########
+
+group:
+  # Security
+  security:
+    exists: true
+
+#########
+# Users #
+#########
+
+user:
+  # Security
+  security:
+    exists: true
+    groups:
+      - security
+    home: /home/security
+    shell: ""
