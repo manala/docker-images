@@ -16,7 +16,7 @@ RUN apk add --no-cache make git
 RUN sed -i -e s/node:/lint:/g /etc/passwd /etc/group && \
     mv /home/node /home/lint
 
-ENV ESLINT_VERSION="3.16.0" \
+ENV ESLINT_VERSION="3.17.0" \
     ESLINT_PLUGIN_REACT_VERSION="6.10.0" \
     ESLINT_PLUGIN_REACT_NATIVE_VERSION="2.2.1" \
     ESLINT_PLUGIN_JSX_A11Y_VERSION="4.0.0" \
