@@ -7,7 +7,7 @@ COLOR_INFO    = \033[32m
 COLOR_COMMENT = \033[33m
 
 # Docker
-DOCKER_IMAGES_DIFF = ${shell git diff --name-only | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
+DOCKER_IMAGES_DIFF = ${shell git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
 ifeq (${DOCKER_IMAGES_DIFF},)
 DOCKER_IMAGES = ${wildcard */}
 else
