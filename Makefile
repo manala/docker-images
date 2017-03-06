@@ -35,6 +35,9 @@ help:
 
 ## Build
 build:
+	echo ${TRAVIS_COMMIT_RANGE}
+	echo $$TRAVIS_COMMIT_RANGE
+	echo ${DOCKER_IMAGES}
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
