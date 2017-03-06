@@ -1,8 +1,18 @@
 .SILENT:
 .PHONY: help build test split
 
+## Colors
+COLOR_RESET   = \033[0m
+COLOR_INFO    = \033[32m
+COLOR_COMMENT = \033[33m
+
 # Docker
+DOCKER_IMAGES_DIFF = ${shell git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
+ifeq (${DOCKER_IMAGES_DIFF},)
 DOCKER_IMAGES = ${wildcard */}
+else
+DOCKER_IMAGES = ${DOCKER_IMAGES_DIFF}
+endif
 
 # Help
 help:
@@ -28,7 +38,7 @@ build:
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
-		${MAKE} --directory=${image} build || EXIT=$$? ;\
+		printf "${COLOR_INFO}Build ${COLOR_COMMENT}${image}${COLOR_RESET}\n" && ${MAKE} --directory=${image} build || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
@@ -40,7 +50,7 @@ test:
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
-		${MAKE} --directory=${image} test || EXIT=$$? ;\
+		printf "\n${COLOR_INFO}Test ${COLOR_COMMENT}${image}${COLOR_RESET}\n\n" && ${MAKE} --directory=${image} test || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
