@@ -10,7 +10,7 @@
 
 Provides css linting tools, and related plugins and configs.
 
-- Node
+- Node (Npm, Yarn)
 - Yarn
 - Stylelint
   - Scss

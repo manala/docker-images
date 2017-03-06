@@ -10,8 +10,7 @@
 
 Provides javascript linting tools, and related plugins and configs.
 
-- Node
-- Yarn
+- Node (Npm, Yarn)
 - ESLint
   - Plugins: react, react-native, jsx-a11y, import
   - Config: airbnb

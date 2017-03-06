@@ -23,12 +23,13 @@ command:
   node --version:
     exit-status: 0
     stdout:
-      - v7.6.0
+      - v7.7.1
+  # Npm
+  npm --version:
+    exit-status: 0
   # Yarn
   yarn --version:
     exit-status: 0
-    stdout:
-      - 0.20.3
   # Npm packages
   npm --global list --depth=1:
     exit-status: 0

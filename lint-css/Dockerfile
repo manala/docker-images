@@ -1,9 +1,8 @@
-FROM node:7.6.0-alpine
+FROM node:7.7.1-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
 ENV GOSS_VERSION                               0.2.6
-ENV YARN_VERSION                               0.20.3
 ENV STYLELINT_VERSION                          7.9.0
 ENV STYLELINT_SCSS_VERSION                     1.4.3
 ENV STYLELINT_CONFIG_STANDARD_VERSION          16.0.0
@@ -19,14 +18,6 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
 # Alpine packages
 RUN apk add --no-cache make git
 
-# Yarn
-RUN apk add --no-cache --virtual=yarn-dependencies curl tar && \
-    mkdir -p /usr/local/share/yarn && \
-    curl -L https://yarnpkg.com/downloads/${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz \
-        | tar zxf - -C /usr/local/share/yarn --strip-components=1 && \
-    ln -s /usr/local/share/yarn/bin/yarn /usr/local/bin && \
-    ln -s /usr/local/share/yarn/bin/yarnpkg /usr/local/bin && \
-    apk del yarn-dependencies
 
 # Npm packages
 RUN npm --global install \
