@@ -23,17 +23,17 @@ command:
   php --version:
     exit-status: 0
     stdout:
-      - PHP 7.1.2
+      - PHP {{ .Env.PHP_VERSION }}
   # Composer
   composer --version:
     exit-status: 0
     stdout:
-      - Composer version 1.3.2
+      - Composer version {{ .Env.COMPOSER_VERSION }}
   # Npm packages
   COMPOSER_HOME=/usr/local/share/composer composer global info:
     exit-status: 0
     stdout:
-      - sensiolabs/security-checker v4.0.1
+      - sensiolabs/security-checker v{{ .Env.SECURITY_CHECKER_VERSION }}
 
 ##########
 # Groups #

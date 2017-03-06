@@ -2,7 +2,7 @@ FROM node:7.7.1-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV GOSS_VERSION="0.2.6"
+ENV GOSS_VERSION="0.3.0"
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \

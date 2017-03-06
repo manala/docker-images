@@ -23,25 +23,27 @@ command:
   node --version:
     exit-status: 0
     stdout:
-      - v7.7.1
+      - v{{ .Env.NODE_VERSION }}
   # Npm
   npm --version:
     exit-status: 0
   # Yarn
   yarn --version:
     exit-status: 0
+    stdout:
+      - {{ .Env.YARN_VERSION }}
   # Npm packages
   npm --global list --depth=1:
     exit-status: 0
     stdout:
-      - eslint@3.17.0
-      - eslint-plugin-react@6.10.0
-      - eslint-plugin-react-native@2.2.1
-      - eslint-plugin-jsx-a11y@4.0.0
-      - eslint-config-airbnb@14.1.0
-      - eslint-plugin-import@2.2.0
-      - eslint-formatter-relative-junit@0.0.3
-      - babel-eslint@7.1.1
+      - eslint@{{ .Env.ESLINT_VERSION }}
+      - eslint-plugin-react@{{ .Env.ESLINT_PLUGIN_REACT_VERSION }}
+      - eslint-plugin-react-native@{{ .Env.ESLINT_PLUGIN_REACT_NATIVE_VERSION }}
+      - eslint-plugin-jsx-a11y@{{ .Env.ESLINT_PLUGIN_JSX_A11Y_VERSION }}
+      - eslint-plugin-import@{{ .Env.ESLINT_PLUGIN_IMPORT_VERSION }}
+      - eslint-config-airbnb@{{ .Env.ESLINT_CONFIG_AIRBNB_VERSION }}
+      - eslint-formatter-relative-junit@{{ .Env.ESLINT_FORMATTER_RELATIVE_JUNIT }}
+      - babel-eslint@{{ .Env.BABEL_ESLINT_VERSION }}
 
 ##########
 # Groups #

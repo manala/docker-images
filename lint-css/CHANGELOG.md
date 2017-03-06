@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Node 7.7.1 (Yarn is now pre-included in the base alpine node docker image)
+- Update Goss 0.3.0 (Use templates to access versions as environment variables)
 
 ## [0.1.5] - 2017-02-23
 ### Changed

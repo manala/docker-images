@@ -2,7 +2,7 @@ FROM php:7.1.2-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV GOSS_VERSION="0.2.6" \
+ENV GOSS_VERSION="0.3.0" \
     COMPOSER_VERSION="1.3.2"
 
 # Goss

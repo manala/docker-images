@@ -23,23 +23,25 @@ command:
   node --version:
     exit-status: 0
     stdout:
-      - v7.7.1
+      - v{{ .Env.NODE_VERSION }}
   # Npm
   npm --version:
     exit-status: 0
   # Yarn
   yarn --version:
     exit-status: 0
+    stdout:
+      - {{ .Env.YARN_VERSION }}
   # Npm packages
   npm --global list --depth=1:
     exit-status: 0
     stdout:
-      - stylelint@7.9.0
-      - stylelint-scss@1.4.3
-      - stylelint-config-standard@16.0.0
-      - stylelint-config-elao@0.3.2
-      - stylelint-formatter-relative-junit@0.0.2
-      - stylefmt@5.1.2
+      - stylelint@{{ .Env.STYLELINT_VERSION }}
+      - stylelint-scss@{{ .Env.STYLELINT_SCSS_VERSION }}
+      - stylelint-config-standard@{{ .Env.STYLELINT_CONFIG_STANDARD_VERSION }}
+      - stylelint-config-elao@{{ .Env.STYLELINT_CONFIG_ELAO_VERSION }}
+      - stylelint-formatter-relative-junit@{{ .Env.STYLELINT_FORMATTER_RELATIVE_JUNIT_VERSION }}
+      - stylefmt@{{ .Env.STYLEFMT_VERSION }}
 
 ##########
 # Groups #
