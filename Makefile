@@ -2,7 +2,12 @@
 .PHONY: help build test split
 
 # Docker
+DOCKER_IMAGES_DIFF = ${shell git diff --name-only | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
+ifeq (${DOCKER_IMAGES_DIFF},)
 DOCKER_IMAGES = ${wildcard */}
+else
+DOCKER_IMAGES = ${DOCKER_IMAGES_DIFF}
+endif
 
 # Help
 help:
