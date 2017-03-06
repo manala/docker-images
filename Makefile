@@ -35,13 +35,6 @@ help:
 
 ## Build
 build:
-	echo ${TRAVIS_BRANCH}
-	echo ${TRAVIS_COMMIT}
-	echo ${TRAVIS_COMMIT_RANGE}
-	echo ${TRAVIS_PULL_REQUEST}
-	echo ${TRAVIS_PULL_REQUEST_BRANCH}
-	echo ${TRAVIS_PULL_REQUEST_SHA}
-	echo ${DOCKER_IMAGES}
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
