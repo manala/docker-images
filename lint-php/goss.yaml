@@ -33,7 +33,7 @@ command:
   COMPOSER_HOME=/usr/local/share/composer composer global info:
     exit-status: 0
     stdout:
-      - friendsofphp/php-cs-fixer v2.1.0
+      - friendsofphp/php-cs-fixer v2.1.1
 
 ##########
 # Groups #

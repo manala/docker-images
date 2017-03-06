@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual=composer-dependencies curl && \
 # Lint user
 RUN adduser -D lint
 
-ENV PHP_CS_FIXER_VERSION="2.1.0"
+ENV PHP_CS_FIXER_VERSION="2.1.1"
 
 # Composer packages
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
