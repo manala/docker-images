@@ -2,15 +2,7 @@ FROM node:7.7.1-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV GOSS_VERSION                       0.2.6
-ENV ESLINT_VERSION                     3.16.0
-ENV ESLINT_PLUGIN_REACT_VERSION        6.10.0
-ENV ESLINT_PLUGIN_REACT_NATIVE_VERSION 2.2.1
-ENV ESLINT_PLUGIN_JSX_A11Y_VERSION     4.0.0
-ENV ESLINT_PLUGIN_IMPORT_VERSION       2.2.0
-ENV ESLINT_CONFIG_AIRBNB_VERSION       14.1.0
-ENV ESLINT_FORMATTER_RELATIVE_JUNIT    0.0.3
-ENV BABEL_ESLINT_VERSION               7.1.1
+ENV GOSS_VERSION="0.2.6"
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
@@ -20,6 +12,18 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
 # Alpine packages
 RUN apk add --no-cache make git
 
+# Lint user
+RUN sed -i -e s/node:/lint:/g /etc/passwd /etc/group && \
+    mv /home/node /home/lint
+
+ENV ESLINT_VERSION="3.16.0" \
+    ESLINT_PLUGIN_REACT_VERSION="6.10.0" \
+    ESLINT_PLUGIN_REACT_NATIVE_VERSION="2.2.1" \
+    ESLINT_PLUGIN_JSX_A11Y_VERSION="4.0.0" \
+    ESLINT_PLUGIN_IMPORT_VERSION="2.2.0" \
+    ESLINT_CONFIG_AIRBNB_VERSION="14.1.0" \
+    ESLINT_FORMATTER_RELATIVE_JUNIT="0.0.3" \
+    BABEL_ESLINT_VERSION="7.1.1"
 
 # Npm packages
 RUN npm --global install \
@@ -32,10 +36,6 @@ RUN npm --global install \
       eslint-formatter-relative-junit@${ESLINT_FORMATTER_RELATIVE_JUNIT} \
       babel-eslint@${BABEL_ESLINT_VERSION} \
     && rm -rf /root/.npm
-
-# Lint user
-RUN sed -i -e s/node:/lint:/g /etc/passwd /etc/group && \
-    mv /home/node /home/lint
 
 # User
 USER lint
