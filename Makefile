@@ -63,5 +63,6 @@ split:
 		--rm \
 		--tty --interactive \
 		--volume ${PWD}:/srv \
-		--volume ${HOME}/.ssh:/root/.ssh \
+		--volume ${SSH_AUTH_SOCK}:/ssh-agent \
+		--env SSH_AUTH_SOCK=/ssh-agent \
 		jderusse/gitsplit
