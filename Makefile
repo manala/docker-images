@@ -38,7 +38,7 @@ build:
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
-		printf "${COLOR_INFO}Build ${DOCKER_IMAGES}...${COLOR_RESET}\n" && ${MAKE} --directory=${image} build || EXIT=$$? ;\
+		printf "${COLOR_INFO}Build ${COLOR_COMMENT}${image}${COLOR_RESET}\n" && ${MAKE} --directory=${image} build || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
@@ -50,7 +50,7 @@ test:
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
-		printf "${COLOR_INFO}Test ${DOCKER_IMAGES}...${COLOR_RESET}\n" && ${MAKE} --directory=${image} test || EXIT=$$? ;\
+		printf "\n${COLOR_INFO}Test ${COLOR_COMMENT}${image}${COLOR_RESET}\n\n" && ${MAKE} --directory=${image} test || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
