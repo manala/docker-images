@@ -38,7 +38,7 @@ build:
 	EXIT=0 ; ${foreach \
 		image,\
 		${DOCKER_IMAGES},\
-		printf "${COLOR_INFO}Build ${COLOR_COMMENT}${image}${COLOR_RESET}\n" && ${MAKE} --directory=${image} build || EXIT=$$? ;\
+		printf "\n${COLOR_INFO}Build ${COLOR_COMMENT}${image}${COLOR_RESET}\n\n" && ${MAKE} --directory=${image} build || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
