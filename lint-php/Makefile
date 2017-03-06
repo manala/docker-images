@@ -46,9 +46,6 @@ dev:
 build:
 	docker build \
 		--pull \
-		--rm \
-		--force-rm \
-		--no-cache \
 		--tag ${DOCKER_IMAGE}:dev \
 		.
 
