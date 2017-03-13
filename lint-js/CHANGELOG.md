@@ -6,8 +6,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- Update ESLint 3.17.0
 - Update Node 7.7.2 (Yarn is now pre-included in the base alpine node docker image)
+- Update ESLint 3.17.1
 - Update Goss 0.3.0 (Use templates to access versions as environment variables)
 - Update ESLint - Plugin - react-native 2.3.1
 
