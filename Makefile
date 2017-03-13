@@ -59,6 +59,14 @@ test:
 
 ## Split
 split:
+ifeq (${shell uname -s},Darwin)
+	docker run \
+		--rm \
+		--tty --interactive \
+		--volume ${PWD}:/srv \
+		--volume ${HOME}/.ssh:/root/.ssh \
+		jderusse/gitsplit
+else
 	docker run \
 		--rm \
 		--tty --interactive \
@@ -66,3 +74,4 @@ split:
 		--volume ${SSH_AUTH_SOCK}:/ssh-agent \
 		--env SSH_AUTH_SOCK=/ssh-agent \
 		jderusse/gitsplit
+endif
