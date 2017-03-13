@@ -22,7 +22,7 @@ RUN apk add --no-cache --virtual=composer-dependencies curl && \
 # Security user
 RUN adduser -D security
 
-ENV SECURITY_CHECKER_VERSION="4.0.1"
+ENV SECURITY_CHECKER_VERSION="4.0.2"
 
 # Composer packages
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
