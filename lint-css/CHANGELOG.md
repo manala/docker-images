@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.2.0] - 2017-03-13
 ### Changed
 - Update Node 7.7.2 (Yarn is now pre-included in the base alpine node docker image)
 - Update Goss 0.3.0 (Use templates to access versions as environment variables)
