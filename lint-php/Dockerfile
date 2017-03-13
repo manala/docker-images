@@ -3,7 +3,7 @@ FROM php:7.1.2-alpine
 MAINTAINER Manala <contact@manala.io>
 
 ENV GOSS_VERSION="0.3.0" \
-    COMPOSER_VERSION="1.3.2"
+    COMPOSER_VERSION="1.4.1"
 
 # Goss
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
