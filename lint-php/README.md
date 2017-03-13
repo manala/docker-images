@@ -20,6 +20,12 @@ Provides also useful development tools.
 - Make
 - Git
 
+## Permissions
+
+Docker container runs commands as a "lint" user, to which you can define id
+and group id using USER_ID and GROUP_ID environment variables
+(1000:1000 by default).
+
 ## Integration
 
 ### PHP-CS-Fixer
@@ -31,6 +37,8 @@ DIR=`pwd`; docker run \
   --interactive \
   --volume $DIR:$DIR \
   --workdir $DIR \
+  --env USER_ID=`id -u` \
+  --env GROUP_ID=`id -g` \
   manala/lint-php \
   php-cs-fixer --help
 ```
@@ -44,6 +52,8 @@ php-cs-fixer() {
     --interactive \
     --volume $DIR:$DIR \
     --workdir $DIR \
+    --env USER_ID=`id -u` \
+    --env GROUP_ID=`id -g` \
     manala/lint-php \
     php-cs-fixer "$@"
 }
@@ -58,6 +68,8 @@ alias php-cs-fixer='f() {
     --interactive \
     --volume $DIR:$DIR \
     --workdir $DIR \
+    --env USER_ID=`id -u` \
+    --env GROUP_ID=`id -g` \
     manala/lint-php \
     php-cs-fixer "$@"
 };f'
@@ -73,6 +85,8 @@ docker run \
   --interactive \
   --volume $DIR:$DIR \
   --workdir $DIR \
+  --env USER_ID=`id -u` \
+  --env GROUP_ID=`id -g` \
   manala/lint-php \
   php-cs-fixer "$@"
 

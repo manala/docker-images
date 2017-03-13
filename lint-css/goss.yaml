@@ -63,4 +63,4 @@ user:
     groups:
       - lint
     home: /home/lint
-    shell: ""
+    shell: "/bin/sh"

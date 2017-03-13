@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Node 7.7.2 (Yarn is now pre-included in the base alpine node docker image)
 - Update Goss 0.3.0 (Use templates to access versions as environment variables)
 - Update Stylefmt 5.2.0
+- Add a way to define USER_ID and GROUP_ID as environment variables
 
 ## [0.1.5] - 2017-02-23
 ### Changed

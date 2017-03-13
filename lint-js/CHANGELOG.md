@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update ESLint 3.17.1
 - Update Goss 0.3.0 (Use templates to access versions as environment variables)
 - Update ESLint - Plugin - react-native 2.3.1
+- Add a way to define USER_ID and GROUP_ID as environment variables
 
 ## [0.1.3] - 2017-02-23
 ### Changed

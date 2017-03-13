@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update PHP-CS-Fixer 2.1.1
 - Update Composer 1.4.1
 - Update Goss 0.3.0 (Use templates to access versions as environment variables)
+- Add a way to define USER_ID and GROUP_ID as environment variables
 
 ## [0.1.2] - 2017-02-22
 ### Changed

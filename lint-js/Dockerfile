@@ -2,20 +2,34 @@ FROM node:7.7.2-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV GOSS_VERSION="0.3.0"
+ENV USER_ID="1000" \
+    GROUP_ID="1000"
+
+USER root
+
+# Alpine packages
+RUN apk add --no-cache su-exec make git
+
+# Remove user
+RUN deluser --remove-home node
+
+# Entrypoint
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
+
+# Default command
+CMD ["/bin/sh"]
+
+# Working directory
+WORKDIR /srv
 
 # Goss
+ENV GOSS_VERSION="0.3.0"
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
     curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh && \
     apk del goss-dependencies
 
-# Alpine packages
-RUN apk add --no-cache make git
-
-# Lint user
-RUN sed -i -e s/node:/lint:/g /etc/passwd /etc/group && \
-    mv /home/node /home/lint
-
+# Npm packages
 ENV ESLINT_VERSION="3.17.1" \
     ESLINT_PLUGIN_REACT_VERSION="6.10.0" \
     ESLINT_PLUGIN_REACT_NATIVE_VERSION="2.3.1" \
@@ -24,8 +38,6 @@ ENV ESLINT_VERSION="3.17.1" \
     ESLINT_CONFIG_AIRBNB_VERSION="14.1.0" \
     ESLINT_FORMATTER_RELATIVE_JUNIT="0.0.3" \
     BABEL_ESLINT_VERSION="7.1.1"
-
-# Npm packages
 RUN npm --global install \
       eslint@${ESLINT_VERSION} \
       eslint-plugin-react@${ESLINT_PLUGIN_REACT_VERSION} \
@@ -36,9 +48,3 @@ RUN npm --global install \
       eslint-formatter-relative-junit@${ESLINT_FORMATTER_RELATIVE_JUNIT} \
       babel-eslint@${BABEL_ESLINT_VERSION} \
     && rm -rf /root/.npm
-
-# User
-USER lint
-
-# Working directory
-WORKDIR /home/lint

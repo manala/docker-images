@@ -35,6 +35,8 @@ dev:
 		--rm \
 		--volume `pwd`:/srv \
 		--tty --interactive \
+		--env USER_ID=`id -u` \
+		--env GROUP_ID=`id -g` \
 		${DOCKER_IMAGE}:dev \
 		/bin/sh
 

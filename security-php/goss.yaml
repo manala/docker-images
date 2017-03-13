@@ -55,4 +55,4 @@ user:
     groups:
       - security
     home: /home/security
-    shell: ""
+    shell: "/bin/sh"

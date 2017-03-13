@@ -24,6 +24,12 @@ Provides also useful development tools.
 - Make
 - Git
 
+## Permissions
+
+Docker container runs commands as a "lint" user, to which you can define id
+and group id using USER_ID and GROUP_ID environment variables
+(1000:1000 by default).
+
 ## Integration
 
 ### Stylelint
@@ -35,6 +41,8 @@ DIR=`pwd`; docker run \
   --interactive --tty \
   --volume $DIR:$DIR \
   --workdir $DIR \
+  --env USER_ID=`id -u` \
+  --env GROUP_ID=`id -g` \
   manala/lint-css \
   stylelint --help
 ```
@@ -48,6 +56,8 @@ stylelint() {
     --interactive --tty \
     --volume $DIR:$DIR \
     --workdir $DIR \
+    --env USER_ID=`id -u` \
+    --env GROUP_ID=`id -g` \
     manala/lint-css \
     stylelint "$@"
 }
@@ -62,6 +72,8 @@ alias stylelint='f() {
     --interactive --tty \
     --volume $DIR:$DIR \
     --workdir $DIR \
+    --env USER_ID=`id -u` \
+    --env GROUP_ID=`id -g` \
     manala/lint-css \
     stylelint "$@"
 };f'
@@ -77,6 +89,8 @@ docker run \
   --interactive --tty \
   --volume $DIR:$DIR \
   --workdir $DIR \
+  --env USER_ID=`id -u` \
+  --env GROUP_ID=`id -g` \
   manala/lint-css \
   stylelint "$@"
 
