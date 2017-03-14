@@ -13,6 +13,7 @@ Provides php linting tools, and related plugins and configs.
 - Php
 - Composer
 - PHP-CS-Fixer
+- PHPStan
 
 Provides also useful development tools.
 

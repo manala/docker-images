@@ -34,7 +34,9 @@ RUN apk add --no-cache --virtual=composer-dependencies curl && \
     apk del composer-dependencies
 
 # Composer packages
-ENV PHP_CS_FIXER_VERSION="2.1.1"
+ENV PHP_CS_FIXER_VERSION="2.1.1" \
+    PHPSTAN_VERSION="0.6.4"
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       friendsofphp/php-cs-fixer:${PHP_CS_FIXER_VERSION} \
+      phpstan/phpstan:${PHPSTAN_VERSION} \
     && rm -rf /root/.composer

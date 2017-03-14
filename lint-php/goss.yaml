@@ -34,6 +34,7 @@ command:
     exit-status: 0
     stdout:
       - /friendsofphp/php-cs-fixer\s+v{{ .Env.PHP_CS_FIXER_VERSION }}/
+      - /phpstan/phpstan\s+{{ .Env.PHPSTAN_VERSION }}/
 
 ##########
 # Groups #
