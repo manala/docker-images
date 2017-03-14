@@ -30,10 +30,10 @@ command:
     stdout:
       - Composer version {{ .Env.COMPOSER_VERSION }}
   # Npm packages
-  COMPOSER_HOME=/usr/local/share/composer composer global info:
+  COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
     exit-status: 0
     stdout:
-      - sensiolabs/security-checker v{{ .Env.SECURITY_CHECKER_VERSION }}
+      - /sensiolabs/security-checker\s+v{{ .Env.SECURITY_CHECKER_VERSION }}/
 
 ##########
 # Groups #

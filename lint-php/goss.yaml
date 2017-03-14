@@ -30,10 +30,10 @@ command:
     stdout:
       - Composer version {{ .Env.COMPOSER_VERSION }}
   # Npm packages
-  COMPOSER_HOME=/usr/local/share/composer composer global info:
+  COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
     exit-status: 0
     stdout:
-      - friendsofphp/php-cs-fixer v{{ .Env.PHP_CS_FIXER_VERSION }}
+      - /friendsofphp/php-cs-fixer\s+v{{ .Env.PHP_CS_FIXER_VERSION }}/
 
 ##########
 # Groups #
