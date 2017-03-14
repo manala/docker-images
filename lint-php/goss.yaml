@@ -35,6 +35,7 @@ command:
     stdout:
       - /friendsofphp/php-cs-fixer\s+v{{ .Env.PHP_CS_FIXER_VERSION }}/
       - /phpstan/phpstan\s+{{ .Env.PHPSTAN_VERSION }}/
+      - /jakub-onderka/php-parallel-lint\s+v{{ .Env.PHP_PARALLEL_LINT_VERSION }}/
 
 ##########
 # Groups #

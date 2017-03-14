@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.3] - 2017-03-14
+### Added
+- PHP Parallel Lint 0.9.2
+
 ## [0.2.2] - 2017-03-14
 ### Added
 - PHPStan 0.6.4

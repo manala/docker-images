@@ -14,6 +14,7 @@ Provides php linting tools, and related plugins and configs.
 - Composer
 - PHP-CS-Fixer
 - PHPStan
+- PHP Parallel Lint
 
 Provides also useful development tools.
 
