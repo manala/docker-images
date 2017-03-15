@@ -36,9 +36,11 @@ RUN apk add --no-cache --virtual=composer-dependencies curl && \
 # Composer packages
 ENV PHP_CS_FIXER_VERSION="2.1.1" \
     PHPSTAN_VERSION="0.6.4" \
-    PHP_PARALLEL_LINT_VERSION="0.9.2"
+    PHP_PARALLEL_LINT_VERSION="0.9.2" \
+    SECURITY_CHECKER_VERSION="4.0.2"
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       friendsofphp/php-cs-fixer:${PHP_CS_FIXER_VERSION} \
       phpstan/phpstan:${PHPSTAN_VERSION} \
       jakub-onderka/php-parallel-lint:${PHP_PARALLEL_LINT_VERSION} jakub-onderka/php-console-highlighter \
+      sensiolabs/security-checker:${SECURITY_CHECKER_VERSION} \
     && rm -rf /root/.composer

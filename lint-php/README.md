@@ -15,6 +15,7 @@ Provides php linting tools, and related plugins and configs.
 - PHP-CS-Fixer
 - PHPStan
 - PHP Parallel Lint
+- SensioLabs Security Checker
 
 Provides also useful development tools.
 

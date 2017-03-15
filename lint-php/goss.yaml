@@ -36,6 +36,7 @@ command:
       - /friendsofphp/php-cs-fixer\s+v{{ .Env.PHP_CS_FIXER_VERSION }}/
       - /phpstan/phpstan\s+{{ .Env.PHPSTAN_VERSION }}/
       - /jakub-onderka/php-parallel-lint\s+v{{ .Env.PHP_PARALLEL_LINT_VERSION }}/
+      - /sensiolabs/security-checker\s+v{{ .Env.SECURITY_CHECKER_VERSION }}/
 
 ##########
 # Groups #

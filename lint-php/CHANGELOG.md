@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.2.4] - 2017-03-15
+### Added
+- SensioLabs Security Checker 4.0.1
+
 ## [0.2.3] - 2017-03-14
 ### Added
 - PHP Parallel Lint 0.9.2
