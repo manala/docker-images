@@ -10,9 +10,9 @@
 
 Provides php linting tools, and related plugins and configs.
 
-- Php
+- PHP
 - Composer
-- PHP-CS-Fixer
+- PHP CS Fixer
 - PHPStan
 - PHP Parallel Lint
 - SensioLabs Security Checker
