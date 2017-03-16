@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Node 7.7.3
 - Update Goss 0.3.1
 
+### Added
+- ESLint - Config - elao 0.1.0
+
 ## [0.2.1] - 2017-03-14
 ### Changed
 -  Better entrypoint to allow existing container user usage
