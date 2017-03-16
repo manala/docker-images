@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Node 7.7.3
+- Update Goss 0.3.1
 
 ## [0.2.1] - 2017-03-14
 ### Changed

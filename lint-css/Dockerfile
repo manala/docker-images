@@ -24,7 +24,7 @@ CMD ["/bin/sh"]
 WORKDIR /srv
 
 # Goss
-ENV GOSS_VERSION="0.3.0"
+ENV GOSS_VERSION="0.3.1"
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
     curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh && \
     apk del goss-dependencies
