@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update PHP 7.1.3
 - Update PHP CS Fixer 2.1.2
 
+### Added
+- PHP Extension "calendar"
+
 ## [0.2.4] - 2017-03-15
 ### Added
 - SensioLabs Security Checker 4.0.1

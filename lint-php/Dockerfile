@@ -7,8 +7,9 @@ ENV USER_ID="1000" \
 
 USER root
 
-# Alpine packages
-RUN apk add --no-cache su-exec make git
+# Alpine packages & PHP extensions
+RUN apk add --no-cache su-exec make git && \
+    docker-php-ext-install calendar
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/

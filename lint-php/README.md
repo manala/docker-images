@@ -11,6 +11,7 @@
 Provides php linting tools, and related plugins and configs.
 
 - PHP
+  - Extensions: calendar
 - Composer
 - PHP CS Fixer
 - PHPStan
