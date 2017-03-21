@@ -1,4 +1,4 @@
-FROM php:7.1.2-alpine
+FROM php:7.1.3-alpine
 
 MAINTAINER Manala <contact@manala.io>
 

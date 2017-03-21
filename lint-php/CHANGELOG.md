@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Goss 0.3.1
+- Update PHP 7.1.3
 
 ## [0.2.4] - 2017-03-15
 ### Added
