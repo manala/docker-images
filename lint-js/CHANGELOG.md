@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update ESLint 3.18.0
 - Update ESLint - Plugin - react 6.10.3
+- Update Babel ESLint 7.2.1
+
 ### Added
 - ESLint - Plugin - json 1.2.0
 
