@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update ESLint 3.18.0
+- Update ESLint - Plugin - react 6.10.3
 ### Added
 - ESLint - Plugin - json 1.2.0
 
