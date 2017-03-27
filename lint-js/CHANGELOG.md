@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Lint user is now pre-created with configurable USER_ID/GROUP_ID
 - Update Node 7.7.4
 - Update ESLint 3.18.0
 - Update ESLint - Plugin - react 6.10.3

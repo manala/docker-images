@@ -2,14 +2,21 @@ FROM php:7.1.3-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV USER_ID="1000" \
-    GROUP_ID="1000"
+ARG USER_ID
+ARG GROUP_ID
+
+ENV USER_ID="${USER_ID:-1000}" \
+    GROUP_ID="${GROUP_ID:-1000}"
 
 USER root
 
 # Alpine packages & PHP extensions
 RUN apk add --no-cache su-exec make git && \
     docker-php-ext-install calendar
+
+# Lint user
+RUN addgroup -g ${GROUP_ID} lint && \
+    adduser -D -s /bin/sh -g 'Lint' -u ${USER_ID} -G lint lint
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/

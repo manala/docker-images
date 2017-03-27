@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Lint user is now pre-created with configurable USER_ID/GROUP_ID
 - Update Node 7.7.4
 
 ## [0.2.2] - 2017-03-16

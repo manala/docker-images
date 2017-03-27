@@ -2,16 +2,21 @@ FROM node:7.7.4-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ENV USER_ID="1000" \
-    GROUP_ID="1000"
+ARG USER_ID
+ARG GROUP_ID
+
+ENV USER_ID="${USER_ID:-1000}" \
+    GROUP_ID="${GROUP_ID:-1000}"
 
 USER root
 
 # Alpine packages
 RUN apk add --no-cache su-exec make git
 
-# Remove user
-RUN deluser --remove-home node
+# Lint user
+RUN deluser --remove-home node && \
+    addgroup -g ${GROUP_ID} lint && \
+    adduser -D -s /bin/sh -g 'Lint' -u ${USER_ID} -G lint lint
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/

@@ -51,6 +51,7 @@ group:
   # Lint
   lint:
     exists: true
+    gid:    {{ .Env.GROUP_ID }}
 
 #########
 # Users #
@@ -60,7 +61,8 @@ user:
   # Lint
   lint:
     exists: true
+    uid:    {{ .Env.USER_ID }}
     groups:
       - lint
-    home: /home/lint
-    shell: "/bin/sh"
+    home:  /home/lint
+    shell: /bin/sh
