@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Update Node 7.7.4
 - Update ESLint 3.18.0
 - Update ESLint - Plugin - react 6.10.3
 - Update Babel ESLint 7.2.1
