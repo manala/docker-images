@@ -1,0 +1,38 @@
+FROM debian:jessie
+
+MAINTAINER Manala <contact@manala.io>
+
+WORKDIR /tmp
+
+# Apt
+RUN echo "deb http://httpredir.debian.org/debian jessie main\n\
+deb-src http://httpredir.debian.org/debian jessie main\n\
+deb http://httpredir.debian.org/debian jessie-updates main\n\
+deb-src http://httpredir.debian.org/debian jessie-updates main\n\
+deb http://security.debian.org/ jessie/updates main\n\
+deb-src http://security.debian.org/ jessie/updates main\n\
+deb http://httpredir.debian.org/debian jessie-backports main\n\
+deb-src http://httpredir.debian.org/debian jessie-backports main\n" > /etc/apt/sources.list \
+    && echo "Package: *\n\
+Pin: release a=jessie-backports\n\
+Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
+    && apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
+        unzip \
+        wget curl ca-certificates less \
+        apt-transport-https \
+        make \
+        vim \
+        build-essential \
+        devscripts/jessie-backports \
+        dh-exec \
+        dh-systemd \
+        fakeroot \
+        lintian/jessie-backports \
+        pkg-php-tools
+
+# Clean
+RUN rm -rf * /var/lib/apt/lists/*
+
+WORKDIR /srv
