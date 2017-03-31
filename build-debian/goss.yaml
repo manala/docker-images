@@ -1,0 +1,41 @@
+############
+# Packages #
+############
+
+package:
+  unzip:
+    installed: true
+  wget:
+    installed: true
+  curl:
+    installed: true
+  less:
+    installed: true
+  make:
+    installed: true
+  vim:
+    installed: true
+
+##########
+# Groups #
+##########
+
+group:
+  # Build
+  build:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  # Build
+  build:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - build
+    home:  /home/build
+    shell: /bin/bash

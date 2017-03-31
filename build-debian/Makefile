@@ -1,11 +1,14 @@
 .SILENT:
-.PHONY: help
+.PHONY: help dev build test
 
 ## Colors
 COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
 COLOR_COMMENT = \033[33m
 COLOR_ERROR   = \033[31m
+
+# Docker
+DOCKER_IMAGE = manala/build-debian
 
 ## Help
 help:
@@ -20,7 +23,7 @@ help:
 			printf " ${COLOR_INFO}%-16s${COLOR_RESET} %s\n", helpCommand, helpMessage; \
 		} \
 	} \
-	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+	{ lastLine = $$0 }' ${MAKEFILE_LIST}
 
 #######
 # Dev #
@@ -32,8 +35,9 @@ dev@wheezy:
 		--rm \
 		--volume `pwd`:/srv \
 		--tty --interactive \
-		manala/build-debian:wheezy \
-		/bin/bash
+		--env USER_ID=`id -u` \
+		--env GROUP_ID=`id -g` \
+		${DOCKER_IMAGE}:dev-wheezy
 
 ## Dev - Jessie
 dev@jessie:
@@ -41,8 +45,9 @@ dev@jessie:
 		--rm \
 		--volume `pwd`:/srv \
 		--tty --interactive \
-		manala/build-debian:jessie \
-		/bin/bash
+		--env USER_ID=`id -u` \
+		--env GROUP_ID=`id -g` \
+		${DOCKER_IMAGE}:dev-jessie
 
 #########
 # Build #
@@ -55,10 +60,7 @@ build: build@wheezy build@jessie
 build@wheezy:
 	docker build \
 		--pull \
-		--rm \
-		--force-rm \
-		--no-cache \
-		--tag manala/build-debian:wheezy \
+		--tag ${DOCKER_IMAGE}:dev-wheezy \
 		--file Dockerfile.wheezy \
 		.
 
@@ -66,24 +68,29 @@ build@wheezy:
 build@jessie:
 	docker build \
 		--pull \
-		--rm \
-		--force-rm \
-		--no-cache \
-		--tag manala/build-debian:jessie \
+		--tag ${DOCKER_IMAGE}:dev-jessie \
 		--file Dockerfile.jessie \
 		.
 
-########
-# Push #
-########
+#########
+# Test #
+#########
 
-## Push
-push: push@wheezy push@jessie
+## Test
+test: test@wheezy test@jessie
 
-## Push - Wheezy
-push@wheezy:
-	docker push manala/build-debian:wheezy
+## Test - Wheezy
+test@wheezy:
+	docker run \
+		--rm \
+		--volume `pwd`:/srv \
+		${DOCKER_IMAGE}:dev-wheezy \
+		goss --gossfile /srv/goss.yaml validate
 
-## Push - Jessie
-push@jessie:
-	docker push manala/build-debian:jessie
+## Test - Jessie
+test@jessie:
+	docker run \
+		--rm \
+		--volume `pwd`:/srv \
+		${DOCKER_IMAGE}:dev-jessie \
+		goss --gossfile /srv/goss.yaml validate

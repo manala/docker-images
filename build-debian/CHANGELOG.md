@@ -5,6 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Upstream update
+- Switch to "build" user (using custom entrypoint, and dynamic uid/gid)
+- "/bin/bash" as default command
 
 ## [0.9.0] - 2017-01-31
 ### Added

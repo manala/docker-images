@@ -6,6 +6,8 @@ splits:
     target: git@github.com:manala/docker-image-lint-js.git
   - prefix: lint-php
     target: git@github.com:manala/docker-image-lint-php.git
+  - prefix: build-debian
+    target: git@github.com:manala/docker-image-build-debian.git
 
 # List of references to split (defined as regexp)
 origins:
