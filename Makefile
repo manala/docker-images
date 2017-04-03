@@ -6,12 +6,12 @@ COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
 COLOR_COMMENT = \033[33m
 
-# Docker
-DOCKER_IMAGES_DIFF = ${shell git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
-ifeq (${DOCKER_IMAGES_DIFF},)
-DOCKER_IMAGES = ${wildcard */}
+# Git
+GIT_REPOSITORIES_DELTA = ${shell git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
+ifeq (${GIT_REPOSITORIES_DELTA},)
+GIT_REPOSITORIES = ${wildcard */}
 else
-DOCKER_IMAGES = ${DOCKER_IMAGES_DIFF}
+GIT_REPOSITORIES = ${GIT_REPOSITORIES_DELTA}
 endif
 
 # Help
@@ -36,9 +36,9 @@ help:
 ## Build
 build:
 	EXIT=0 ; ${foreach \
-		image,\
-		${DOCKER_IMAGES},\
-		printf "\n${COLOR_INFO}Build ${COLOR_COMMENT}${image}${COLOR_RESET}\n\n" && ${MAKE} --directory=${image} build || EXIT=$$? ;\
+		repository,\
+		${GIT_REPOSITORIES},\
+		printf "\n${COLOR_INFO}Build ${COLOR_COMMENT}${repository}${COLOR_RESET}\n\n" && ${MAKE} --directory=${repository} build || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
@@ -48,9 +48,9 @@ build:
 ## Test
 test:
 	EXIT=0 ; ${foreach \
-		image,\
-		${DOCKER_IMAGES},\
-		printf "\n${COLOR_INFO}Test ${COLOR_COMMENT}${image}${COLOR_RESET}\n\n" && ${MAKE} --directory=${image} test || EXIT=$$? ;\
+		repository,\
+		${GIT_REPOSITORIES},\
+		printf "\n${COLOR_INFO}Test ${COLOR_COMMENT}${repository}${COLOR_RESET}\n\n" && ${MAKE} --directory=${repository} test || EXIT=$$? ;\
 	} exit $$EXIT
 
 #########
