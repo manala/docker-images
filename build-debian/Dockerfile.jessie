@@ -38,7 +38,6 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
         dh-systemd/jessie-backports \
         fakeroot \
         lintian/jessie-backports \
-        pkg-php-tools \
     && rm -rf /var/lib/apt/lists/*
 
 # Su exec

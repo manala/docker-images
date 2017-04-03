@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Switch packages to backports when available
 
+### Removed
+ - pkg-php-tools
 
 ## [0.10.0] - 2017-03-31
 ### Changed

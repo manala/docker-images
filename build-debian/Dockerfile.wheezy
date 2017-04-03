@@ -42,7 +42,6 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
         dh-exec \
         dh-systemd/wheezy-backports \
         fakeroot \
-        pkg-php-tools \
         lintian/wheezy-backports-sloppy \
     && rm -rf /var/lib/apt/lists/*
 
