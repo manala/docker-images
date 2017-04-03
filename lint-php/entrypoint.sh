@@ -26,4 +26,9 @@ if [ "$USER" = "$USER_DEFAULT" ]; then
   chown -R $USER:$GROUP /home/$USER
 fi
 
+# Sudo
+if [ "$USER_SUDO" ]; then
+  echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user
+fi
+
 exec su-exec "$USER" "$@"
