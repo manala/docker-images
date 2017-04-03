@@ -1,4 +1,4 @@
-FROM node:7.7.4-alpine
+FROM node:7.8.0-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
