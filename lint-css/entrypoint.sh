@@ -21,4 +21,9 @@ fi
 # Update user id
 sed -i s/$USER:x:[0-9]*:[0-9]*:/$USER:x:$USER_ID:$GROUP_ID:/ /etc/passwd
 
+# Fix user home permissions
+if [ "$USER" = "$USER_DEFAULT" ]; then
+  chown -R $USER:$GROUP /home/$USER
+fi
+
 exec su-exec "$USER" "$@"
