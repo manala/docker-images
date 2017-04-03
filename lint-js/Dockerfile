@@ -5,18 +5,20 @@ MAINTAINER Manala <contact@manala.io>
 ARG USER_ID
 ARG GROUP_ID
 
-ENV USER_ID="${USER_ID:-1000}" \
+ENV USER_DEFAULT="lint" \
+    USER_ID="${USER_ID:-1000}" \
+    GROUP_DEFAULT="lint" \
     GROUP_ID="${GROUP_ID:-1000}"
 
 USER root
 
-# Alpine packages
+# Packages
 RUN apk add --no-cache su-exec make git
 
-# Lint user
+# User
 RUN deluser --remove-home node && \
-    addgroup -g ${GROUP_ID} lint && \
-    adduser -D -s /bin/sh -g 'Lint' -u ${USER_ID} -G lint lint
+    addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
+    adduser -D -s /bin/sh -g '${USER_DEFAULT^}' -u ${USER_ID} -G ${GROUP_DEFAULT} ${USER_DEFAULT}
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/

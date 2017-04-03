@@ -5,12 +5,15 @@ MAINTAINER Manala <contact@manala.io>
 ARG USER_ID
 ARG GROUP_ID
 
-ENV USER_ID="${USER_ID:-1000}" \
+ENV USER_DEFAULT="build" \
+    USER_ID="${USER_ID:-1000}" \
+    USER_SUDO="1" \
+    GROUP_DEFAULT="build" \
     GROUP_ID="${GROUP_ID:-1000}"
 
 USER root
 
-# Apt packages
+# Packages
 RUN echo "deb http://httpredir.debian.org/debian jessie main\n\
 deb-src http://httpredir.debian.org/debian jessie main\n\
 deb http://httpredir.debian.org/debian jessie-updates main\n\
@@ -22,14 +25,13 @@ deb-src http://httpredir.debian.org/debian jessie-backports main\n" > /etc/apt/s
     && echo "Package: *\n\
 Pin: release a=jessie-backports\n\
 Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
-    && apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
+    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        unzip \
-        wget curl ca-certificates less \
-        apt-transport-https \
-        make \
-        vim \
+# System
+        sudo apt-transport-https \
+# Tools
+        unzip wget curl ca-certificates less vim \
+# Build
         build-essential \
         devscripts/jessie-backports \
         dh-exec \
@@ -46,9 +48,9 @@ RUN curl -L https://github.com/ncopa/su-exec/archive/v${SU_EXEC_VERSION}.tar.gz 
   make --directory /tmp  && \
   mv /tmp/su-exec /usr/local/bin
 
-# Build user
-RUN addgroup --gid ${GROUP_ID} build && \
-    adduser --disabled-password --shell /bin/bash --gecos 'Build' --uid ${USER_ID} --ingroup build build
+# User
+RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
+    adduser --disabled-password --shell /bin/bash --gecos '${USER_DEFAULT^}' --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/

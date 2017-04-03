@@ -52,8 +52,7 @@ command:
 ##########
 
 group:
-  # Lint
-  lint:
+  {{ .Env.GROUP_DEFAULT }}:
     exists: true
     gid:    {{ .Env.GROUP_ID }}
 
@@ -62,11 +61,10 @@ group:
 #########
 
 user:
-  # Lint
-  lint:
+  {{ .Env.USER_DEFAULT }}:
     exists: true
     uid:    {{ .Env.USER_ID }}
     groups:
-      - lint
-    home:  /home/lint
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
     shell: /bin/sh

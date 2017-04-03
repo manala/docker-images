@@ -1,17 +1,32 @@
 #!/bin/bash
 
-VERSION=${DOCKER_TAG}
+# Check docker tag has flavour (like in "1.2.3-foo", where "foo" is the flavour)
+# or not (like in "1.2.3")
+if [[ "$DOCKER_TAG" == *-* ]]
+then
+  FLAVOUR=${DOCKER_TAG#*-}
+  VERSION=${DOCKER_TAG%-*}
+else
+  VERSION=${DOCKER_TAG}
+fi
+
 VERSION_MINOR=${VERSION%.*}
 VERSION_MAJOR=${VERSION_MINOR%.*}
 
 # Version - Minor
-docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MINOR
-docker push $DOCKER_REPO:$VERSION_MINOR
+# 1.2.3     -> 1.2
+# 1.2.3-foo -> 1.2-foo
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MINOR${FLAVOUR:+-${FLAVOUR}}
+docker push $DOCKER_REPO:$VERSION_MINOR${FLAVOUR:+-${FLAVOUR}}
 
 # Version - Major
-docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MAJOR
-docker push $DOCKER_REPO:$VERSION_MAJOR
+# 1.2.3     -> 1
+# 1.2.3-foo -> 1-foo
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MAJOR${FLAVOUR:+-${FLAVOUR}}
+docker push $DOCKER_REPO:$VERSION_MAJOR${FLAVOUR:+-${FLAVOUR}}
 
-# Latest
-docker tag $IMAGE_NAME $DOCKER_REPO:latest
-docker push $DOCKER_REPO:latest
+# Flavour or Latest
+# 1.2.3     -> latest
+# 1.2.3-foo -> foo
+docker tag $IMAGE_NAME $DOCKER_REPO:${FLAVOUR:-latest}
+docker push $DOCKER_REPO:${FLAVOUR:-latest}

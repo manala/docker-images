@@ -9,6 +9,10 @@ COLOR_ERROR   = \033[31m
 
 # Docker
 DOCKER_IMAGE = manala/build-debian
+DOCKER_TAG  ?= dev
+
+# Debian
+DEBIAN_DISTRIBUTION ?= wheezy jessie
 
 ## Help
 help:
@@ -29,68 +33,72 @@ help:
 # Dev #
 #######
 
-## Dev - Wheezy
-dev@wheezy:
+## Dev
+dev:
 	docker run \
 		--rm \
 		--volume `pwd`:/srv \
 		--tty --interactive \
 		--env USER_ID=`id -u` \
 		--env GROUP_ID=`id -g` \
-		${DOCKER_IMAGE}:dev-wheezy
+		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)$(lastword ${DEBIAN_DISTRIBUTION})
+
+## Dev - Wheezy
+dev@wheezy: DEBIAN_DISTRIBUTION = wheezy
+dev@wheezy: dev
 
 ## Dev - Jessie
-dev@jessie:
-	docker run \
-		--rm \
-		--volume `pwd`:/srv \
-		--tty --interactive \
-		--env USER_ID=`id -u` \
-		--env GROUP_ID=`id -g` \
-		${DOCKER_IMAGE}:dev-jessie
+dev@jessie: DEBIAN_DISTRIBUTION = jessie
+dev@jessie: dev
 
 #########
 # Build #
 #########
 
 ## Build
-build: build@wheezy build@jessie
+build:
+	EXIT=0 ; ${foreach \
+		distribution,\
+		${DEBIAN_DISTRIBUTION},\
+		printf "\n${COLOR_INFO}Build ${COLOR_COMMENT}${distribution}${COLOR_RESET}\n\n" && \
+			docker build \
+				--pull \
+				--tag ${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)${distribution} \
+				--file Dockerfile.${distribution} \
+				. \
+		|| EXIT=$$? ;\
+	} exit $$EXIT
 
 ## Build - Wheezy
-build@wheezy:
-	docker build \
-		--pull \
-		--tag ${DOCKER_IMAGE}:dev-wheezy \
-		--file Dockerfile.wheezy \
-		.
+build@wheezy: DEBIAN_DISTRIBUTION = wheezy
+build@wheezy: build
 
 ## Build - Jessie
-build@jessie:
-	docker build \
-		--pull \
-		--tag ${DOCKER_IMAGE}:dev-jessie \
-		--file Dockerfile.jessie \
-		.
+build@jessie: DEBIAN_DISTRIBUTION = jessie
+build@jessie: build
 
 #########
 # Test #
 #########
 
 ## Test
-test: test@wheezy test@jessie
+test:
+	EXIT=0 ; ${foreach \
+		distribution,\
+		${DEBIAN_DISTRIBUTION},\
+		printf "\n${COLOR_INFO}Test ${COLOR_COMMENT}${distribution}${COLOR_RESET}\n\n" && \
+			docker run \
+				--rm \
+				--volume `pwd`:/srv \
+				${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)${distribution} \
+				goss --gossfile /srv/goss.yaml validate \
+		|| EXIT=$$? ;\
+	} exit $$EXIT
 
 ## Test - Wheezy
-test@wheezy:
-	docker run \
-		--rm \
-		--volume `pwd`:/srv \
-		${DOCKER_IMAGE}:dev-wheezy \
-		goss --gossfile /srv/goss.yaml validate
+test@wheezy: DEBIAN_DISTRIBUTION = wheezy
+test@wheezy: test
 
 ## Test - Jessie
-test@jessie:
-	docker run \
-		--rm \
-		--volume `pwd`:/srv \
-		${DOCKER_IMAGE}:dev-jessie \
-		goss --gossfile /srv/goss.yaml validate
+test@jessie: DEBIAN_DISTRIBUTION = jessie
+test@jessie: test

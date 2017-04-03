@@ -9,6 +9,7 @@ COLOR_ERROR   = \033[31m
 
 # Docker
 DOCKER_IMAGE = manala/lint-php
+DOCKER_TAG  ?= dev
 
 ## Help
 help:
@@ -37,8 +38,7 @@ dev:
 		--tty --interactive \
 		--env USER_ID=`id -u` \
 		--env GROUP_ID=`id -g` \
-		${DOCKER_IMAGE}:dev \
-		/bin/sh
+		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG},latest)
 
 #########
 # Build #
@@ -48,7 +48,7 @@ dev:
 build:
 	docker build \
 		--pull \
-		--tag ${DOCKER_IMAGE}:dev \
+		--tag ${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG},latest) \
 		.
 
 #########
@@ -60,5 +60,5 @@ test:
 	docker run \
 		--rm \
 		--volume `pwd`:/srv \
-		${DOCKER_IMAGE}:dev \
+		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG},latest) \
 		goss --gossfile /srv/goss.yaml validate

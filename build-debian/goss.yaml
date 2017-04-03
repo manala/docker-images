@@ -11,9 +11,9 @@ package:
     installed: true
   less:
     installed: true
-  make:
-    installed: true
   vim:
+    installed: true
+  make:
     installed: true
 
 ##########
@@ -21,8 +21,7 @@ package:
 ##########
 
 group:
-  # Build
-  build:
+  {{ .Env.GROUP_DEFAULT }}:
     exists: true
     gid:    {{ .Env.GROUP_ID }}
 
@@ -31,11 +30,10 @@ group:
 #########
 
 user:
-  # Build
-  build:
+  {{ .Env.USER_DEFAULT }}:
     exists: true
     uid:    {{ .Env.USER_ID }}
     groups:
-      - build
-    home:  /home/build
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
     shell: /bin/bash

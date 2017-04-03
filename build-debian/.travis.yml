@@ -5,10 +5,12 @@ sudo: required
 services:
   - docker
 
-before_install:
-  - make build
+env:
+  - DEBIAN_DISTRIBUTION=wheezy
+  - DEBIAN_DISTRIBUTION=jessie
 
 script:
+  - make build
   - make test
 
 notifications:
