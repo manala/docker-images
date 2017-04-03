@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - User is now sudoer
 
+### Changed
+- Switch packages to backports when available
+
 
 ## [0.10.0] - 2017-03-31
 ### Changed

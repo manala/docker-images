@@ -34,8 +34,8 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
 # Build
         build-essential \
         devscripts/jessie-backports \
-        dh-exec \
-        dh-systemd \
+        dh-exec/jessie-backports \
+        dh-systemd/jessie-backports \
         fakeroot \
         lintian/jessie-backports \
         pkg-php-tools \
