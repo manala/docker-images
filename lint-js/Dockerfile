@@ -37,7 +37,7 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
     apk del goss-dependencies
 
 # Npm packages
-ENV ESLINT_VERSION="3.18.0" \
+ENV ESLINT_VERSION="3.19.0" \
     ESLINT_PLUGIN_REACT_VERSION="6.10.3" \
     ESLINT_PLUGIN_REACT_NATIVE_VERSION="2.3.1" \
     ESLINT_PLUGIN_JSX_A11Y_VERSION="4.0.0" \
