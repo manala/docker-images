@@ -35,7 +35,7 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
 # System
         sudo apt-transport-https adduser procps \
 # Tools
-        unzip wget curl ca-certificates less vim/wheezy-backports \
+        bsdtar wget curl ca-certificates less vim/wheezy-backports \
 # Build
         build-essential \
         devscripts/wheezy-backports \

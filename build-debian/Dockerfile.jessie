@@ -30,7 +30,7 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
 # System
         sudo apt-transport-https \
 # Tools
-        unzip wget curl ca-certificates less vim \
+        bsdtar wget curl ca-certificates less vim \
 # Build
         build-essential \
         devscripts/jessie-backports \
