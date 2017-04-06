@@ -18,7 +18,7 @@ RUN apk add --no-cache su-exec make git && \
 
 # User
 RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
-    adduser -D -s /bin/sh -g '${USER_DEFAULT^}' -u ${USER_ID} -G ${GROUP_DEFAULT} ${USER_DEFAULT}
+    adduser -D -s /bin/sh -g ${USER_DEFAULT} -u ${USER_ID} -G ${GROUP_DEFAULT} ${USER_DEFAULT}
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/

@@ -54,7 +54,7 @@ RUN curl -L https://github.com/ncopa/su-exec/archive/v${SU_EXEC_VERSION}.tar.gz 
 
 # User
 RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
-    adduser --disabled-password --shell /bin/bash --gecos '${USER_DEFAULT^}' --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
+    adduser --disabled-password --shell /bin/bash --gecos ${USER_DEFAULT} --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
 
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/
