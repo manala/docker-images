@@ -36,9 +36,9 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
     apk del goss-dependencies
 
 # Pip packages
-ENV OPENSTACK_CLIENT="3.9.0" \
-    NEUTRON_CLIENT="6.1.0" \
-    SWIFT_CLIENT="3.3.0"
+ENV OPENSTACK_CLIENT_VERSION="3.9.0" \
+    NEUTRON_CLIENT_VERSION="6.1.0" \
+    SWIFT_CLIENT_VERSION="3.3.0"
 RUN apk add --no-cache --virtual=python-dependencies build-base linux-headers && \
     pip --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT} \

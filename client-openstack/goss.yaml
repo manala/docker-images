@@ -22,9 +22,9 @@ command:
   pip list:
     exit-status: 0
     stdout:
-      - python-openstackclient ({{ .Env.OPENSTACK_CLIENT }})
-      - python-neutronclient ({{ .Env.NEUTRON_CLIENT }})
-      - python-swiftclient ({{ .Env.SWIFT_CLIENT }})
+      - python-openstackclient ({{ .Env.OPENSTACK_CLIENT_VERSION }})
+      - python-neutronclient ({{ .Env.NEUTRON_CLIENT_VERSION }})
+      - python-swiftclient ({{ .Env.SWIFT_CLIENT_VERSION }})
 
 ##########
 # Groups #
