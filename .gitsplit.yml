@@ -2,6 +2,8 @@
 splits:
   - prefix: build-debian
     target: git@github.com:manala/docker-image-build-debian.git
+  - prefix: client-openstack
+    target: git@github.com:manala/docker-image-client-openstack.git
   - prefix: lint-css
     target: git@github.com:manala/docker-image-lint-css.git
   - prefix: lint-js
