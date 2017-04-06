@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.0] - 2017-04-06
+## [0.1.0] - 2017-04-06
 ### Added
 - OpenStack client 3.9.0
 - OpenStack Neutron client 6.1.0
