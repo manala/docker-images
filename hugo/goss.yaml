@@ -1,0 +1,42 @@
+############
+# Packages #
+############
+
+package:
+  su-exec:
+    installed: true
+  make:
+    installed: true
+
+############
+# Commands #
+############
+
+command:
+  # Hugo
+  hugo version:
+    exit-status: 0
+    stdout:
+      - Hugo Static Site Generator v{{ .Env.HUGO_VERSION }}
+
+##########
+# Groups #
+##########
+
+group:
+  {{ .Env.GROUP_DEFAULT }}:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  {{ .Env.USER_DEFAULT }}:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
+    shell: /bin/bash
