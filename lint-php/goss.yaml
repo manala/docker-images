@@ -25,7 +25,7 @@ command:
     exit-status: 0
     stdout:
       - Composer version {{ .Env.COMPOSER_VERSION }}
-  # Npm packages
+  # Composer packages
   COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
     exit-status: 0
     stdout:
@@ -33,6 +33,20 @@ command:
       - /phpstan/phpstan\s+{{ .Env.PHPSTAN_VERSION }}/
       - /jakub-onderka/php-parallel-lint\s+v{{ .Env.PHP_PARALLEL_LINT_VERSION }}/
       - /sensiolabs/security-checker\s+v{{ .Env.SECURITY_CHECKER_VERSION }}/
+  # PHP CS Fixer
+  php-cs-fixer --version:
+    exit-status: 0
+    stdout:
+      - PHP CS Fixer {{ .Env.PHP_CS_FIXER_VERSION }}
+  # PHPStan
+  phpstan --version:
+    exit-status: 0
+  # PHP Parallel Lint
+  parallel-lint:
+    exit-status: 0
+  # SensioLabs Security Checker
+  security-checker --version:
+    exit-status: 0
 
 ##########
 # Groups #

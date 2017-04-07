@@ -44,10 +44,10 @@ RUN apk add --no-cache --virtual=composer-dependencies curl && \
     apk del composer-dependencies
 
 # Composer packages
-ENV PHP_CS_FIXER_VERSION="2.1.2" \
+ENV PHP_CS_FIXER_VERSION="2.2.1" \
     PHPSTAN_VERSION="0.6.4" \
     PHP_PARALLEL_LINT_VERSION="0.9.2" \
-    SECURITY_CHECKER_VERSION="4.0.2"
+    SECURITY_CHECKER_VERSION="4.0.4"
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       friendsofphp/php-cs-fixer:${PHP_CS_FIXER_VERSION} \
       phpstan/phpstan:${PHPSTAN_VERSION} \
