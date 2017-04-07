@@ -25,6 +25,21 @@ command:
       - python-openstackclient ({{ .Env.OPENSTACK_CLIENT_VERSION }})
       - python-neutronclient ({{ .Env.NEUTRON_CLIENT_VERSION }})
       - python-swiftclient ({{ .Env.SWIFT_CLIENT_VERSION }})
+  # Openstack
+  openstack --version:
+    exit-status: 0
+    stdout:
+      - openstack {{ .Env.OPENSTACK_CLIENT_VERSION }}
+  # Neutron
+  neutron --version:
+    exit-status: 0
+    stdout:
+      - {{ .Env.NEUTRON_CLIENT_VERSION }}
+  # Swift
+  swift --version:
+    exit-status: 0
+    stdout:
+      - python-swiftclient {{ .Env.SWIFT_CLIENT_VERSION }}
 
 ##########
 # Groups #
