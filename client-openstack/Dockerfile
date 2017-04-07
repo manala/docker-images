@@ -41,7 +41,7 @@ ENV OPENSTACK_CLIENT_VERSION="3.9.0" \
     SWIFT_CLIENT_VERSION="3.3.0"
 RUN apk add --no-cache --virtual=python-dependencies build-base linux-headers && \
     pip --no-cache-dir --disable-pip-version-check install \
-      python-openstackclient==${OPENSTACK_CLIENT} \
-      python-neutronclient==${NEUTRON_CLIENT} \
-      python-swiftclient==${SWIFT_CLIENT} && \
+      python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
+      python-neutronclient==${NEUTRON_CLIENT_VERSION} \
+      python-swiftclient==${SWIFT_CLIENT_VERSION} && \
     apk del python-dependencies
