@@ -1,0 +1,59 @@
+############
+# Packages #
+############
+
+package:
+  su-exec:
+    installed: true
+  make:
+    installed: true
+  git:
+    installed: true
+
+############
+# Commands #
+############
+
+command:
+  # Php
+  php --version:
+    exit-status: 0
+    stdout:
+      - PHP {{ .Env.PHP_VERSION }}
+  # Composer
+  composer --version:
+    exit-status: 0
+    stdout:
+      - Composer version {{ .Env.COMPOSER_VERSION }}
+  # Composer packages
+  COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
+    exit-status: 0
+    stdout:
+      - /phpunit/phpunit\s+{{ .Env.PHPUNIT_VERSION }}/
+  # PHPUnit
+  phpunit --version:
+    exit-status: 0
+    stdout:
+      - {{ .Env.PHPUNIT_VERSION }}
+
+##########
+# Groups #
+##########
+
+group:
+  {{ .Env.GROUP_DEFAULT }}:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  {{ .Env.USER_DEFAULT }}:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
+    shell: /bin/sh
