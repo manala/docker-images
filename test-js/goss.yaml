@@ -1,0 +1,62 @@
+############
+# Packages #
+############
+
+package:
+  su-exec:
+    installed: true
+  make:
+    installed: true
+  git:
+    installed: true
+
+############
+# Commands #
+############
+
+command:
+  # Node
+  node --version:
+    exit-status: 0
+    stdout:
+      - v{{ .Env.NODE_VERSION }}
+  # Npm
+  npm --version:
+    exit-status: 0
+  # Yarn
+  yarn --version:
+    exit-status: 0
+    stdout:
+      - {{ .Env.YARN_VERSION }}
+  # Npm packages
+  npm --global list --depth=1:
+    exit-status: 0
+    stdout:
+      - jest@{{ .Env.JEST_VERSION }}
+  # Jest
+  jest --version:
+    exit-status: 0
+    stdout:
+      - v{{ .Env.JEST_VERSION }}
+
+##########
+# Groups #
+##########
+
+group:
+  {{ .Env.GROUP_DEFAULT }}:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  {{ .Env.USER_DEFAULT }}:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
+    shell: /bin/sh
