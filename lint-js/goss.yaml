@@ -42,6 +42,11 @@ command:
       - eslint-config-elao@{{ .Env.ESLINT_CONFIG_ELAO_VERSION }}
       - eslint-formatter-relative-junit@{{ .Env.ESLINT_FORMATTER_RELATIVE_JUNIT }}
       - babel-eslint@{{ .Env.BABEL_ESLINT_VERSION }}
+  # ESLint
+  eslint --version:
+    exit-status: 0
+    stdout:
+      - v{{ .Env.ESLINT_VERSION }}
 
 ##########
 # Groups #
