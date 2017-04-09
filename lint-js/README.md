@@ -48,7 +48,7 @@ DIR=`pwd`; docker run \
 
 Zsh function
 ```
-stylelint() {
+eslint() {
   DIR=`pwd`
   docker run \
     --rm \
