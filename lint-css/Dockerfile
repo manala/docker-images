@@ -37,7 +37,7 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
     apk del goss-dependencies
 
 # Npm packages
-ENV STYLELINT_VERSION="7.9.0" \
+ENV STYLELINT_VERSION="7.10.1" \
     STYLELINT_SCSS_VERSION="1.4.3" \
     STYLELINT_CONFIG_STANDARD_VERSION="16.0.0" \
     STYLELINT_CONFIG_ELAO_VERSION="0.4.0" \
