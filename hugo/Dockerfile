@@ -39,7 +39,7 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
     apk del goss-dependencies
 
 # Hugo
-ENV HUGO_VERSION="0.19"
+ENV HUGO_VERSION="0.20"
 RUN apk add --no-cache --virtual=hugo-dependencies curl && \
     curl -L https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
       | tar -zxvf - -C /tmp && \
