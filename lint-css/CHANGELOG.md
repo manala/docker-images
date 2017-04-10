@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [0.3.1] - 2017-04-10
+## [0.3.2] - 2017-04-10
 ### Changed
 - Update Node 7.8.0
 - Update Stylelint 7.10.1
