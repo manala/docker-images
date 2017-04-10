@@ -45,3 +45,6 @@ RUN apk add --no-cache --virtual=hugo-dependencies curl && \
       | tar -zxvf - -C /tmp && \
     mv /tmp/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/local/bin/hugo && \
     apk del hugo-dependencies
+
+# Expose default hugo port
+EXPOSE 1313
