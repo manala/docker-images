@@ -21,6 +21,13 @@ RUN apk add --no-cache su-exec make git && \
 RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
     adduser -D -s /bin/sh -g ${USER_DEFAULT} -u ${USER_ID} -G ${GROUP_DEFAULT} ${USER_DEFAULT}
 
+# Dump init
+ENV DUMB_INIT_VERSION="1.2.0"
+RUN apk add --no-cache --virtual=dumb-init-dependencies curl && \
+    curl -fsSL https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64 -o /usr/local/bin/dumb-init && \
+    chmod +x /usr/local/bin/dumb-init && \
+    apk del dumb-init-dependencies
+
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]

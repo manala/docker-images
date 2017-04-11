@@ -13,6 +13,11 @@ package:
 ############
 
 command:
+  # Dumb init
+  dumb-init --version:
+    exit-status: 0
+    stderr:
+      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
   # Hugo
   hugo version:
     exit-status: 0

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - DOCKER environment variable
+- Dumb-init 1.2.0
 
 ## [0.11.0] - 2017-04-05
 ### Changed

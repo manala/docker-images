@@ -18,6 +18,13 @@ RUN apk add --no-cache su-exec bash make \
 # Third parties compilation (optipng,gifsicle,pngquant,mozjpeg,...)
     gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev
 
+# Dump init
+ENV DUMB_INIT_VERSION="1.2.0"
+RUN apk add --no-cache --virtual=dumb-init-dependencies curl && \
+    curl -fsSL https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64 -o /usr/local/bin/dumb-init && \
+    chmod +x /usr/local/bin/dumb-init && \
+    apk del dumb-init-dependencies
+
 # User
 RUN deluser --remove-home node && \
     addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
