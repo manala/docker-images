@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- DOCKER environment variable
+
 ### Changed
 - Update Node 7.8.0
 - Update ESLint 3.19.0

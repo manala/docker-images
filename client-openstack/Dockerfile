@@ -5,7 +5,8 @@ MAINTAINER Manala <contact@manala.io>
 ARG USER_ID
 ARG GROUP_ID
 
-ENV USER_DEFAULT="client" \
+ENV DOCKER="1" \
+    USER_DEFAULT="client" \
     USER_ID="${USER_ID:-1000}" \
     GROUP_DEFAULT="client" \
     GROUP_ID="${GROUP_ID:-1000}"
