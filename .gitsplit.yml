@@ -4,6 +4,8 @@ splits:
     target: git@github.com:manala/docker-image-build-debian.git
   - prefix: client-openstack
     target: git@github.com:manala/docker-image-client-openstack.git
+  - prefix: deploy
+    target: git@github.com:manala/docker-image-deploy.git
   - prefix: hugo
     target: git@github.com:manala/docker-image-hugo.git
   - prefix: lint-css

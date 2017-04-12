@@ -1,0 +1,48 @@
+############
+# Packages #
+############
+
+package:
+  su-exec:
+    installed: true
+  make:
+    installed: true
+  git:
+    installed: true
+  rsync:
+    installed: true
+  openssh-client:
+    installed: true
+
+############
+# Commands #
+############
+
+command:
+  # Dumb init
+  dumb-init --version:
+    exit-status: 0
+    stderr:
+      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
+
+##########
+# Groups #
+##########
+
+group:
+  {{ .Env.GROUP_DEFAULT }}:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  {{ .Env.USER_DEFAULT }}:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
+    shell: /bin/sh
