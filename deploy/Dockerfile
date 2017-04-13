@@ -14,7 +14,13 @@ ENV DOCKER="1" \
 USER root
 
 # Packages
-RUN apk add --no-cache su-exec make git rsync openssh-client
+RUN apk add --no-cache su-exec make git rsync openssh-client && \
+    echo -e "\n\
+Host *\n\
+  StrictHostKeyChecking no\n\
+  ForwardAgent          yes\n\
+  UserKnownHostsFile    /dev/null\n\
+  LogLevel              ERROR\n" >> /etc/ssh/ssh_config
 
 # User
 RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \

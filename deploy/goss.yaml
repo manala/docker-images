@@ -25,6 +25,20 @@ command:
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
 
+#########
+# Files #
+#########
+
+file:
+  /etc/ssh/ssh_config:
+    exists:   true
+    filetype: file
+    contains:
+      - /StrictHostKeyChecking\s+no/
+      - /ForwardAgent\s+yes/
+      - /UserKnownHostsFile\s+/dev/null/
+      - /LogLevel\s+ERROR/
+
 ##########
 # Groups #
 ##########
