@@ -45,7 +45,9 @@ RUN apk add --no-cache --virtual=goss-dependencies curl && \
     apk del goss-dependencies
 
 # Npm packages
-ENV JEST_VERSION="19.0.2"
+ENV JEST_VERSION="19.0.2" \
+    JEST_JUNIT_VERSION="1.4.0"
 RUN npm --global install \
       jest@${JEST_VERSION} \
+      jest-junit@${JEST_JUNIT_VERSION} \
     && rm -rf /root/.npm

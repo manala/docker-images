@@ -12,6 +12,7 @@ Provides javascript testing tools, and related plugins and configs.
 
 - Node (Npm, Yarn)
 - Jest
+  - Reporter: junit
 
 Provides also useful development tools.
 

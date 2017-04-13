@@ -38,6 +38,7 @@ command:
     exit-status: 0
     stdout:
       - jest@{{ .Env.JEST_VERSION }}
+      - jest-junit@{{ .Env.JEST_JUNIT_VERSION }}
   # Jest
   jest --version:
     exit-status: 0
