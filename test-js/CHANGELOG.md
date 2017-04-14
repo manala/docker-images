@@ -10,6 +10,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Dumb-init 1.2.0
 - Jest - Reporter - junit 1.4.0
 
+### Changed
+- Update Node 7.9.0
+
 ## [0.1.0] - 2017-04-09
 ### Added
 - Jest 19.0.2

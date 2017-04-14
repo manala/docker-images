@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Dumb-init 1.2.0
 
 ### Changed
-- Update Node 7.8.0
+- Update Node 7.9.0
 - Update ESLint 3.19.0
 
 ## [0.3.0] - 2017-03-27
