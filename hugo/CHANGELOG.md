@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Node 7.9.0
+- Update Hugo 0.20.1
 
 ## [0.2.0] - 2017-04-11
 ### Added
