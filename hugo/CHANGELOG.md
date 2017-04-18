@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Hugo 0.20.2
 
+### Removed
+- Docker environment variable
+
 ## [0.2.1] - 2017-04-14
 ### Changed
 - Update Node 7.9.0
@@ -15,7 +18,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [0.2.0] - 2017-04-11
 ### Added
-- DOCKER environment variable
 - Dumb-init 1.2.0
 
 ## [0.1.1] - 2017-04-10

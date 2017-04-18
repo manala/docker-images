@@ -5,8 +5,7 @@ MAINTAINER Manala <contact@manala.io>
 ARG USER_ID
 ARG GROUP_ID
 
-ENV DOCKER="1" \
-    USER_DEFAULT="build" \
+ENV USER_DEFAULT="build" \
     USER_ID="${USER_ID:-1000}" \
     USER_SUDO="1" \
     GROUP_DEFAULT="build" \
