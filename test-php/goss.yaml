@@ -5,37 +5,38 @@
 package:
   su-exec:
     installed: true
+  bash:
+    installed: true
+  curl:
+    installed: true
   make:
     installed: true
   git:
     installed: true
+  # Custom
 
 ############
 # Commands #
 ############
 
 command:
-  # Dumb init
   dumb-init --version:
     exit-status: 0
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
-  # Php
   php --version:
     exit-status: 0
     stdout:
       - PHP {{ .Env.PHP_VERSION }}
-  # Composer
   composer --version:
     exit-status: 0
     stdout:
       - Composer version {{ .Env.COMPOSER_VERSION }}
-  # Composer packages
+  # Custom
   COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
     exit-status: 0
     stdout:
       - /phpunit/phpunit\s+{{ .Env.PHPUNIT_VERSION }}/
-  # PHPUnit
   phpunit --version:
     exit-status: 0
     stdout:
@@ -61,4 +62,4 @@ user:
     groups:
       - {{ .Env.GROUP_DEFAULT }}
     home:  /home/{{ .Env.USER_DEFAULT }}
-    shell: /bin/sh
+    shell: /bin/bash

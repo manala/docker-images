@@ -5,10 +5,15 @@
 package:
   su-exec:
     installed: true
+  bash:
+    installed: true
+  curl:
+    installed: true
   make:
     installed: true
   git:
     installed: true
+  # Custom
   rsync:
     installed: true
   openssh-client:
@@ -19,7 +24,6 @@ package:
 ############
 
 command:
-  # Dumb init
   dumb-init --version:
     exit-status: 0
     stderr:
@@ -30,6 +34,7 @@ command:
 #########
 
 file:
+  # Custom
   /etc/ssh/ssh_config:
     exists:   true
     filetype: file
@@ -59,4 +64,4 @@ user:
     groups:
       - {{ .Env.GROUP_DEFAULT }}
     home:  /home/{{ .Env.USER_DEFAULT }}
-    shell: /bin/sh
+    shell: /bin/bash

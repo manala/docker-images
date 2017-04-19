@@ -5,6 +5,17 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Now based on alpine:edge
+- Node and Yarn as alpine packages (thus, Node downgraded to version 6)
+
+### Added
+- Curl
+- Git
+- Optipng
+- Libjpeg turbo utils
+- Imagemagick
+- Pygments
 
 ## [0.2.2] - 2017-04-18
 ### Changed

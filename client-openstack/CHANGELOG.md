@@ -5,8 +5,16 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Now based on alpine:edge
+- Bash as default shell
+- Python as alpine packages (thus, downgraded to version 2.7)
+
 ### Added
 - Dumb-init 1.2.0
+- Curl
+- Make
+- Git
 
 ## [0.1.0] - 2017-04-06
 ### Added

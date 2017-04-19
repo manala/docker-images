@@ -3,17 +3,20 @@
 ############
 
 package:
-  bsdtar:
-    installed: true
   wget:
     installed: true
   curl:
+    installed: true
+  make:
+    installed: true
+  git:
     installed: true
   less:
     installed: true
   vim:
     installed: true
-  make:
+  # Custom
+  bsdtar:
     installed: true
 
 ############
@@ -21,14 +24,13 @@ package:
 ############
 
 command:
-  # Su exec
   su-exec:
     exit-status: 0
-  # Dumb init
   dumb-init --version:
     exit-status: 0
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
+  # Custom
 
 ##########
 # Groups #

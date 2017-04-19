@@ -2,23 +2,10 @@ FROM node:7.9.0-alpine
 
 MAINTAINER Manala <contact@manala.io>
 
-ARG USER_ID
-ARG GROUP_ID
-
-ENV USER_DEFAULT="lint" \
-    USER_ID="${USER_ID:-1000}" \
-    GROUP_DEFAULT="lint" \
-    GROUP_ID="${GROUP_ID:-1000}"
-
 USER root
 
 # Packages
-RUN apk add --no-cache su-exec make git
-
-# User
-RUN deluser --remove-home node && \
-    addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
-    adduser -D -s /bin/sh -g ${USER_DEFAULT} -u ${USER_ID} -G ${GROUP_DEFAULT} ${USER_DEFAULT}
+RUN apk add --no-cache su-exec bash curl make git
 
 # Dump init
 ENV DUMB_INIT_VERSION="1.2.0"
@@ -27,21 +14,41 @@ RUN apk add --no-cache --virtual=dumb-init-dependencies curl && \
     chmod +x /usr/local/bin/dumb-init && \
     apk del dumb-init-dependencies
 
-# Entrypoint
-COPY entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["entrypoint.sh"]
-
-# Default command
-CMD ["/bin/sh"]
-
-# Working directory
-WORKDIR /srv
-
 # Goss
 ENV GOSS_VERSION="0.3.1"
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
     curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh && \
     apk del goss-dependencies
+
+# Entrypoint
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
+
+# Default command
+CMD ["/bin/bash"]
+
+# Working directory
+WORKDIR /srv
+
+########
+# User #
+########
+
+ARG USER_ID
+ARG GROUP_ID
+
+ENV USER_DEFAULT="lint" \
+    USER_ID="${USER_ID:-1000}" \
+    GROUP_DEFAULT="lint" \
+    GROUP_ID="${GROUP_ID:-1000}"
+
+RUN deluser --remove-home node && \
+    addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
+    adduser -D -s /bin/bash -g ${USER_DEFAULT} -u ${USER_ID} -G ${GROUP_DEFAULT} ${USER_DEFAULT}
+
+##########
+# Custom #
+##########
 
 # Npm packages
 ENV ESLINT_VERSION="3.19.0" \

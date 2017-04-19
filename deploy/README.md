@@ -15,7 +15,6 @@ Provides deployment tools.
 
 Provides also useful development tools.
 
-- Goss
 - Make
 - Git
 

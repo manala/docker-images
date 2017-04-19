@@ -7,43 +7,41 @@ package:
     installed: true
   bash:
     installed: true
+  curl:
+    installed: true
+  make:
+    installed: true
+  git:
+    installed: true
+  # Custom
 
 ############
 # Commands #
 ############
 
 command:
-  # Dumb init
   dumb-init --version:
     exit-status: 0
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
-  # Python
-  python --version:
-    exit-status: 0
-    stdout:
-      - {{ .Env.PYTHON_VERSION }}
-  # Pip packages
+  # Custom
   pip list:
     exit-status: 0
     stdout:
       - python-openstackclient ({{ .Env.OPENSTACK_CLIENT_VERSION }})
       - python-neutronclient ({{ .Env.NEUTRON_CLIENT_VERSION }})
       - python-swiftclient ({{ .Env.SWIFT_CLIENT_VERSION }})
-  # Openstack
   openstack --version:
     exit-status: 0
-    stdout:
+    stderr:
       - openstack {{ .Env.OPENSTACK_CLIENT_VERSION }}
-  # Neutron
   neutron --version:
     exit-status: 0
-    stdout:
+    stderr:
       - {{ .Env.NEUTRON_CLIENT_VERSION }}
-  # Swift
   swift --version:
     exit-status: 0
-    stdout:
+    stderr:
       - python-swiftclient {{ .Env.SWIFT_CLIENT_VERSION }}
 
 ##########
@@ -66,4 +64,4 @@ user:
     groups:
       - {{ .Env.GROUP_DEFAULT }}
     home:  /home/{{ .Env.USER_DEFAULT }}
-    shell: /bin/sh
+    shell: /bin/bash

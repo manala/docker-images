@@ -5,35 +5,36 @@
 package:
   su-exec:
     installed: true
+  bash:
+    installed: true
+  curl:
+    installed: true
   make:
     installed: true
   git:
     installed: true
+  # Custom
 
 ############
 # Commands #
 ############
 
 command:
-  # Dumb init
   dumb-init --version:
     exit-status: 0
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
-  # Node
   node --version:
     exit-status: 0
     stdout:
       - v{{ .Env.NODE_VERSION }}
-  # Npm
   npm --version:
     exit-status: 0
-  # Yarn
   yarn --version:
     exit-status: 0
     stdout:
       - {{ .Env.YARN_VERSION }}
-  # Npm packages
+  # Custom
   npm --global list --depth=1:
     exit-status: 0
     stdout:
@@ -43,12 +44,10 @@ command:
       - stylelint-config-elao@{{ .Env.STYLELINT_CONFIG_ELAO_VERSION }}
       - stylelint-formatter-relative-junit@{{ .Env.STYLELINT_FORMATTER_RELATIVE_JUNIT_VERSION }}
       - stylefmt@{{ .Env.STYLEFMT_VERSION }}
-  # Stylelint
   stylelint --version:
     exit-status: 0
     stdout:
       - {{ .Env.STYLELINT_VERSION }}
-  # Stylefmt
   stylefmt --version:
     exit-status: 0
     stdout:
@@ -74,4 +73,4 @@ user:
     groups:
       - {{ .Env.GROUP_DEFAULT }}
     home:  /home/{{ .Env.USER_DEFAULT }}
-    shell: /bin/sh
+    shell: /bin/bash

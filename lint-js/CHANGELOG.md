@@ -7,10 +7,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Dumb-init 1.2.0
+- Curl
 
 ### Changed
 - Update Node 7.9.0
 - Update ESLint 3.19.0
+- Bash as default shell
 
 ## [0.3.0] - 2017-03-27
 ### Changed

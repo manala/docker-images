@@ -5,7 +5,24 @@
 package:
   su-exec:
     installed: true
+  bash:
+    installed: true
+  curl:
+    installed: true
   make:
+    installed: true
+  git:
+    installed: true
+  # Custom
+  nodejs:
+    installed: true
+  yarn:
+    installed: true
+  optipng:
+    installed: true
+  libjpeg-turbo-utils:
+    installed: true
+  imagemagick:
     installed: true
 
 ############
@@ -13,16 +30,23 @@ package:
 ############
 
 command:
-  # Dumb init
   dumb-init --version:
     exit-status: 0
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
-  # Hugo
+  # Custom
   hugo version:
     exit-status: 0
     stdout:
       - Hugo Static Site Generator v{{ .Env.HUGO_VERSION }}
+  pip list:
+    exit-status: 0
+    stdout:
+      - Pygments ({{ .Env.PYGMENTS_VERSION }})
+  pygmentize -V:
+    exit-status: 0
+    stdout:
+      - Pygments version {{ .Env.PYGMENTS_VERSION }}
 
 ##########
 # Groups #

@@ -2,6 +2,45 @@ FROM debian:jessie
 
 MAINTAINER Manala <contact@manala.io>
 
+USER root
+
+# Packages
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
+    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
+        sudo apt-transport-https wget curl ca-certificates make git less vim
+
+# Su exec
+ENV SU_EXEC_VERSION="0.2"
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install build-essential && \
+    curl -L https://github.com/ncopa/su-exec/archive/v${SU_EXEC_VERSION}.tar.gz \
+      | tar zxfv - -C /tmp --strip-components=1 && \
+    make --directory /tmp  && \
+    mv /tmp/su-exec /usr/local/bin && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y purge build-essential
+
+# Dump init
+ENV DUMB_INIT_VERSION="1.2.0"
+RUN curl -L https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64 -o /usr/local/bin/dumb-init && \
+    chmod +x /usr/local/bin/dumb-init
+
+# Goss
+ENV GOSS_VERSION="0.3.1"
+RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
+
+# Entrypoint
+COPY entrypoint.sh /usr/local/bin/
+ENTRYPOINT ["entrypoint.sh"]
+
+# Default command
+CMD ["/bin/bash"]
+
+# Working directory
+WORKDIR /srv
+
+########
+# User #
+########
+
 ARG USER_ID
 ARG GROUP_ID
 
@@ -11,7 +50,12 @@ ENV USER_DEFAULT="build" \
     GROUP_DEFAULT="build" \
     GROUP_ID="${GROUP_ID:-1000}"
 
-USER root
+RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
+    adduser --disabled-password --shell /bin/bash --gecos ${USER_DEFAULT} --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
+
+##########
+# Custom #
+##########
 
 # Packages
 RUN echo "deb http://httpredir.debian.org/debian jessie main\n\
@@ -27,45 +71,14 @@ Pin: release a=jessie-backports\n\
 Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
     && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
     && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-# System
-        sudo apt-transport-https \
-# Tools
-        bsdtar wget curl ca-certificates less vim \
-# Build
+        bsdtar \
         build-essential \
         devscripts/jessie-backports \
         dh-exec/jessie-backports \
         dh-systemd/jessie-backports \
         fakeroot \
-        lintian/jessie-backports \
-    && rm -rf /var/lib/apt/lists/*
+        lintian/jessie-backports
 
-# Su exec
-ENV SU_EXEC_VERSION="0.2"
-RUN curl -L https://github.com/ncopa/su-exec/archive/v${SU_EXEC_VERSION}.tar.gz \
-  | tar zxfv - -C /tmp --strip-components=1 && \
-  make --directory /tmp  && \
-  mv /tmp/su-exec /usr/local/bin
-
-# Dump init
-ENV DUMB_INIT_VERSION="1.2.0"
-RUN curl -L https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64 -o /usr/local/bin/dumb-init && \
-    chmod +x /usr/local/bin/dumb-init
-
-# User
-RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
-    adduser --disabled-password --shell /bin/bash --gecos ${USER_DEFAULT} --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
-
-# Entrypoint
-COPY entrypoint.sh /usr/local/bin/
-ENTRYPOINT ["entrypoint.sh"]
-
-# Default command
-CMD ["/bin/bash"]
-
-# Working directory
-WORKDIR /srv
-
-# Goss
-ENV GOSS_VERSION="0.3.1"
-RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
+# Clean
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
+    rm -rf /var/lib/apt/lists/*
