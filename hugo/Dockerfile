@@ -54,7 +54,7 @@ RUN apk add --no-cache nodejs yarn optipng libjpeg-turbo-utils imagemagick \
 ENV HUGO_VERSION="0.20.6"
 RUN curl -L https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
       | tar -zxvf - -C /tmp && \
-    mv /tmp/hugo_${HUGO_VERSION}_linux_amd64/hugo_${HUGO_VERSION}_linux_amd64 /usr/local/bin/hugo && \
+    mv /tmp/hugo /usr/local/bin/hugo && \
     rm -Rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
 
 # Pip packages
