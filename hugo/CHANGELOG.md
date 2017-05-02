@@ -6,13 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Update Goss 0.3.2
 - Update Hugo 0.20.6
 
 ## [0.3.0] - 2017-04-19
 ### Changed
 - Now based on alpine:edge
 - Node and Yarn as alpine packages (thus, Node downgraded to version 6)
-- Update Goss 0.3.2
 
 ### Added
 - Curl
