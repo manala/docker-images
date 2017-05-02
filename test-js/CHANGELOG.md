@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Node 7.9.0
 - Bash as default shell
+- Update Goss 0.3.2
 
 ## [0.1.0] - 2017-04-09
 ### Added

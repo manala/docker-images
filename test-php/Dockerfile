@@ -13,7 +13,7 @@ RUN curl -fsSL https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_
     chmod +x /usr/local/bin/dumb-init
 
 # Goss
-ENV GOSS_VERSION="0.3.1"
+ENV GOSS_VERSION="0.3.2"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
 # Php extensions

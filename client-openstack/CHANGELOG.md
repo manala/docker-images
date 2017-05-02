@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Now based on alpine:edge
 - Bash as default shell
 - Python as alpine packages (thus, downgraded to version 2.7)
+- Update Goss 0.3.2
 
 ### Added
 - Dumb-init 1.2.0

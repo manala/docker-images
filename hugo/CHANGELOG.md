@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Now based on alpine:edge
 - Node and Yarn as alpine packages (thus, Node downgraded to version 6)
+- Update Goss 0.3.2
 
 ### Added
 - Curl

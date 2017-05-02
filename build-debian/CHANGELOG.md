@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Dumb-init 1.2.0
 - Git
 
+### Changed
+- Update Goss 0.3.2
+
 ## [0.11.0] - 2017-04-05
 ### Changed
 - Replace unzip package by bsdtar
