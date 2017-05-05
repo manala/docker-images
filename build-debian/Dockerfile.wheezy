@@ -5,10 +5,10 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        adduser procps \
-        sudo apt-transport-https wget curl ca-certificates make git less vim
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
+      adduser procps \
+      sudo apt-transport-https wget curl ca-certificates make git less vim
 
 # Su exec
 ENV SU_EXEC_VERSION="0.2"
@@ -68,22 +68,22 @@ deb-src http://security.debian.org wheezy/updates main\n\
 deb http://httpredir.debian.org/debian wheezy-backports main\n\
 deb-src http://httpredir.debian.org/debian wheezy-backports main\n\
 deb http://httpredir.debian.org/debian wheezy-backports-sloppy main\n\
-deb-src http://httpredir.debian.org/debian wheezy-backports-sloppy main\n" > /etc/apt/sources.list \
-    && echo "Package: *\n\
+deb-src http://httpredir.debian.org/debian wheezy-backports-sloppy main\n" > /etc/apt/sources.list && \
+    echo "Package: *\n\
 Pin: release a=wheezy-backports\n\
-Pin-Priority: 600\n" > /etc/apt/preferences.d/backports \
-    && echo "Package: *\n\
+Pin-Priority: 600\n" > /etc/apt/preferences.d/backports && \
+    echo "Package: *\n\
 Pin: release a=wheezy-backports-sloppy\n\
-Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy \
-    && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade \
-    && DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-        bsdtar \
-        build-essential \
-        devscripts/wheezy-backports \
-        dh-exec \
-        dh-systemd/wheezy-backports \
-        fakeroot \
-        lintian/wheezy-backports-sloppy
+Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy && \
+    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
+      bsdtar \
+      build-essential \
+      devscripts/wheezy-backports \
+      dh-exec \
+      dh-systemd/wheezy-backports \
+      fakeroot \
+      lintian/wheezy-backports-sloppy
 
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
