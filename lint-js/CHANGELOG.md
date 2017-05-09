@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Curl
 
 ### Changed
-- Update Node 7.9.0
+- Update Node 7.10.0
 - Update ESLint 3.19.0
 - Bash as default shell
 - Update Goss 0.3.2
