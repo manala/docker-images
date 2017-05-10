@@ -1,4 +1,4 @@
-# Docker Image - Build - Debian [![Build Status](https://travis-ci.org/manala/docker-image-build-debian.svg?branch=master)](https://travis-ci.org/manala/docker-image-build-debian)
+# Docker Image - Ansible - Debian [![Build Status](https://travis-ci.org/manala/docker-image-ansible-debian.svg?branch=master)](https://travis-ci.org/manala/docker-image-ansible-debian)
 
 [![Docker Stars](https://img.shields.io/docker/stars/manala/ansible-debian.svg)]()
 [![Docker Pulls](https://img.shields.io/docker/pulls/manala/ansible-debian.svg)]()
@@ -10,14 +10,17 @@
 
 Provides ansible, and related tools.
 
-- Ansible
-- Ansible lint
+- Ansible-lint
 
 Provides also useful development tools.
 
 - Goss
 - Make
-- Git
+- Vim
+- Unzip
+- Less
+- Wget
+- Curl
 
 ## Development
 
