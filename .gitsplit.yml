@@ -3,6 +3,8 @@ cache_dir: "./.gitsplit"
 
 # List of splits.
 splits:
+  - prefix: ansible-debian
+    target: git@github.com:manala/docker-image-ansible-debian.git
   - prefix: build-debian
     target: git@github.com:manala/docker-image-build-debian.git
   - prefix: client-openstack
