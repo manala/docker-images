@@ -8,4 +8,44 @@
 
 ## Introduction
 
-Provides debian package building tools.
+Provides ansible, and related tools.
+
+- Ansible
+- Ansible lint
+
+Provides also useful development tools.
+
+- Goss
+- Make
+- Git
+
+## Development
+
+Requirements:
+- Docker
+- Make
+
+Build
+```
+make build
+make build@wheezy
+make build@jessie
+```
+
+Dev
+```
+make dev@wheezy
+make dev@jessie
+```
+
+Test
+```
+make test
+make test@wheezy
+make test@jessie
+```
+
+Updates:
+- Check for new [ansible](https://github.com/ansible/ansible/releases) release and update Dockerfiles and goss.yaml accordingly
+- Check for new [Ansible-lint](https://github.com/willthames/ansible-lint/releases) release and update Dockerfiles and goss.yaml accordingly
+- Check for new [Goss](https://github.com/aelsabbahy/goss/releases) release and update Dockerfiles accordingly

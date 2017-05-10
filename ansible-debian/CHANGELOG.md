@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.2.0.0-3] - 2017-05-10
 ### Added
 - Tests Makefile targets
 - Travis tests
@@ -14,6 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Keep python-pip package for goss tests
 - Update Ansible-lint 3.4.13
 - Update Goss 0.2.6
+- Docker entrypoint to dynamically set non-root user
 
 ### Fixed
 - Curl package was first installed in Dockerfile, then, re-installed by goss script, and, finally, removed by same goss script
