@@ -8,6 +8,11 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Hugo 0.20.7
 
+### Added
+- Gifsicle
+- Pngquant
+- Svgo
+
 ## [0.3.1] - 2017-05-01
 ### Changed
 - Update Goss 0.3.2

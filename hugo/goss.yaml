@@ -24,6 +24,10 @@ package:
     installed: true
   imagemagick:
     installed: true
+  gifsicle:
+    installed: true
+  pngquant:
+    installed: true
 
 ############
 # Commands #
@@ -35,6 +39,14 @@ command:
     stderr:
       - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
   # Custom
+  npm --global list --depth=1:
+    exit-status: 0
+    stdout:
+      - svgo@{{ .Env.SVGO_VERSION }}
+  svgo --version:
+    exit-status: 0
+    stdout:
+      - {{ .Env.SVGO_VERSION }}
   hugo version:
     exit-status: 0
     stdout:

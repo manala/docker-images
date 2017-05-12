@@ -45,10 +45,21 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 # Custom #
 ##########
 
+# Alpine repositories
+RUN echo -e "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing\n" >> /etc/apk/repositories
+
 # Packages
-RUN apk add --no-cache nodejs yarn optipng libjpeg-turbo-utils imagemagick \
+RUN apk add --no-cache nodejs nodejs-npm yarn \
+# Image tools
+      optipng libjpeg-turbo-utils imagemagick gifsicle pngquant@testing \
 # Compilation (optipng,gifsicle,pngquant,mozjpeg,...)
-    gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev
+      gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev
+
+# Npm packages
+ENV SVGO_VERSION="0.7.2"
+RUN npm --global install \
+      svgo@${SVGO_VERSION} \
+    && rm -rf /root/.npm
 
 # Hugo
 ENV HUGO_VERSION="0.20.7"
