@@ -54,7 +54,7 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Composer packages
-ENV PHPUNIT_VERSION="6.1.0"
+ENV PHPUNIT_VERSION="6.1.4"
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       phpunit/phpunit:${PHPUNIT_VERSION} \
     && rm -rf /root/.composer
