@@ -8,7 +8,6 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Goss 0.2.5
 - Make 4.1
-- Git 2.8.3
+- Git 2.8.5
 - PHP 5.6.30
-- Composer 1.4.2
 - Openl10n CLI 0.2.1

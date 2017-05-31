@@ -28,10 +28,6 @@ command:
     exit-status: 0
     stdout:
       - PHP {{ .Env.PHP_VERSION }}
-  composer --version:
-    exit-status: 0
-    stdout:
-      - Composer version {{ .Env.COMPOSER_VERSION }}
   # Custom
   openl10n --version:
     exit-status: 0

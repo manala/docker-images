@@ -48,11 +48,6 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 # Php extensions
 RUN docker-php-ext-install calendar
 
-# Composer
-ENV COMPOSER_VERSION="1.4.2"
-RUN curl -L https://getcomposer.org/installer \
-        | php -- --install-dir /usr/local/bin --filename composer --version ${COMPOSER_VERSION}
-
 # Openl10n
 # Must be installed by downloading the phar file because of openl10n issue
 # See https://github.com/openl10n/openl10n-cli/issues/46
