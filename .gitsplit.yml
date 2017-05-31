@@ -19,6 +19,8 @@ splits:
     target: git@github.com:manala/docker-image-lint-js.git
   - prefix: lint-php
     target: git@github.com:manala/docker-image-lint-php.git
+  - prefix: openl10n-cli
+    target: git@github.com:manala/docker-image-openl10n-cli.git
   - prefix: test-js
     target: git@github.com:manala/docker-image-test-js.git
   - prefix: test-php
