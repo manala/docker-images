@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- Update PHP 7.1.4
+- Update PHP 7.1.5
 - Bash as default shell
 - Update Goss 0.3.2
 
