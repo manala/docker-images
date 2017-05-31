@@ -35,7 +35,7 @@ dev:
 	docker run \
 		--rm \
 		--volume `pwd`:/srv \
-		--tty --interactive \
+		--tty \
 		--env USER_ID=`id -u` \
 		--env GROUP_ID=`id -g` \
 		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG},latest)

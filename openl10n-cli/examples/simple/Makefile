@@ -3,7 +3,7 @@
 
 DOCKER = DIR=`pwd`; docker run \
 	--rm \
-	--interactive \
+	--tty \
 	--volume $$DIR:$$DIR \
 	--workdir $$DIR \
 	manala/openl10n-cli

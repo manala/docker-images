@@ -35,7 +35,7 @@ Run
 ```
 DIR=`pwd`; docker run \
   --rm \
-  --interactive \
+  --tty \
   --volume $DIR:$DIR \
   --workdir $DIR \
   --env USER_ID=`id -u` \
@@ -50,7 +50,7 @@ openl10n() {
   DIR=`pwd`
   docker run \
     --rm \
-    --interactive \
+    --tty \
     --volume $DIR:$DIR \
     --workdir $DIR \
     --env USER_ID=`id -u` \
@@ -66,7 +66,7 @@ alias openl10n='f() {
   DIR=`pwd`
   docker run \
     --rm \
-    --interactive \
+    --tty \
     --volume $DIR:$DIR \
     --workdir $DIR \
     --env USER_ID=`id -u` \
@@ -83,7 +83,7 @@ Script `/usr/local/bin/openl10n`
 DIR=`pwd`
 docker run \
   --rm \
-  --interactive \
+  --tty \
   --volume $DIR:$DIR \
   --workdir $DIR \
   --env USER_ID=`id -u` \
