@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update PHP 7.1.5
 - Bash as default shell
 - Update Goss 0.3.2
+- Update Composer 1.4.2
 
 ### Added
 - Dumb-init 1.2.0
