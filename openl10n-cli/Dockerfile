@@ -53,8 +53,8 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 # Custom #
 ##########
 
-# Composer packages
+# Openl10n
 ENV OPENL10N_CLI_VERSION="0.2.1"
-RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
-      openl10n/cli:${OPENL10N_CLI_VERSION} \
-    && rm -rf /root/.composer
+RUN curl -L -o /usr/local/bin/openl10n \
+    https://github.com/openl10n/openl10n-cli/releases/download/v${OPENL10N_CLI_VERSION}/openl10n.phar && \
+    chmod +x /usr/local/bin/openl10n

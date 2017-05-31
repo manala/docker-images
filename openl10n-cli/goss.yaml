@@ -33,14 +33,10 @@ command:
     stdout:
       - Composer version {{ .Env.COMPOSER_VERSION }}
   # Custom
-  COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
-    exit-status: 0
-    stdout:
-      - /openl10n\/cli\s+v{{ .Env.OPENL10N_CLI_VERSION }}/
   openl10n --version:
     exit-status: 0
     stdout:
-      - openl10n version @package_version@
+      - openl10n version v{{ .Env.OPENL10N_CLI_VERSION }}
 
 ##########
 # Groups #
