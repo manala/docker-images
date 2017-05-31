@@ -1,0 +1,61 @@
+############
+# Packages #
+############
+
+package:
+  su-exec:
+    installed: true
+  bash:
+    installed: true
+  curl:
+    installed: true
+  make:
+    installed: true
+  git:
+    installed: true
+  # Custom
+
+############
+# Commands #
+############
+
+command:
+  dumb-init --version:
+    exit-status: 0
+    stderr:
+      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
+  php --version:
+    exit-status: 0
+    stdout:
+      - PHP {{ .Env.PHP_VERSION }}
+  composer --version:
+    exit-status: 0
+    stdout:
+      - Composer version {{ .Env.COMPOSER_VERSION }}
+  # Custom
+  openl10n --version:
+    exit-status: 0
+    stdout:
+      - openl10n version v{{ .Env.OPENL10N_CLI_VERSION }}
+
+##########
+# Groups #
+##########
+
+group:
+  {{ .Env.GROUP_DEFAULT }}:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  {{ .Env.USER_DEFAULT }}:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
+    shell: /bin/bash
