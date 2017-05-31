@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Goss 0.3.2
 - Update Composer 1.4.2
 - Update PHP CS Fixer 2.3.2
+- Update PHPStan 0.7
 
 ### Added
 - Dumb-init 1.2.0
