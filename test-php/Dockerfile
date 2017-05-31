@@ -16,14 +16,6 @@ RUN curl -fsSL https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_
 ENV GOSS_VERSION="0.3.2"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
-# Php extensions
-RUN docker-php-ext-install calendar
-
-# Composer
-ENV COMPOSER_VERSION="1.4.2"
-RUN curl -L https://getcomposer.org/installer \
-        | php -- --install-dir /usr/local/bin --filename composer --version ${COMPOSER_VERSION}
-
 # Entrypoint
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
@@ -52,6 +44,14 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 # Custom #
 ##########
+
+# Php extensions
+RUN docker-php-ext-install calendar
+
+# Composer
+ENV COMPOSER_VERSION="1.4.2"
+RUN curl -L https://getcomposer.org/installer \
+        | php -- --install-dir /usr/local/bin --filename composer --version ${COMPOSER_VERSION}
 
 # Composer packages
 ENV PHPUNIT_VERSION="6.1.4"
