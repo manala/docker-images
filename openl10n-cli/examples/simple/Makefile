@@ -1,5 +1,5 @@
 .SILENT:
-.PHONY: lint fix
+.PHONY: trans-pull
 
 DOCKER = DIR=`pwd`; docker run \
 	--rm \
