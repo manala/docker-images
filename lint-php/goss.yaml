@@ -28,11 +28,11 @@ command:
     exit-status: 0
     stdout:
       - PHP {{ .Env.PHP_VERSION }}
+  # Custom
   composer --version:
     exit-status: 0
     stdout:
       - Composer version {{ .Env.COMPOSER_VERSION }}
-  # Custom
   COMPOSER_HOME=/usr/local/share/composer composer global info --direct:
     exit-status: 0
     stdout:
