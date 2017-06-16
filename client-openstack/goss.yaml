@@ -13,6 +13,8 @@ package:
     installed: true
   git:
     installed: true
+  dumb-init:
+    installed: true
   # Custom
 
 ############
@@ -20,10 +22,6 @@ package:
 ############
 
 command:
-  dumb-init --version:
-    exit-status: 0
-    stderr:
-      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
   # Custom
   pip list:
     exit-status: 0
