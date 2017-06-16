@@ -62,8 +62,8 @@ RUN npm --global install \
     && rm -rf /root/.npm
 
 # Hugo
-ENV HUGO_VERSION="0.21"
-RUN curl -L https://github.com/spf13/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
+ENV HUGO_VERSION="0.23"
+RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
       | tar -zxvf - -C /tmp && \
     mv /tmp/hugo /usr/local/bin/hugo && \
     rm -Rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
