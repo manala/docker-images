@@ -13,6 +13,8 @@ package:
     installed: true
   git:
     installed: true
+  dumb-init:
+    installed: true
   # Custom
   rsync:
     installed: true
@@ -24,10 +26,7 @@ package:
 ############
 
 command:
-  dumb-init --version:
-    exit-status: 0
-    stderr:
-      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
+  # Custom
 
 #########
 # Files #
