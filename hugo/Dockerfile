@@ -46,13 +46,10 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 # Custom #
 ##########
 
-# Alpine repositories
-RUN echo -e "@testing http://dl-cdn.alpinelinux.org/alpine/edge/testing\n" >> /etc/apk/repositories
-
 # Packages
 RUN apk add --no-cache nodejs nodejs-npm yarn \
 # Image tools
-      optipng libjpeg-turbo-utils imagemagick gifsicle pngquant@testing \
+      optipng libjpeg-turbo-utils imagemagick gifsicle pngquant \
 # Compilation (optipng,gifsicle,pngquant,mozjpeg,...)
       gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev
 
