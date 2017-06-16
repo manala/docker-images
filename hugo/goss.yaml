@@ -13,6 +13,8 @@ package:
     installed: true
   git:
     installed: true
+  dumb-init:
+    installed: true
   # Custom
   nodejs:
     installed: true
@@ -34,10 +36,6 @@ package:
 ############
 
 command:
-  dumb-init --version:
-    exit-status: 0
-    stderr:
-      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
   # Custom
   npm --global list --depth=1:
     exit-status: 0

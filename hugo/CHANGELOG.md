@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Hugo 0.23
+- Dumb-init as alpine packages
 
 ## [0.3.3] - 2017-05-23
 ### Changed
