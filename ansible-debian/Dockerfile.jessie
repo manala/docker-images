@@ -7,7 +7,10 @@ USER root
 # Packages
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-      sudo apt-transport-https wget curl ca-certificates make git less vim
+# System
+      sudo apt-transport-https ca-certificates \
+# Tools
+      less vim wget curl make git
 
 # Su exec
 ENV SU_EXEC_VERSION="0.2"
