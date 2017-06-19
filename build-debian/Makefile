@@ -12,7 +12,7 @@ DOCKER_IMAGE = manala/build-debian
 DOCKER_TAG  ?= dev
 
 # Debian
-DEBIAN_DISTRIBUTION ?= wheezy jessie
+DEBIAN_DISTRIBUTION ?= wheezy jessie stretch
 
 ## Help
 help:
@@ -51,6 +51,10 @@ dev@wheezy: dev
 dev@jessie: DEBIAN_DISTRIBUTION = jessie
 dev@jessie: dev
 
+## Dev - Stretch
+dev@stretch: DEBIAN_DISTRIBUTION = stretch
+dev@stretch: dev
+
 #########
 # Build #
 #########
@@ -77,6 +81,10 @@ build@wheezy: build
 build@jessie: DEBIAN_DISTRIBUTION = jessie
 build@jessie: build
 
+## Build - Stretch
+build@stretch: DEBIAN_DISTRIBUTION = stretch
+build@stretch: build
+
 #########
 # Test #
 #########
@@ -102,3 +110,7 @@ test@wheezy: test
 ## Test - Jessie
 test@jessie: DEBIAN_DISTRIBUTION = jessie
 test@jessie: test
+
+## Test - Stretch
+test@stretch: DEBIAN_DISTRIBUTION = stretch
+test@stretch: test

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Dumb-init 1.2.0
 - Git
+- Stretch support
 
 ### Changed
 - Update Goss 0.3.2

@@ -33,12 +33,14 @@ Build
 make build
 make build@wheezy
 make build@jessie
+make build@stretch
 ```
 
 Dev
 ```
 make dev@wheezy
 make dev@jessie
+make dev@stretch
 ```
 
 Test
@@ -46,6 +48,7 @@ Test
 make test
 make test@wheezy
 make test@jessie
+make test@stretch
 ```
 
 Updates:

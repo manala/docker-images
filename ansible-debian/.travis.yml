@@ -8,6 +8,7 @@ services:
 env:
   - DEBIAN_DISTRIBUTION=wheezy
   - DEBIAN_DISTRIBUTION=jessie
+  - DEBIAN_DISTRIBUTION=stretch
 
 script:
   - make build
