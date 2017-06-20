@@ -7,7 +7,7 @@ USER root
 # Packages
 RUN apk add --no-cache su-exec bash curl make git
 
-# Dump init
+# Dumb init
 ENV DUMB_INIT_VERSION="1.2.0"
 RUN curl -fsSL https://github.com/Yelp/dumb-init/releases/download/v${DUMB_INIT_VERSION}/dumb-init_${DUMB_INIT_VERSION}_amd64 -o /usr/local/bin/dumb-init && \
     chmod +x /usr/local/bin/dumb-init
