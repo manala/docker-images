@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Bash as default shell
 - Update Goss 0.3.2
 - Update Composer 1.4.2
-- Update PHPUnit 6.1.4
+- Update PHPUnit 6.2.2
 
 ### Added
 - Dumb-init 1.2.0
