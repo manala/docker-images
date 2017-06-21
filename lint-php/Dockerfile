@@ -5,7 +5,13 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
-RUN apk add --no-cache su-exec bash curl make git
+RUN apk add --no-cache \
+# Entrypoint
+      su-exec \
+# Command
+      bash \
+# Tools
+      curl make git
 
 # Dumb init
 ENV DUMB_INIT_VERSION="1.2.0"
