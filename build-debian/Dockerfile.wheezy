@@ -80,7 +80,7 @@ Pin: release a=wheezy-backports-sloppy\n\
 Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-      bsdtar \
+      bsdtar/wheezy-backports \
       build-essential \
       devscripts/wheezy-backports \
       dh-exec \
