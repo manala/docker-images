@@ -79,6 +79,7 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports && \
       devscripts/jessie-backports \
       dh-exec/jessie-backports \
       dh-systemd/jessie-backports \
+      equivs \
       fakeroot \
       lintian/jessie-backports
 

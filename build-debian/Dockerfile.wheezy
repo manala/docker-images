@@ -85,6 +85,7 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy && \
       devscripts/wheezy-backports \
       dh-exec \
       dh-systemd/wheezy-backports \
+      equivs \
       fakeroot \
       lintian/wheezy-backports-sloppy
 
