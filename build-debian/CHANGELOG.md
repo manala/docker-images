@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Equivs (mk-build-deps dependency)
+
+### Changed
 - Bsdtar backports for wheezy
 
 ## [0.11.1] - 2017-06-19
