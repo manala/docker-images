@@ -76,10 +76,9 @@ Pin-Priority: 600\n" > /etc/apt/preferences.d/backports && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar \
       build-essential \
-      devscripts/jessie-backports \
+      devscripts/jessie-backports equivs libwww-perl libjson-perl \
       dh-exec/jessie-backports \
       dh-systemd/jessie-backports \
-      equivs \
       fakeroot \
       lintian/jessie-backports
 

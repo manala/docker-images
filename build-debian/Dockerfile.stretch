@@ -65,10 +65,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar \
       build-essential \
-      devscripts \
+      devscripts equivs libwww-perl libjson-perl \
       dh-exec \
       dh-systemd \
-      equivs \
       fakeroot \
       lintian
 
