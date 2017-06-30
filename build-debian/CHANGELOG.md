@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.11.3] - 2017-06-30
 ### Added
 - libwww-perl & libjson-perl (debsnap dependencies)
 
