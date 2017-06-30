@@ -1,0 +1,98 @@
+.DEFAULT_GOAL := help
+.PHONY: help confirm manala
+
+#############
+# Variables #
+#############
+
+# !!! Please, don't expose MANALA_* variables in your project, !!!
+# !!! use your template Makefile to define custom mapped ones  !!!
+
+# MANALA_CURRENT_DIR [String]  Current directory
+# MANALA_DIR         [String]  Manala base directory
+# MANALA_ENV         [String]  Environment
+# MANALA_HELP        [String]  Help content
+# MANALA_INTERACTIVE [Empty]|1 Run in interactive mode
+
+# Current dir
+MANALA_CURRENT_DIR = $(CURDIR)
+
+# Colors
+MANALA_COLOR_RESET   = \033[0m
+MANALA_COLOR_ERROR   = \033[31m
+MANALA_COLOR_INFO    = \033[32m
+MANALA_COLOR_WARNING = \033[33m
+MANALA_COLOR_COMMENT = \033[36m
+
+########
+# Help #
+########
+
+define help_section
+	\n$(MANALA_COLOR_COMMENT)$(1):$(MANALA_COLOR_RESET)
+endef
+
+define help
+  \n  $(MANALA_COLOR_INFO)$(1)$(MANALA_COLOR_RESET) $(2)
+endef
+
+MANALA_HELP = \
+	$(call help_section,Usage)\
+	\n  make [target]\n\
+	$(call help_section,Help)\
+	$(call help,help,This help)\
+	\n
+
+help:
+	@printf "$(MANALA_HELP)"
+ifneq ($(MANALA_CURRENT_DIR),$(MANALA_DIR))
+	@awk '/^[a-zA-Z\-\_0-9\.@%]+:/ { \
+		helpMessage = match(lastLine, /^## (.*)/); \
+		if (helpMessage) { \
+			helpCommand = substr($$1, 0, index($$1, ":")); \
+			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
+			printf "\n  $(MANALA_COLOR_INFO)%-20s$(MANALA_COLOR_RESET) %s", helpCommand, helpMessage; \
+		} \
+	} \
+	{ lastLine = $$0 }' $(MAKEFILE_LIST)
+endif
+	@printf "\n\n"
+
+###############
+# Interactive #
+###############
+
+MANALA_INTERACTIVE := $(shell [ -t 0 ] && echo 1)
+
+#######
+# Log #
+#######
+
+define log
+    printf "\n[$(MANALA_COLOR_COMMENT)$(shell date -u +"%T")$(MANALA_COLOR_RESET)][$(MANALA_COLOR_COMMENT)$(@)$(MANALA_COLOR_RESET)] $(MANALA_COLOR_INFO)$(1)$(MANALA_COLOR_RESET)\n\n"
+endef
+
+# Warning
+define log_warning
+    printf "\n[$(MANALA_COLOR_COMMENT)¯\_(ツ)_/¯$(MANALA_COLOR_RESET)] $(MANALA_COLOR_WARNING)$(1)$(MANALA_COLOR_RESET)\n\n"
+endef
+
+# Error
+define log_error
+    printf "\n[$(MANALA_COLOR_COMMENT)(╯°□°)╯︵ ┻━┻$(MANALA_COLOR_RESET)] $(MANALA_COLOR_ERROR)$(1)$(MANALA_COLOR_RESET)\n\n"
+endef
+
+###########
+# Confirm #
+###########
+
+confirm:
+	@printf "\n$(MANALA_COLOR_INFO) ༼ つ ◕_◕ ༽つ $(MANALA_COLOR_WARNING)$(if $(CONFIRM_MESSAGE),$(CONFIRM_MESSAGE),Please confirm) (y/N)$(MANALA_COLOR_RESET): "
+	@read CONFIRM ; if [ "$$CONFIRM" != "y" ]; then exit 1; fi
+
+##########
+# Manala #
+##########
+
+manala:
+	@curl -s -L http://bit.ly/10hA8iC | bash

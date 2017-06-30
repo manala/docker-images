@@ -1,0 +1,25 @@
+###############
+# Environment #
+###############
+
+MANALA_ENV ?= local
+
+!@%:
+	@if [ "$(MANALA_ENV)" != "$(*)" ]; then \
+		$(call log_error,Must be run in $(*) environment); \
+		exit 1; \
+	fi
+
+#########
+# Proxy #
+#########
+
+ifeq ($(MANALA_ENV),local)
+define proxy
+	$(1)@proxy
+endef
+else
+define proxy
+	$(1)@$(MANALA_ENV)
+endef
+endif

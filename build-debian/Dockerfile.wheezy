@@ -10,6 +10,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
 # System
       adduser procps \
       sudo apt-transport-https ca-certificates \
+# Command
+      bash bash-completion \
 # Tools
       less vim wget curl make git
 
@@ -32,10 +34,11 @@ ENV GOSS_VERSION="0.3.2"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
 # Entrypoint
-COPY entrypoint.sh /usr/local/bin/
+COPY manala/docker/entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Default command
+# Command
+COPY manala/bash/bash.bashrc /etc/bash.bashrc
 CMD ["/bin/bash"]
 
 # Working directory
@@ -48,14 +51,15 @@ WORKDIR /srv
 ARG USER_ID
 ARG GROUP_ID
 
-ENV USER_DEFAULT="build" \
+ENV USER_DEFAULT="manala" \
     USER_ID="${USER_ID:-1000}" \
     USER_SUDO="1" \
-    GROUP_DEFAULT="build" \
+    GROUP_DEFAULT="manala" \
     GROUP_ID="${GROUP_ID:-1000}"
 
 RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
-    adduser --disabled-password --shell /bin/bash --gecos ${USER_DEFAULT} --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
+    adduser --disabled-password --shell /bin/bash --gecos ${USER_DEFAULT} --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT} && \
+    rm -Rf /home/${USER_DEFAULT}/.bashrc
 
 ##########
 # Custom #

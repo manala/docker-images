@@ -11,8 +11,8 @@ env:
   - DEBIAN_DISTRIBUTION=stretch
 
 script:
-  - make build
-  - make test
+  - make build.$DEBIAN_DISTRIBUTION
+  - make test.$DEBIAN_DISTRIBUTION
 
 notifications:
   webhooks:

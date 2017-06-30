@@ -39,7 +39,6 @@ command:
 group:
   {{ .Env.GROUP_DEFAULT }}:
     exists: true
-    gid:    {{ .Env.GROUP_ID }}
 
 #########
 # Users #
@@ -48,8 +47,5 @@ group:
 user:
   {{ .Env.USER_DEFAULT }}:
     exists: true
-    uid:    {{ .Env.USER_ID }}
-    groups:
-      - {{ .Env.GROUP_DEFAULT }}
     home:  /home/{{ .Env.USER_DEFAULT }}
     shell: /bin/bash
