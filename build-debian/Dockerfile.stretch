@@ -65,11 +65,8 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar \
       build-essential \
-      devscripts equivs libwww-perl libjson-perl \
-      dh-exec \
-      dh-systemd \
-      fakeroot \
-      lintian
+      devscripts gnupg fakeroot lintian equivs libwww-perl libjson-perl \
+      dh-exec dh-systemd
 
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \

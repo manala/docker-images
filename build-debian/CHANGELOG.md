@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- gnupg (mainly used by nodesource nodejs install script)
 
 ## [0.11.3] - 2017-06-30
 ### Added
