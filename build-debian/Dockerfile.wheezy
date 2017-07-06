@@ -82,7 +82,7 @@ Pin-Priority: 700\n" > /etc/apt/preferences.d/backports-sloppy && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar/wheezy-backports \
       build-essential \
-      devscripts/wheezy-backports gnupg fakeroot lintian/wheezy-backports-sloppy equivs libwww-perl libjson-perl \
+      devscripts/wheezy-backports gnupg debian-keyring fakeroot lintian/wheezy-backports-sloppy equivs libwww-perl libjson-perl \
       dh-exec dh-systemd/wheezy-backports
 
 # Clean

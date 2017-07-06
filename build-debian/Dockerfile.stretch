@@ -65,7 +65,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar \
       build-essential \
-      devscripts gnupg fakeroot lintian equivs libwww-perl libjson-perl \
+      devscripts gnupg debian-keyring fakeroot lintian equivs libwww-perl libjson-perl \
       dh-exec dh-systemd
 
 # Clean
