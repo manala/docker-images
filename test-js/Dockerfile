@@ -15,7 +15,7 @@ RUN apk add --no-cache --virtual=dumb-init-dependencies curl && \
     apk del dumb-init-dependencies
 
 # Goss
-ENV GOSS_VERSION="0.3.2"
+ENV GOSS_VERSION="0.3.3"
 RUN apk add --no-cache --virtual=goss-dependencies curl && \
     curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh && \
     apk del goss-dependencies

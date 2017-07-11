@@ -12,7 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Node 7.10.0
 - Bash as default shell
-- Update Goss 0.3.2
+- Update Goss 0.3.3
 
 ## [0.3.3] - 2017-04-10
 ### Changed

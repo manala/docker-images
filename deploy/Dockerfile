@@ -14,7 +14,7 @@ RUN apk add --no-cache \
       curl make git dumb-init
 
 # Goss
-ENV GOSS_VERSION="0.3.2"
+ENV GOSS_VERSION="0.3.3"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
 # Entrypoint
