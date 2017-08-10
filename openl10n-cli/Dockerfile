@@ -51,7 +51,7 @@ RUN docker-php-ext-install calendar
 # Openl10n
 # Must be installed by downloading the phar file because of openl10n issue
 # See https://github.com/openl10n/openl10n-cli/issues/46
-ENV OPENL10N_CLI_VERSION="0.2.1"
+ENV OPENL10N_CLI_VERSION="0.2.0"
 RUN curl -L -o /usr/local/bin/openl10n \
     https://github.com/openl10n/openl10n-cli/releases/download/v${OPENL10N_CLI_VERSION}/openl10n.phar && \
     chmod +x /usr/local/bin/openl10n
