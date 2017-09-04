@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - bash-completion
+- jessie-backports-sloppy repository
+- stretch-backports repository
 
 ### Changed
 - Update Goss 0.3.4

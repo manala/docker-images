@@ -5,6 +5,8 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
+COPY apt/sources.jessie     /etc/apt/sources.list
+COPY apt/preferences.jessie /etc/apt/preferences.d/preferences
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
 # System
@@ -36,7 +38,7 @@ RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Default command
+# Shell
 CMD ["/bin/bash"]
 
 # Working directory
@@ -63,23 +65,10 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Packages
-RUN echo "deb http://httpredir.debian.org/debian jessie main\n\
-deb-src http://httpredir.debian.org/debian jessie main\n\
-deb http://httpredir.debian.org/debian jessie-updates main\n\
-deb-src http://httpredir.debian.org/debian jessie-updates main\n\
-deb http://security.debian.org/ jessie/updates main\n\
-deb-src http://security.debian.org/ jessie/updates main\n\
-deb http://httpredir.debian.org/debian jessie-backports main\n\
-deb-src http://httpredir.debian.org/debian jessie-backports main\n" > /etc/apt/sources.list && \
-    echo "Package: *\n\
-Pin: release a=jessie-backports\n\
-Pin-Priority: 600\n" > /etc/apt/preferences.d/backports && \
-    apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
+RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar \
       build-essential \
-      devscripts/jessie-backports gnupg debian-keyring fakeroot lintian/jessie-backports equivs libwww-perl libjson-perl \
-      dh-exec/jessie-backports dh-systemd/jessie-backports
+      devscripts gnupg debian-keyring fakeroot lintian equivs libwww-perl libjson-perl
 
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
