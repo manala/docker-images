@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- Update Goss 0.3.3
+- Update Goss 0.3.4
 
 ## [0.11.5] - 2017-07-06
 ### Added
