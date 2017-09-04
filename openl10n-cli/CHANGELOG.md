@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [1.0.0] - 2017-09-04
 ### Changed
 - Downgrade to Openl10n CLI 0.2.0
 - Update Goss 0.3.4
