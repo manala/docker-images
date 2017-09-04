@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Downgrade to Openl10n CLI 0.2.0
-- Update Goss 0.3.3
+- Update Goss 0.3.4
 - Update PHP 5.6.31
 
 ## [1.0.0] - 2017-06-01
