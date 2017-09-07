@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - procps on every distributions
+- Enhance goss tests
 
 ## [0.12.0] - 2017-09-04
 ### Added
