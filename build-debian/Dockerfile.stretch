@@ -14,7 +14,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
 # Shell
       bash bash-completion \
 # Tools
-      less vim wget curl make git
+      procps less vim wget curl make git
 
 # Su exec
 ENV SU_EXEC_VERSION="0.2"

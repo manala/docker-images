@@ -3,6 +3,8 @@
 ############
 
 package:
+  procps:
+    installed: true
   wget:
     installed: true
   curl:
