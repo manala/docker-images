@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.12.1] - 2017-09-07
 ### Added
 - procps on every distributions
 - Enhance goss tests
