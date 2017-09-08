@@ -65,7 +65,7 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 
 # Pip packages
 ENV JINJA2_VERSION="2.8" \
-    ANSIBLE_VERSION="2.2.1.0" \
+    ANSIBLE_VERSION="2.3.1.0" \
     ANSIBLE_LINT_VERSION="3.4.15"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       python python-setuptools python-dev libssl-dev && \
