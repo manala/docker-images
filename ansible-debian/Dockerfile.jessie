@@ -5,6 +5,7 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
+COPY apt/sources.jessie /etc/apt/sources.list
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
 # System
@@ -36,7 +37,7 @@ RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Default command
+# Shell
 CMD ["/bin/bash"]
 
 # Working directory
