@@ -75,8 +75,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       ansible-lint==${ANSIBLE_LINT_VERSION}
 
 # Ansible hosts
-RUN mkdir -p /etc/ansible && \
-    echo "wheezy ansible_connection=local\n" > /etc/ansible/hosts
+COPY ansible/hosts.wheezy /etc/ansible/hosts
 
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
