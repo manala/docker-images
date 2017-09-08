@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - bash-completion
+- procps on every distributions
 ### Changed
 - Update Goss 0.3.4
 - Switch to default user name "manala"
