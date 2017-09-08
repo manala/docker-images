@@ -26,6 +26,8 @@ package:
   # Custom
   bsdtar:
     installed: true
+  unzip:
+    installed: true
   build-essential:
     installed: true
 
