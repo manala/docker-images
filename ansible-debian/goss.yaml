@@ -3,6 +3,11 @@
 ############
 
 package:
+  # Shell
+  bash:
+    installed: true
+  bash-completion:
+    installed: true
   wget:
     installed: true
   curl:
