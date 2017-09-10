@@ -1,0 +1,79 @@
+############
+# Packages #
+############
+
+package:
+  # Shell
+  bash:
+    installed: true
+  bash-completion:
+    installed: true
+  # Tools
+  procps:
+    installed: true
+  less:
+    installed: true
+  vim:
+    installed: true
+  wget:
+    installed: true
+  curl:
+    installed: true
+  make:
+    installed: true
+  git:
+    installed: true
+  # Custom
+
+############
+# Commands #
+############
+
+command:
+  su-exec:
+    exit-status: 0
+  dumb-init --version:
+    exit-status: 0
+    stderr:
+      - dumb-init v{{ .Env.DUMB_INIT_VERSION }}
+  goss --version:
+    exit-status: 0
+    stdout:
+      - goss version v{{ .Env.GOSS_VERSION }}
+  # Custom
+  pip list:
+    exit-status: 0
+    stdout:
+      - Jinja2 ({{ .Env.JINJA2_VERSION }})
+      - ansible ({{ .Env.ANSIBLE_VERSION }})
+      - ansible-lint ({{ .Env.ANSIBLE_LINT_VERSION }})
+  ansible --version:
+    exit-status: 0
+    stdout:
+      - ansible {{ .Env.ANSIBLE_VERSION }}
+  ansible-lint --version:
+    exit-status: 0
+    stdout:
+      - ansible-lint {{ .Env.ANSIBLE_LINT_VERSION }}
+
+##########
+# Groups #
+##########
+
+group:
+  {{ .Env.GROUP_DEFAULT }}:
+    exists: true
+    gid:    {{ .Env.GROUP_ID }}
+
+#########
+# Users #
+#########
+
+user:
+  {{ .Env.USER_DEFAULT }}:
+    exists: true
+    uid:    {{ .Env.USER_ID }}
+    groups:
+      - {{ .Env.GROUP_DEFAULT }}
+    home:  /home/{{ .Env.USER_DEFAULT }}
+    shell: /bin/bash

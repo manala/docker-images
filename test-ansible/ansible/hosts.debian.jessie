@@ -1,0 +1,2 @@
+debian ansible_connection=local
+debian.jessie ansible_connection=local
