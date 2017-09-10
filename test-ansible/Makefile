@@ -12,7 +12,7 @@ DOCKER_IMAGE = manala/test-ansible
 DOCKER_TAG  ?= edge
 
 # Distributions
-DISTRIBUTIONS ?= debian.wheezy debian.jessie debian.stretch
+DISTRIBUTIONS ?= debian.wheezy debian.jessie debian.stretch centos.7
 
 ## Help
 help:
@@ -24,7 +24,7 @@ help:
 		if (helpMessage) { \
 			helpCommand = substr($$1, 0, index($$1, ":")); \
 			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
-			printf " ${COLOR_INFO}%-16s${COLOR_RESET} %s\n", helpCommand, helpMessage; \
+			printf " ${COLOR_INFO}%-20s${COLOR_RESET} %s\n", helpCommand, helpMessage; \
 		} \
 	} \
 	{ lastLine = $$0 }' ${MAKEFILE_LIST}
@@ -54,6 +54,10 @@ dev@debian.jessie: dev
 ## Dev - Debian Stretch
 dev@debian.stretch: DISTRIBUTION = debian.stretch
 dev@debian.stretch: dev
+
+## Dev - CentOS 7
+dev@centos.7: DISTRIBUTION = centos.7
+dev@centos.7: dev
 
 #########
 # Build #
@@ -85,6 +89,10 @@ build@debian.jessie: build
 build@debian.stretch: DISTRIBUTIONS = debian.stretch
 build@debian.stretch: build
 
+## Build - CentOS 7
+build@centos.7: DISTRIBUTIONS = centos.7
+build@centos.7: build
+
 #########
 # Test #
 #########
@@ -114,3 +122,7 @@ test@debian.jessie: test
 ## Test - Debian Stretch
 test@debian.stretch: DISTRIBUTIONS = debian.stretch
 test@debian.stretch: test
+
+## Test - CentOS 7
+test@centos.7: DISTRIBUTIONS = centos.7
+test@centos.7: test

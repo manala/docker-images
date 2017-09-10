@@ -28,6 +28,7 @@ Requirements:
 Build
 ```
 make build
+make build@centos.7
 make build@debian.wheezy
 make build@debian.jessie
 make build@debian.stretch
@@ -35,6 +36,7 @@ make build@debian.stretch
 
 Dev
 ```
+make dev@centos.7
 make dev@debian.wheezy
 make dev@debian.jessie
 make dev@debian.stretch
@@ -43,6 +45,7 @@ make dev@debian.stretch
 Test
 ```
 make test
+make test@centos.7
 make test@debian.wheezy
 make test@debian.jessie
 make test@debian.stretch

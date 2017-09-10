@@ -4,16 +4,15 @@
 
 package:
   # Shell
+  sudo:
+    installed: true
+  # Shell
   bash:
     installed: true
   bash-completion:
     installed: true
   # Tools
-  procps:
-    installed: true
   less:
-    installed: true
-  vim:
     installed: true
   wget:
     installed: true

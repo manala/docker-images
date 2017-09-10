@@ -74,7 +74,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
     pip --no-cache-dir --disable-pip-version-check install \
       Jinja2==${JINJA2_VERSION} \
       ansible==${ANSIBLE_VERSION} \
-      ansible-lint==${ANSIBLE_LINT_VERSION}
+      ansible-lint==${ANSIBLE_LINT_VERSION} && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y purge python-dev libssl-dev
 
 # Ansible hosts
 COPY ansible/hosts.debian.stretch /etc/ansible/hosts

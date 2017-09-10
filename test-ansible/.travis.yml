@@ -9,6 +9,7 @@ env:
   - DISTRIBUTIONS=debian.wheezy
   - DISTRIBUTIONS=debian.jessie
   - DISTRIBUTIONS=debian.stretch
+  - DISTRIBUTIONS=centos.7
 
 script:
   - make build
