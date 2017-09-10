@@ -17,23 +17,23 @@ VERSION_MAJOR=${VERSION_MINOR%.*}
 # Version - Patch
 # 1.2.3.4     -> 1.2.3
 # 1.2.3.4-foo -> 1.2.3-foo
-echo docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_PATCH${FLAVOUR:+-${FLAVOUR}}
-echo docker push $DOCKER_REPO:$VERSION_PATCH${FLAVOUR:+-${FLAVOUR}}
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_PATCH${FLAVOUR:+-${FLAVOUR}}
+docker push $DOCKER_REPO:$VERSION_PATCH${FLAVOUR:+-${FLAVOUR}}
 
 # Version - Minor
 # 1.2.3.4     -> 1.2
 # 1.2.3.4-foo -> 1.2-foo
-echo docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MINOR${FLAVOUR:+-${FLAVOUR}}
-echo docker push $DOCKER_REPO:$VERSION_MINOR${FLAVOUR:+-${FLAVOUR}}
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MINOR${FLAVOUR:+-${FLAVOUR}}
+docker push $DOCKER_REPO:$VERSION_MINOR${FLAVOUR:+-${FLAVOUR}}
 
 # Version - Major
 # 1.2.3.4     -> 1
 # 1.2.3.4-foo -> 1-foo
-echo docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MAJOR${FLAVOUR:+-${FLAVOUR}}
-echo docker push $DOCKER_REPO:$VERSION_MAJOR${FLAVOUR:+-${FLAVOUR}}
+docker tag $IMAGE_NAME $DOCKER_REPO:$VERSION_MAJOR${FLAVOUR:+-${FLAVOUR}}
+docker push $DOCKER_REPO:$VERSION_MAJOR${FLAVOUR:+-${FLAVOUR}}
 
 # Flavour or Latest
 # 1.2.3.4     -> latest
 # 1.2.3.4-foo -> foo
-echo docker tag $IMAGE_NAME $DOCKER_REPO:${FLAVOUR:-latest}
-echo docker push $DOCKER_REPO:${FLAVOUR:-latest}
+docker tag $IMAGE_NAME $DOCKER_REPO:${FLAVOUR:-latest}
+docker push $DOCKER_REPO:${FLAVOUR:-latest}
