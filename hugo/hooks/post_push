@@ -1,8 +1,14 @@
 #!/bin/bash
 
+# Exit if docker tag is empty
+if [ -z ${DOCKER_TAG} ]
+then
+  exit 0
+fi
+
 # Check docker tag has flavour (like in "1.2.3-foo", where "foo" is the flavour)
 # or not (like in "1.2.3")
-if [[ "$DOCKER_TAG" == *-* ]]
+if [[ ${DOCKER_TAG} == *-* ]]
 then
   FLAVOUR=${DOCKER_TAG#*-}
   VERSION=${DOCKER_TAG%-*}
