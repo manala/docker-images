@@ -14,7 +14,7 @@ RUN apk add --no-cache \
       curl make git dumb-init
 
 # Goss
-ENV GOSS_VERSION="0.3.3"
+ENV GOSS_VERSION="0.3.5"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
 # Entrypoint
@@ -60,7 +60,7 @@ RUN npm --global install \
     && rm -rf /root/.npm
 
 # Hugo
-ENV HUGO_VERSION="0.25.1"
+ENV HUGO_VERSION="0.27.1"
 RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
       | tar -zxvf - -C /tmp && \
     mv /tmp/hugo /usr/local/bin/hugo && \
