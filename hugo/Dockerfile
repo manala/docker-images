@@ -6,6 +6,8 @@ USER root
 
 # Packages
 RUN apk add --no-cache \
+# System
+      sudo \
 # Entrypoint
       su-exec \
 # Command
@@ -36,6 +38,7 @@ ARG GROUP_ID
 
 ENV USER_DEFAULT="hugo" \
     USER_ID="${USER_ID:-1000}" \
+    USER_SUDO="1" \
     GROUP_DEFAULT="hugo" \
     GROUP_ID="${GROUP_ID:-1000}"
 

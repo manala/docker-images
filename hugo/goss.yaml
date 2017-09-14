@@ -3,6 +3,10 @@
 ############
 
 package:
+  # System
+  sudo:
+    installed: true
+  # Entrypoint
   su-exec:
     installed: true
   bash:
