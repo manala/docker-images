@@ -9,7 +9,7 @@ COLOR_ERROR   = \033[31m
 
 # Docker
 DOCKER_IMAGE = manala/hugo
-DOCKER_TAG  ?= dev
+DOCKER_TAG  ?= edge
 
 ## Help
 help:

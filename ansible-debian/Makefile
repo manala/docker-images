@@ -9,7 +9,7 @@ COLOR_ERROR   = \033[31m
 
 # Docker
 DOCKER_IMAGE = manala/ansible-debian
-DOCKER_TAG  ?= dev
+DOCKER_TAG  ?= edge
 
 # Debian
 DEBIAN_DISTRIBUTION ?= wheezy jessie stretch
