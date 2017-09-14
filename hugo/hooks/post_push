@@ -1,11 +1,5 @@
 #!/bin/bash
 
-# Exit if docker tag is empty
-if [ -z ${DOCKER_TAG} ]
-then
-  exit 0
-fi
-
 # Check docker tag has flavour (like in "1.2.3-foo", where "foo" is the flavour)
 # or not (like in "1.2.3")
 if [[ ${DOCKER_TAG} == *-* ]]
@@ -14,6 +8,12 @@ then
   VERSION=${DOCKER_TAG%-*}
 else
   VERSION=${DOCKER_TAG}
+fi
+
+# Don't create other docker tags for "edge"
+if [[ ${VERSION} == edge ]]
+then
+  exit 0
 fi
 
 VERSION_MINOR=${VERSION%.*}

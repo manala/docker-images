@@ -2,12 +2,18 @@
 
 # Check docker tag has flavour (like in "1.2.3-foo", where "foo" is the flavour)
 # or not (like in "1.2.3")
-if [[ "$DOCKER_TAG" == *-* ]]
+if [[ ${DOCKER_TAG} == *-* ]]
 then
   FLAVOUR=${DOCKER_TAG#*-}
   VERSION=${DOCKER_TAG%-*}
 else
   VERSION=${DOCKER_TAG}
+fi
+
+# Don't create other docker tags for "edge"
+if [[ ${VERSION} == edge ]]
+then
+  exit 0
 fi
 
 VERSION_MINOR=${VERSION%.*}
