@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Node 7.10.0
 - Update ESLint 3.19.0
 - Bash as default shell
-- Update Goss 0.3.3
+- Update Goss 0.3.5
 
 ## [0.3.0] - 2017-03-27
 ### Changed
