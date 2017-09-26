@@ -41,15 +41,15 @@ command:
       - python-swiftclient ({{ .Env.SWIFT_CLIENT_VERSION }})
   openstack --version:
     exit-status: 0
-    stderr:
+    stdout:
       - openstack {{ .Env.OPENSTACK_CLIENT_VERSION }}
   neutron --version:
     exit-status: 0
-    stderr:
+    stdout:
       - {{ .Env.NEUTRON_CLIENT_VERSION }}
   swift --version:
     exit-status: 0
-    stderr:
+    stdout:
       - python-swiftclient {{ .Env.SWIFT_CLIENT_VERSION }}
 
 ##########
