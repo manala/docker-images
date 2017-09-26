@@ -52,7 +52,7 @@ ENV OPENSTACK_CLIENT_VERSION="3.12.0" \
     NEUTRON_CLIENT_VERSION="6.1.1" \
     SWIFT_CLIENT_VERSION="3.4.0"
 RUN apk add --no-cache python3 && \
-    apk add --no-cache --virtual=python-dependencies python3-dev build-base linux-headers && \
+    apk add --no-cache --virtual=python-dependencies python3-dev build-base linux-headers libffi-dev openssl-dev && \
     pip3 --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \
