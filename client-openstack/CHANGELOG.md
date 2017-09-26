@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Switch to manala user
 - Update OpenStackClient 3.12.0
 - Update Neutron client 6.1.1
+- Update Swift client 3.4.0
 
 ### Added
 - Dumb-init
