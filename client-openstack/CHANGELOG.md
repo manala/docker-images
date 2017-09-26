@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Bash as default shell
 - Python 3 as alpine packages
 - Update Goss 0.3.5
+- Switch to manala user
 
 ### Added
 - Dumb-init
