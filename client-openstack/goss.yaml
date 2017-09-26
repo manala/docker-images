@@ -10,6 +10,8 @@ package:
     installed: true
   bash:
     installed: true
+  bash-completion:
+    installed: true
   curl:
     installed: true
   make:

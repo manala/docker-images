@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Make
 - Git
 - Sudo support
+- Bash completion
 
 ## [0.1.0] - 2017-04-06
 ### Added
