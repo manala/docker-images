@@ -12,6 +12,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Goss 0.3.5
 - Switch to manala user
 - Update OpenStackClient 3.12.0
+- Update Neutron client 6.1.1
 
 ### Added
 - Dumb-init
