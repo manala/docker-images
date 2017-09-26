@@ -6,9 +6,9 @@ USER root
 
 # Packages
 RUN apk add --no-cache \
-# Entrypoint
+# System
       sudo su-exec \
-# Command
+# Shell
       bash bash-completion \
 # Tools
       curl make git dumb-init
@@ -21,7 +21,7 @@ RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Default command
+# Shell
 CMD ["/bin/bash"]
 
 # Working directory
@@ -51,8 +51,10 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ENV OPENSTACK_CLIENT_VERSION="3.12.0" \
     NEUTRON_CLIENT_VERSION="6.1.1" \
     SWIFT_CLIENT_VERSION="3.4.0"
-RUN apk add --no-cache python3 && \
-    apk add --no-cache --virtual=python-dependencies python3-dev build-base linux-headers libffi-dev openssl-dev && \
+RUN apk add --no-cache \
+      python3 && \
+    apk add --no-cache --virtual=python-dependencies \
+      build-base linux-headers python3-dev libffi-dev openssl-dev && \
     pip3 --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \

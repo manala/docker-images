@@ -8,10 +8,12 @@ package:
     installed: true
   su-exec:
     installed: true
+  # Shell
   bash:
     installed: true
   bash-completion:
     installed: true
+  # Tools
   curl:
     installed: true
   make:
