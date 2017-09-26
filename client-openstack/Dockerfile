@@ -7,7 +7,7 @@ USER root
 # Packages
 RUN apk add --no-cache \
 # Entrypoint
-      su-exec \
+      sudo su-exec \
 # Command
       bash \
 # Tools
@@ -36,6 +36,7 @@ ARG GROUP_ID
 
 ENV USER_DEFAULT="manala" \
     USER_ID="${USER_ID:-1000}" \
+    USER_SUDO="1" \
     GROUP_DEFAULT="manala" \
     GROUP_ID="${GROUP_ID:-1000}"
 

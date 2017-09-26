@@ -3,6 +3,9 @@
 ############
 
 package:
+  # System
+  sudo:
+    installed: true
   su-exec:
     installed: true
   bash:
@@ -22,6 +25,11 @@ package:
 ############
 
 command:
+  # System
+  sudo whoami:
+    exit-status: 0
+    stdout:
+      - root
   # Custom
   pip3 list:
     exit-status: 0
