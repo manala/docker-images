@@ -23,7 +23,7 @@ package:
 
 command:
   # Custom
-  pip list:
+  pip3 list:
     exit-status: 0
     stdout:
       - python-openstackclient ({{ .Env.OPENSTACK_CLIENT_VERSION }})

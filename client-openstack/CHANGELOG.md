@@ -8,7 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Now based on alpine:3.6
 - Bash as default shell
-- Python as alpine packages (thus, downgraded to version 2.7)
+- Python 3 as alpine packages
 - Update Goss 0.3.5
 
 ### Added
