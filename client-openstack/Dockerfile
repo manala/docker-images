@@ -50,7 +50,7 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ENV OPENSTACK_CLIENT_VERSION="3.9.0" \
     NEUTRON_CLIENT_VERSION="6.1.0" \
     SWIFT_CLIENT_VERSION="3.3.0"
-RUN apk add --no-cache python py-pip && \
+RUN apk add --no-cache python py-pip libffi-dev openssl-dev && \
     apk add --no-cache --virtual=python-dependencies python2-dev build-base linux-headers && \
     pip --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
