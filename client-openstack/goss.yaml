@@ -3,10 +3,17 @@
 ############
 
 package:
+  # System
+  sudo:
+    installed: true
   su-exec:
     installed: true
+  # Shell
   bash:
     installed: true
+  bash-completion:
+    installed: true
+  # Tools
   curl:
     installed: true
   make:
@@ -22,8 +29,13 @@ package:
 ############
 
 command:
+  # System
+  sudo whoami:
+    exit-status: 0
+    stdout:
+      - root
   # Custom
-  pip list:
+  pip3 list:
     exit-status: 0
     stdout:
       - python-openstackclient ({{ .Env.OPENSTACK_CLIENT_VERSION }})
@@ -31,15 +43,15 @@ command:
       - python-swiftclient ({{ .Env.SWIFT_CLIENT_VERSION }})
   openstack --version:
     exit-status: 0
-    stderr:
+    stdout:
       - openstack {{ .Env.OPENSTACK_CLIENT_VERSION }}
   neutron --version:
     exit-status: 0
-    stderr:
+    stdout:
       - {{ .Env.NEUTRON_CLIENT_VERSION }}
   swift --version:
     exit-status: 0
-    stderr:
+    stdout:
       - python-swiftclient {{ .Env.SWIFT_CLIENT_VERSION }}
 
 ##########

@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.6
 
 MAINTAINER Manala <contact@manala.io>
 
@@ -6,10 +6,10 @@ USER root
 
 # Packages
 RUN apk add --no-cache \
-# Entrypoint
-      su-exec \
-# Command
-      bash \
+# System
+      sudo su-exec \
+# Shell
+      bash bash-completion \
 # Tools
       curl make git dumb-init
 
@@ -21,7 +21,7 @@ RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Default command
+# Shell
 CMD ["/bin/bash"]
 
 # Working directory
@@ -34,9 +34,10 @@ WORKDIR /srv
 ARG USER_ID
 ARG GROUP_ID
 
-ENV USER_DEFAULT="client" \
+ENV USER_DEFAULT="manala" \
     USER_ID="${USER_ID:-1000}" \
-    GROUP_DEFAULT="client" \
+    USER_SUDO="1" \
+    GROUP_DEFAULT="manala" \
     GROUP_ID="${GROUP_ID:-1000}"
 
 RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
@@ -47,12 +48,14 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Pip packages
-ENV OPENSTACK_CLIENT_VERSION="3.9.0" \
-    NEUTRON_CLIENT_VERSION="6.1.0" \
-    SWIFT_CLIENT_VERSION="3.3.0"
-RUN apk add --no-cache python py-pip libffi-dev openssl-dev && \
-    apk add --no-cache --virtual=python-dependencies python2-dev build-base linux-headers && \
-    pip --no-cache-dir --disable-pip-version-check install \
+ENV OPENSTACK_CLIENT_VERSION="3.12.0" \
+    NEUTRON_CLIENT_VERSION="6.1.1" \
+    SWIFT_CLIENT_VERSION="3.4.0"
+RUN apk add --no-cache \
+      python3 && \
+    apk add --no-cache --virtual=python-dependencies \
+      build-base linux-headers python3-dev libffi-dev openssl-dev && \
+    pip3 --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \
       python-swiftclient==${SWIFT_CLIENT_VERSION} && \
