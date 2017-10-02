@@ -4,6 +4,9 @@
 
 package:
   # Shell
+  sudo:
+    installed: true
+  # Shell
   bash:
     installed: true
   bash-completion:
@@ -36,8 +39,14 @@ package:
 ############
 
 command:
+  # System
+  sudo whoami:
+    exit-status: 0
+    stdout:
+      - root
   su-exec:
     exit-status: 0
+  # Tools
   dumb-init --version:
     exit-status: 0
     stderr:
