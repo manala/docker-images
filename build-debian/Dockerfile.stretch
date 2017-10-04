@@ -68,7 +68,7 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar unzip \
       build-essential \
-      devscripts gnupg debian-keyring fakeroot lintian equivs libwww-perl libjson-perl
+      devscripts help2man gnupg debian-keyring fakeroot lintian equivs libwww-perl libjson-perl
 
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
