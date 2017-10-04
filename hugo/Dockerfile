@@ -34,10 +34,10 @@ WORKDIR /srv
 ARG USER_ID
 ARG GROUP_ID
 
-ENV USER_DEFAULT="hugo" \
+ENV USER_DEFAULT="manala" \
     USER_ID="${USER_ID:-1000}" \
     USER_SUDO="1" \
-    GROUP_DEFAULT="hugo" \
+    GROUP_DEFAULT="manala" \
     GROUP_ID="${GROUP_ID:-1000}"
 
 RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \

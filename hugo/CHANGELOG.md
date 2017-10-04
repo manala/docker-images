@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Now based on alpine:3.6
+- Switch to manala user
 
 ### Added
 - Sudo support
