@@ -11,6 +11,8 @@ package:
   # Shell
   bash:
     installed: true
+  bash-completion:
+    installed: true
   # Tools
   curl:
     installed: true

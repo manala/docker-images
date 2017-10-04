@@ -9,7 +9,7 @@ RUN apk add --no-cache \
 # System
       sudo su-exec \
 # Command
-      bash \
+      bash bash-completion \
 # Tools
       curl make git dumb-init
 
