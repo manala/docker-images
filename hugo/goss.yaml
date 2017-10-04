@@ -65,7 +65,7 @@ command:
     exit-status: 0
     stdout:
       - Hugo Static Site Generator v{{ .Env.HUGO_VERSION }}
-  pip list:
+  pip3 list:
     exit-status: 0
     stdout:
       - Pygments ({{ .Env.PYGMENTS_VERSION }})

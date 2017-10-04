@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Now based on alpine:3.6
 - Switch to manala user
+- Switch to Python 3
 
 ### Added
 - Sudo support
