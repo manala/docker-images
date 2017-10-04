@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [0.28-1] - 2017-10-04
+## [0.28.0-1] - 2017-10-04
 ### Changed
 - Now based on alpine:3.6
 - Switch to manala user
