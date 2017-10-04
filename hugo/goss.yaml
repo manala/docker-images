@@ -6,11 +6,12 @@ package:
   # System
   sudo:
     installed: true
-  # Entrypoint
   su-exec:
     installed: true
+  # Shell
   bash:
     installed: true
+  # Tools
   curl:
     installed: true
   make:
@@ -40,6 +41,11 @@ package:
 ############
 
 command:
+  # System
+  sudo whoami:
+    exit-status: 0
+    stdout:
+      - root
   # Custom
   npm --global list --depth=1:
     exit-status: 0

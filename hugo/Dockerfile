@@ -7,9 +7,7 @@ USER root
 # Packages
 RUN apk add --no-cache \
 # System
-      sudo \
-# Entrypoint
-      su-exec \
+      sudo su-exec \
 # Command
       bash \
 # Tools
@@ -23,7 +21,7 @@ RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 COPY entrypoint.sh /usr/local/bin/
 ENTRYPOINT ["entrypoint.sh"]
 
-# Default command
+# Shell
 CMD ["/bin/bash"]
 
 # Working directory
