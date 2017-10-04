@@ -47,6 +47,10 @@ command:
     stdout:
       - root
   # Custom
+  identify tests/manala.jpg:
+    exit-status: 0
+    stdout:
+      - tests/manala.jpg JPEG 128x128 128x128+0+0 8-bit sRGB 3723B
   npm --global list --depth=1:
     exit-status: 0
     stdout:

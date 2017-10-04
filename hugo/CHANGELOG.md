@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Added
 - Sudo support
+- Regression test on imagemagick (see: http://bugs.alpinelinux.org/issues/7799)
 
 ## [0.27.1-1] - 2017-09-13
 ### Changed
