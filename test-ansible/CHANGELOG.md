@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.3.2.0-2] - 2017-10-05
 ### Changed
 - Remove only apt docker-clean configuration on debian based distributions
 
