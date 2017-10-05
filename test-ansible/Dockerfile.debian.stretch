@@ -83,6 +83,6 @@ COPY ansible/hosts.debian.stretch /etc/ansible/hosts
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
     rm -rf /var/lib/apt/lists/* && \
-# Remove docker apt custom configuration, to enable apt cache now that
+# Remove apt docker-clean configuration, to re-enable apt cache now that
 # we have finished to play with it during docker building
-    rm -rf /etc/apt/apt.conf.d/docker-*
+    rm -rf /etc/apt/apt.conf.d/docker-clean
