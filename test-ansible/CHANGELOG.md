@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+- Gnupg package on debian stretch, as - unlike other debian based distributions - not provided by default
 - Distribution dependent tests
 
 ## [2.3.2.0-2] - 2017-10-05

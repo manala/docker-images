@@ -13,6 +13,8 @@ package:
     installed: true
   ca-certificates:
     installed: true
+  gnupg:
+    installed: true
 {{ end }}
   # Shell
   bash:
