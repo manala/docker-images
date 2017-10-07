@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Distribution dependent tests
 
 ## [2.3.2.0-2] - 2017-10-05
 ### Changed

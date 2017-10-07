@@ -3,9 +3,17 @@
 ############
 
 package:
-  # Shell
+  # System
   sudo:
     installed: true
+{{ if eq .Env.DISTRIBUTION_FAMILY "debian" "ubuntu" }}
+  adduser:
+    installed: true
+  apt-transport-https:
+    installed: true
+  ca-certificates:
+    installed: true
+{{ end }}
   # Shell
   bash:
     installed: true

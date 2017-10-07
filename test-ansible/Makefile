@@ -14,6 +14,9 @@ DOCKER_TAG  ?= edge
 # Distributions
 DISTRIBUTIONS ?= debian.wheezy debian.jessie debian.stretch centos.7 ubuntu.xenial
 
+DISTRIBUTION_FAMILY  = $(firstword $(subst ., ,$(DISTRIBUTION)))
+DISTRIBUTION_RELEASE = $(lastword $(subst ., ,$(DISTRIBUTION)))
+
 ## Help
 help:
 	printf "${COLOR_COMMENT}Usage:${COLOR_RESET}\n"
@@ -41,7 +44,10 @@ dev:
 		--tty --interactive \
 		--env USER_ID=`id -u` \
 		--env GROUP_ID=`id -g` \
-		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)$(lastword ${DISTRIBUTION})
+		--env DISTRIBUTION=${DISTRIBUTION} \
+		--env DISTRIBUTION_FAMILY=${DISTRIBUTION_FAMILY} \
+		--env DISTRIBUTION_RELEASE=${DISTRIBUTION_RELEASE} \
+		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)${DISTRIBUTION}
 
 ## Dev - Debian Wheezy
 dev@debian.wheezy: DISTRIBUTION = debian.wheezy
@@ -114,6 +120,12 @@ test:
 			docker run \
 				--rm \
 				--volume `pwd`:/srv \
+				--tty \
+				--env USER_ID=`id -u` \
+				--env GROUP_ID=`id -g` \
+				--env DISTRIBUTION=${DISTRIBUTION} \
+				--env DISTRIBUTION_FAMILY=${DISTRIBUTION_FAMILY} \
+				--env DISTRIBUTION_RELEASE=${DISTRIBUTION_RELEASE} \
 				${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)${DISTRIBUTION} \
 				goss --gossfile /srv/goss.yaml validate \
 		|| EXIT=$$? ;\
