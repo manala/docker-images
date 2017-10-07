@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.3.2.0-3] - 2017-10-07
 ### Added
 - Gnupg package on debian stretch, as - unlike other debian based distributions - not provided by default
 - Distribution dependent tests
