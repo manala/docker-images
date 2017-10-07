@@ -28,7 +28,7 @@ fi
 
 # Sudo
 if [ "$USER_SUDO" ]; then
-  echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user
+  echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/manala
 fi
 
 exec su-exec "$USER" "$@"
