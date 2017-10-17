@@ -68,11 +68,5 @@ RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/
     mv /tmp/hugo /usr/local/bin/hugo && \
     rm -Rf /tmp/hugo_${HUGO_VERSION}_linux_amd64
 
-# Pip packages
-ENV PYGMENTS_VERSION="2.2.0"
-RUN apk add --no-cache python3 && \
-    pip3 --no-cache-dir --disable-pip-version-check install \
-      Pygments==${PYGMENTS_VERSION}
-
 # Expose default hugo port
 EXPOSE 1313

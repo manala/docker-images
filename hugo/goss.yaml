@@ -65,14 +65,6 @@ command:
     exit-status: 0
     stdout:
       - Hugo Static Site Generator v{{ .Env.HUGO_VERSION }}
-  pip3 list:
-    exit-status: 0
-    stdout:
-      - Pygments ({{ .Env.PYGMENTS_VERSION }})
-  pygmentize -V:
-    exit-status: 0
-    stdout:
-      - Pygments version {{ .Env.PYGMENTS_VERSION }}
 
 ##########
 # Groups #
