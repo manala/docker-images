@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
-- Update Hugo 0.30.1
+- Update Hugo 0.30.2
 
 ### Removed
 - Pygments (Hugo now comes with Chroma syntax highlighter)
