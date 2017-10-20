@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.3.2.0-5] - 2017-10-20
 ### Fixed
 - Append "/usr/local/bin" to centos sudo secure_path, as this is the default path where binaries such as goss are intalled
 
