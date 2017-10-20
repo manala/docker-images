@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Better centos cleanup
 
 ## [2.3.2.0-5] - 2017-10-20
 ### Fixed
