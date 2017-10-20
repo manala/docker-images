@@ -1,14 +1,14 @@
 language: generic
 
-sudo: required
+branches:
+  only:
+    - master
 
 services:
   - docker
 
-before_install:
-  - make build
-
 script:
+  - make build
   - make test
 
 notifications:
