@@ -14,6 +14,9 @@ RUN yum clean all && yum -y update && \
 # Tools
       less vim wget curl make git
 
+# Sudo
+RUN sed -i -e '/secure_path/ s[=.*[&:/usr/local/bin[' /etc/sudoers
+
 # Su exec
 ENV SU_EXEC_VERSION="0.2"
 RUN yum -y install gcc && \

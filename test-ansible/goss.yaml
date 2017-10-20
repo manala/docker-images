@@ -49,6 +49,9 @@ command:
     exit-status: 0
     stdout:
       - goss version v{{ .Env.GOSS_VERSION }}
+  # Sudo
+  sudo goss --version:
+    exit-status: 0
   # Custom
   pip list:
     exit-status: 0
