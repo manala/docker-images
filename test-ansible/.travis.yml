@@ -1,16 +1,15 @@
 language: generic
 
-sudo: required
-
 services:
   - docker
 
 env:
-  - DISTRIBUTIONS=debian.wheezy
-  - DISTRIBUTIONS=debian.jessie
-  - DISTRIBUTIONS=debian.stretch
-  - DISTRIBUTIONS=centos.7
-  - DISTRIBUTIONS=ubuntu.xenial
+  matrix:
+    - DISTRIBUTIONS=debian.wheezy
+    - DISTRIBUTIONS=debian.jessie
+    - DISTRIBUTIONS=debian.stretch
+    - DISTRIBUTIONS=centos.7
+    - DISTRIBUTIONS=ubuntu.xenial
 
 script:
   - make build
