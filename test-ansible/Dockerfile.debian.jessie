@@ -15,6 +15,9 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
 # Tools
       procps less vim wget curl make git
 
+# Sudo
+RUN echo "manala ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/manala
+
 # Su exec
 ENV SU_EXEC_VERSION="0.2"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install build-essential && \
@@ -47,17 +50,23 @@ WORKDIR /srv
 # User #
 ########
 
-ARG USER_ID
-ARG GROUP_ID
+ARG USER_ID=1000
+ARG GROUP_ID=1000
 
-ENV USER_DEFAULT="manala" \
-    USER_ID="${USER_ID:-1000}" \
-    USER_SUDO="1" \
-    GROUP_DEFAULT="manala" \
-    GROUP_ID="${GROUP_ID:-1000}"
+ENV ENV USER_ID=${USER_ID} \
+    GROUP_ID=${GROUP_ID}
 
-RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
-    adduser --disabled-password --shell /bin/bash --gecos ${USER_DEFAULT} --uid ${USER_ID} --ingroup ${GROUP_DEFAULT} ${USER_DEFAULT}
+RUN groupadd \
+      --gid ${GROUP_ID} \
+      manala && \
+    useradd \
+      --create-home \
+      --shell /bin/bash \
+      --uid ${USER_ID} \
+      --gid ${GROUP_ID} \
+      --key UMASK=022 \
+      --comment Manala \
+      manala
 
 ##########
 # Custom #

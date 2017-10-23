@@ -1,34 +1,12 @@
 #!/bin/sh
 
-# Try to get group by its given id...
-GROUP=$(getent group "$GROUP_ID" | cut -d: -f1)
-
-# ...fallback to default
-if [ ! "$GROUP" ]; then
-  GROUP="$GROUP_DEFAULT"
-  # Update group id
-  sed -i s/$GROUP:x:[0-9]*:/$GROUP:x:$GROUP_ID:/ /etc/group
+if [ ${USER_ID} != $(id -u manala) ]; then
+  usermod --non-unique --uid ${USER_ID} manala
 fi
 
-# Try to get user by its given id...
-USER=$(getent passwd "$USER_ID" | cut -d: -f1)
-
-# ...fallback to default
-if [ ! "$USER" ]; then
-  USER="$USER_DEFAULT"
+if [ ${GROUP_ID} != $(id -g manala) ]; then
+  groupmod --non-unique --gid ${GROUP_ID} manala
+  chgrp -R manala /home/manala
 fi
 
-# Update user id
-sed -i s/$USER:x:[0-9]*:[0-9]*:/$USER:x:$USER_ID:$GROUP_ID:/ /etc/passwd
-
-# Fix user home permissions
-if [ "$USER" = "$USER_DEFAULT" ]; then
-  chown -R $USER:$GROUP /home/$USER
-fi
-
-# Sudo
-if [ "$USER_SUDO" ]; then
-  echo "$USER ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/manala
-fi
-
-exec su-exec "$USER" "$@"
+exec su-exec manala "${@}"
