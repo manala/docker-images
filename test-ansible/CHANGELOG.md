@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Better centos cleanup
 
+### Fixed
+- Default centos user home umask
+
 ## [2.3.2.0-5] - 2017-10-20
 ### Fixed
 - Append "/usr/local/bin" to centos sudo secure_path, as this is the default path where binaries such as goss are intalled
