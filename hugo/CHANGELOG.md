@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Md5 tools support
+
 ### Changed
 - Update Hugo 0.30.2
 - Yarn from edge/community repository to get a more recent version

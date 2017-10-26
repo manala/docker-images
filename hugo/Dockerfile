@@ -50,6 +50,8 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 # Packages
 RUN echo -e "@edge/community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk add --no-cache nodejs nodejs-npm yarn@edge/community \
+# Tools
+      outils-md5 \
 # Image tools
       optipng libjpeg-turbo-utils imagemagick gifsicle pngquant@edge/community \
 # Compilation (optipng,gifsicle,pngquant,mozjpeg,...)
