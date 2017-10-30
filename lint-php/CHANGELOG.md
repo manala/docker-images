@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Composer 1.5.2
 - Update PHP CS Fixer 2.7.1
 - Update PHPStan 0.8.5
+- Update SensioLabs Security Checker 4.1.6
 
 ## [0.3.2] - 2017-06-21
 ### Changed

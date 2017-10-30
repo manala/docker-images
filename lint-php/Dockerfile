@@ -63,7 +63,7 @@ RUN curl -L https://getcomposer.org/installer \
 ENV PHP_CS_FIXER_VERSION="2.7.1" \
     PHPSTAN_VERSION="0.8.5" \
     PHP_PARALLEL_LINT_VERSION="0.9.2" \
-    SECURITY_CHECKER_VERSION="4.0.4"
+    SECURITY_CHECKER_VERSION="4.1.6"
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       friendsofphp/php-cs-fixer:${PHP_CS_FIXER_VERSION} \
       phpstan/phpstan:${PHPSTAN_VERSION} \
