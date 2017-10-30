@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.1.2] - 2017-10-30
 ### Changed
 - Update Goss 0.3.5
 - Update PHP 7.1.10
