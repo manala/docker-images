@@ -60,7 +60,7 @@ RUN curl -L https://getcomposer.org/installer \
         | php -- --install-dir /usr/local/bin --filename composer --version ${COMPOSER_VERSION}
 
 # Composer packages
-ENV PHP_CS_FIXER_VERSION="2.3.2" \
+ENV PHP_CS_FIXER_VERSION="2.7.1" \
     PHPSTAN_VERSION="0.7" \
     PHP_PARALLEL_LINT_VERSION="0.9.2" \
     SECURITY_CHECKER_VERSION="4.0.4"
