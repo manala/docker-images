@@ -55,7 +55,7 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 RUN docker-php-ext-install calendar
 
 # Composer
-ENV COMPOSER_VERSION="1.4.2"
+ENV COMPOSER_VERSION="1.5.2"
 RUN curl -L https://getcomposer.org/installer \
         | php -- --install-dir /usr/local/bin --filename composer --version ${COMPOSER_VERSION}
 

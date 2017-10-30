@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Goss 0.3.5
 - Update PHP 7.1.10
+- Update Composer 1.5.2
 
 ## [0.1.1] - 2017-06-21
 ### Changed
