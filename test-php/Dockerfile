@@ -60,7 +60,7 @@ RUN curl -L https://getcomposer.org/installer \
         | php -- --install-dir /usr/local/bin --filename composer --version ${COMPOSER_VERSION}
 
 # Composer packages
-ENV PHPUNIT_VERSION="6.2.2"
+ENV PHPUNIT_VERSION="6.4.3"
 RUN COMPOSER_HOME=/usr/local/share/composer COMPOSER_BIN_DIR=/usr/local/bin composer global require \
       phpunit/phpunit:${PHPUNIT_VERSION} \
     && rm -rf /root/.composer
