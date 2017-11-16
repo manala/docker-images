@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Embed deploy tools (rsync & permissive openssh-client)
+
 ### Changed
 - Update Svgo 1.0.3
 

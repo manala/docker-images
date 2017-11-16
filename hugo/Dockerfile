@@ -55,7 +55,15 @@ RUN echo -e "@edge/community http://dl-cdn.alpinelinux.org/alpine/edge/community
 # Image tools
       optipng libjpeg-turbo-utils imagemagick gifsicle pngquant@edge/community \
 # Compilation (optipng,gifsicle,pngquant,mozjpeg,...)
-      gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev
+      gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev \
+# Deploy
+      rsync openssh-client && \
+      echo -e "\n\
+Host *\n\
+  StrictHostKeyChecking no\n\
+  ForwardAgent          yes\n\
+  UserKnownHostsFile    /dev/null\n\
+  LogLevel              ERROR\n" >> /etc/ssh/ssh_config
 
 # Npm packages
 ENV SVGO_VERSION="1.0.3"
