@@ -58,7 +58,7 @@ RUN echo -e "@edge/community http://dl-cdn.alpinelinux.org/alpine/edge/community
       gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev
 
 # Npm packages
-ENV SVGO_VERSION="0.7.2"
+ENV SVGO_VERSION="1.0.3"
 RUN npm --global install \
       svgo@${SVGO_VERSION} \
     && rm -rf /root/.npm
