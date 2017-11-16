@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.30.2-2] - 2017-11-16
 ### Added
 - Embed deploy tools (rsync & permissive openssh-client)
 
