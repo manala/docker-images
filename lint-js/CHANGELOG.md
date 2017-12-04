@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Node 8.9.1
 - Update ESLint 3.19.0
 - Update ESLint - Plugin - react-native 3.2.0
+- Update ESLint - Plugin - import 2.8.0
 - Bash as default shell
 - Update Goss 0.3.5
 
