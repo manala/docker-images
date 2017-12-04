@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Update Dumb-init 1.2.1
 
 ## [2.3.2.0-6] - 2017-10-23
 ### Added

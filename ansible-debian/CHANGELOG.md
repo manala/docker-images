@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Goss 0.3.5
+- Update Dumb-init 1.2.1
 
 ## [2.3.1.0-1] - 2017-09-08
 ### Changed

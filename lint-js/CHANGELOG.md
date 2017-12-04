@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update ESLint 3.19.0
 - Bash as default shell
 - Update Goss 0.3.5
+- Update Dumb-init 1.2.1
 
 ## [0.3.0] - 2017-03-27
 ### Changed
