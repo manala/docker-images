@@ -70,7 +70,7 @@ ENV JINJA2_VERSION="2.8" \
     ANSIBLE_LINT_VERSION="3.4.16"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       python python-setuptools python-dev libssl-dev && \
-    easy_install pip && \
+    easy_install --index-url https://pypi.python.org/simple/ pip && \
     pip install --upgrade setuptools && \
     pip --no-cache-dir --disable-pip-version-check install \
       jinja2==${JINJA2_VERSION} \

@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update Goss 0.3.5
 - Update Dumb-init 1.2.1
 
+### Fixed
+- Python pip installation via easy_install on debian wheezy
+
 ## [2.3.1.0-1] - 2017-09-08
 ### Changed
 - Update ansible 2.3.1.0
