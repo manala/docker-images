@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Curl
 
 ### Changed
-- Update Node 7.10.0
+- Update Node 8.9.1
 - Bash as default shell
 - Update Goss 0.3.5
 - Update Dumb-init 1.2.1
