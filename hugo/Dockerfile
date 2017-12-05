@@ -1,4 +1,4 @@
-FROM alpine:3.6
+FROM alpine:3.7
 
 MAINTAINER Manala <contact@manala.io>
 
@@ -48,12 +48,11 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Packages
-RUN echo -e "@edge/community http://dl-cdn.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
-    apk add --no-cache nodejs nodejs-npm yarn@edge/community \
+RUN apk add --no-cache nodejs nodejs-npm yarn \
 # Tools
       outils-md5 \
 # Image tools
-      optipng libjpeg-turbo-utils imagemagick gifsicle pngquant@edge/community \
+      optipng libjpeg-turbo-utils imagemagick gifsicle pngquant \
 # Compilation (optipng,gifsicle,pngquant,mozjpeg,...)
       gcc autoconf automake libtool nasm musl-dev zlib-dev libpng-dev \
 # Deploy

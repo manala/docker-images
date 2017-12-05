@@ -1,4 +1,4 @@
-FROM alpine:edge
+FROM alpine:3.7
 
 MAINTAINER Manala <contact@manala.io>
 

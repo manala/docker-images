@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Goss 0.3.5
 - Dumb-init as alpine packages
+- Now based on alpine:3.7
 
 ## [0.2.0] - 2017-04-19
 ### Changed
