@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.3.2.0-7] - 2017-12-07
 ### Changed
 - Update Dumb-init 1.2.1
 - Use group/host combinations in ansible hosts files to ease host exclusions by group
