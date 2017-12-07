@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Dumb-init 1.2.1
+- Use group/host combinations in ansible hosts files to ease host exclusions by group
 
 ### Fixed
 - Python pip installation via easy_install on debian wheezy

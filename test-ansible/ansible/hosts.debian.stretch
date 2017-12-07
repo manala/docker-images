@@ -1,2 +1,4 @@
-debian ansible_connection=local
 debian.stretch ansible_connection=local
+
+[debian]
+debian.stretch
