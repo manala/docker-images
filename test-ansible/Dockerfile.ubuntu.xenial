@@ -84,4 +84,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \
     rm -rf /var/lib/apt/lists/* && \
 # Remove apt docker-clean configuration, to re-enable apt cache now that
 # we have finished to play with it during docker building
-    rm -rf /etc/apt/apt.conf.d/docker-clean
+    rm -rf /etc/apt/apt.conf.d/docker-clean && \
+# Remove upstream init scripts prevention
+    rm -rf /usr/sbin/policy-rc.d

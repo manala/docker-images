@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Update Ansible 2.4.2.0
 - Update Ansible-lint 3.4.20
+- Remove upstream init scripts prevention
 
 ## [2.3.2.0-7] - 2017-12-07
 ### Changed
