@@ -121,8 +121,6 @@ test:
 				--rm \
 				--volume `pwd`:/srv \
 				--tty \
-				--env USER_ID=`id -u` \
-				--env GROUP_ID=`id -g` \
 				--env DISTRIBUTION=${DISTRIBUTION} \
 				--env DISTRIBUTION_FAMILY=${DISTRIBUTION_FAMILY} \
 				--env DISTRIBUTION_RELEASE=${DISTRIBUTION_RELEASE} \
