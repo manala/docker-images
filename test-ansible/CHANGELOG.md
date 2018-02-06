@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.4.3.0-1] - 2018-02-06
 ### Changed
 - Update Ansible 2.4.3.0
 
