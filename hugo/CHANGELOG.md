@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [0.37-1] - 2018-03-01
+## [0.37.0-1] - 2018-03-01
 ### Changed
 - Update Hugo 0.37
 - Update Svgo 1.0.5
