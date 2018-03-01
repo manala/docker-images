@@ -5,6 +5,13 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.37-1] - 2018-03-01
+### Changed
+- Update Hugo 0.37
+- Update Svgo 1.0.5
+
+## [0.30.2-3] - 2O17-12-05
 ### Changed
 - Now based on alpine:3.7
 
