@@ -65,13 +65,13 @@ Host *\n\
   LogLevel              ERROR\n" >> /etc/ssh/ssh_config
 
 # Npm packages
-ENV SVGO_VERSION="1.0.3"
+ENV SVGO_VERSION="1.0.5"
 RUN npm --global install \
       svgo@${SVGO_VERSION} \
     && rm -rf /root/.npm
 
 # Hugo
-ENV HUGO_VERSION="0.30.2"
+ENV HUGO_VERSION="0.37"
 RUN curl -L https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_${HUGO_VERSION}_Linux-64bit.tar.gz \
       | tar -zxvf - -C /tmp && \
     mv /tmp/hugo /usr/local/bin/hugo && \
