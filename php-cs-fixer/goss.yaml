@@ -1,0 +1,5 @@
+command:
+  php-cs-fixer --version:
+    exit-status: 0
+    stdout:
+      - PHP CS Fixer {{ .Env.VERSION }}
