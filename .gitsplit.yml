@@ -21,6 +21,10 @@ splits:
     target: git@github.com:manala/docker-image-lint-php.git
   - prefix: openl10n-cli
     target: git@github.com:manala/docker-image-openl10n-cli.git
+  - prefix: php-cs-fixer
+    target: git@github.com:manala/docker-image-php-cs-fixer.git
+  - prefix: security-checker
+    target: git@github.com:manala/docker-image-security-checker.git
   - prefix: test-ansible
     target: git@github.com:manala/docker-image-test-ansible.git
   - prefix: test-js
