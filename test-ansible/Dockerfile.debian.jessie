@@ -70,7 +70,8 @@ ENV JINJA2_VERSION="2.8" \
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       python python-setuptools python-dev libssl-dev && \
     easy_install pip && \
-    pip install --upgrade setuptools && \
+    DEBIAN_FRONTEND=noninteractive apt-get -y purge python-setuptools && \
+    pip install setuptools && \
     pip --no-cache-dir --disable-pip-version-check install \
       Jinja2==${JINJA2_VERSION} \
       ansible==${ANSIBLE_VERSION} \
