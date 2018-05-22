@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [1.1.0-1] - 2018-05-22
 ### Changed
 - Update Goss 0.3.5
 - Update Dumb-init 1.2.1
