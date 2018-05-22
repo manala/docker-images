@@ -1,5 +1,5 @@
 ARG VERSION=4.1.8
-ARG PHP=7.2.3-cli-alpine3.7
+ARG PHP=7.2.5-cli-alpine3.7
 
 ###################
 # Stage - Install #
