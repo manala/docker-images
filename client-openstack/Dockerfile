@@ -49,7 +49,7 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 
 # Pip packages
 ENV OPENSTACK_CLIENT_VERSION="3.15.0" \
-    NEUTRON_CLIENT_VERSION="6.1.1" \
+    NEUTRON_CLIENT_VERSION="6.8.0" \
     SWIFT_CLIENT_VERSION="3.4.0"
 RUN apk add --no-cache \
       python3 && \

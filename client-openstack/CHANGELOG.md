@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Now based on alpine:3.7
 - Update OpenStackClient 3.15.0
+- Update Neutron client 6.8.0
 
 ## [0.2.0] - 2017-10-01
 ### Changed
