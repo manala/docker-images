@@ -1,11 +1,22 @@
 language: generic
 
+branches:
+  only:
+    - master
+
 services:
   - docker
 
 script:
   - make build
   - make test
+
+jobs:
+  include:
+    - stage: release
+      script:
+        - gem install chandler -v 0.7.0
+        - chandler push `perl -lne '/^## \[(?!Unreleased)([\w.-]+)\] - [\w-]+$/ && print $1;' CHANGELOG.md | head -1`
 
 notifications:
   webhooks:

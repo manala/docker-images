@@ -4,7 +4,8 @@
 ## Colors
 COLOR_RESET   = \033[0m
 COLOR_INFO    = \033[32m
-COLOR_COMMENT = \033[33m
+COLOR_WARNING = \033[33m
+COLOR_COMMENT = \033[36m
 
 # Git
 GIT_REPOSITORIES_DELTA = ${shell git diff --name-only ${TRAVIS_COMMIT_RANGE} | grep "/" | cut -d "/" -f1 | sort -u | tr "\n" " "}
@@ -53,12 +54,15 @@ test:
 		printf "\n${COLOR_INFO}Test ${COLOR_COMMENT}${repository}${COLOR_RESET}\n\n" && ${MAKE} --directory=${repository} test || EXIT=$$? ;\
 	} exit $$EXIT
 
-#########
-# Split #
-#########
+###########
+# Release #
+###########
 
-## Split
-split:
+## Release
+release:
+	printf "\n$(COLOR_INFO) ༼ つ ◕_◕ ༽つ $(COLOR_WARNING)You are about to release *ALL* images, please confirm! (y/N)$(COLOR_RESET): "; \
+	read CONFIRM ; if [ "$$CONFIRM" != "y" ]; then printf "\n"; exit 1; fi; \
+	printf "\n"
 ifeq (${shell uname -s},Darwin)
 	docker run \
 		--rm \
