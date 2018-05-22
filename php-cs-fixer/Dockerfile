@@ -1,4 +1,4 @@
-ARG VERSION=2.10.4
+ARG VERSION=2.11.1
 ARG PHP=7.2.3-cli-alpine3.7
 
 ###################
