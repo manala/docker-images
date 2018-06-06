@@ -6,6 +6,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- Update PHP CS Fixer 2.12.0
+
 ## [2.11.1-1] - 2018-05-22
 ### Changed
 - Update PHP CS Fixer 2.11.1
