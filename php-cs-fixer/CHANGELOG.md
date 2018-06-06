@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [2.12.0-1] - 2018-06-06
 ### Changed
 - Update PHP CS Fixer 2.12.0
 - Based on PHP cli 7.2.6 (alpine 3.7)
