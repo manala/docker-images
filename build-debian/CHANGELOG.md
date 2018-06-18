@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Manala apt repository
 
+### Changed
+- Upstream update
+
 ## [0.12.11] - 2018-05-22
 ### Changed
 - Upstream update
