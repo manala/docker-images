@@ -1,3 +1,4 @@
+# Debian
 deb http://deb.debian.org/debian stretch main contrib non-free
 deb-src http://deb.debian.org/debian stretch main contrib non-free
 deb http://deb.debian.org/debian stretch-updates main contrib non-free
@@ -6,3 +7,5 @@ deb http://security.debian.org stretch/updates main contrib non-free
 deb-src http://security.debian.org stretch/updates main contrib non-free
 deb http://httpredir.debian.org/debian stretch-backports main contrib non-free
 deb-src http://httpredir.debian.org/debian stretch-backports main contrib non-free
+# Manala
+deb [arch=amd64] http://debian.manala.io stretch main
