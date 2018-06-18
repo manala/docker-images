@@ -1,5 +1,5 @@
 .SILENT:
-.PHONY: help build test split
+.PHONY: help build test release
 
 ## Colors
 COLOR_RESET   = \033[0m
@@ -60,7 +60,7 @@ test:
 
 ## Release
 release:
-	printf "\n$(COLOR_INFO) ༼ つ ◕_◕ ༽つ $(COLOR_WARNING)You are about to release *ALL* images, please confirm! (y/N)$(COLOR_RESET): "; \
+	printf "\n$(COLOR_INFO) ༼ つ ◕_◕ ༽つ $(COLOR_WARNING)Please confirm release of *ALL* docker images (y/N)$(COLOR_RESET): "; \
 	read CONFIRM ; if [ "$$CONFIRM" != "y" ]; then printf "\n"; exit 1; fi; \
 	printf "\n"
 ifeq (${shell uname -s},Darwin)
