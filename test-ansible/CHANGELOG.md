@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Goss 0.3.6
+- Update Ansible-lint 3.4.23
 
 ## [2.5.3-1] - 2018-05-22
 ### Changed
