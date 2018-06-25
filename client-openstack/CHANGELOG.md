@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Goss 0.3.6
+- Update Neutron client 6.9.0
 
 ## [0.2.1] - 2018-05-22
 ### Changed
