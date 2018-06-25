@@ -3,22 +3,27 @@ cache_dir: "./.gitsplit"
 
 # List of splits.
 splits:
-  - prefix: ansible-debian
-    target: git@github.com:manala/docker-image-ansible-debian.git
+  # Deprecated
+  #- prefix: ansible-debian
+  #  target: git@github.com:manala/docker-image-ansible-debian.git
   - prefix: build-debian
     target: git@github.com:manala/docker-image-build-debian.git
   - prefix: client-openstack
     target: git@github.com:manala/docker-image-client-openstack.git
-  - prefix: deploy
-    target: git@github.com:manala/docker-image-deploy.git
+  # Deprecated
+  #- prefix: deploy
+  #  target: git@github.com:manala/docker-image-deploy.git
   - prefix: hugo
     target: git@github.com:manala/docker-image-hugo.git
-  - prefix: lint-css
-    target: git@github.com:manala/docker-image-lint-css.git
-  - prefix: lint-js
-    target: git@github.com:manala/docker-image-lint-js.git
-  - prefix: lint-php
-    target: git@github.com:manala/docker-image-lint-php.git
+  # Deprecated
+  #- prefix: lint-css
+  #  target: git@github.com:manala/docker-image-lint-css.git
+  # Deprecated
+  #- prefix: lint-js
+  #  target: git@github.com:manala/docker-image-lint-js.git
+  # Deprecated
+  #- prefix: lint-php
+  #  target: git@github.com:manala/docker-image-lint-php.git
   - prefix: openl10n-cli
     target: git@github.com:manala/docker-image-openl10n-cli.git
   - prefix: php-cs-fixer
@@ -27,10 +32,12 @@ splits:
     target: git@github.com:manala/docker-image-security-checker.git
   - prefix: test-ansible
     target: git@github.com:manala/docker-image-test-ansible.git
-  - prefix: test-js
-    target: git@github.com:manala/docker-image-test-js.git
-  - prefix: test-php
-    target: git@github.com:manala/docker-image-test-php.git
+  # Deprecated
+  #- prefix: test-js
+  #  target: git@github.com:manala/docker-image-test-js.git
+  # Deprecated
+  #- prefix: test-php
+  #  target: git@github.com:manala/docker-image-test-php.git
 
 # List of references to split (defined as regexp)
 origins:
