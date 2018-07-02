@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Force "xz-utils" package installation on debian images (even if only jessie were missing it)
 
 ## [2.5.5-1] - 2018-06-25
 ### Changed
