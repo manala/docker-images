@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.4.0] - 2018-08-27
 ### Added
 - Dumb-init 1.2.2
 - Curl
