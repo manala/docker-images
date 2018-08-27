@@ -6,7 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
-- Dumb-init 1.2.1
+- Dumb-init 1.2.2
 - Curl
 
 ### Changed
