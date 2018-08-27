@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update ESLint - Plugin - import 2.8.0
 - Update Babel ESLint 8.0.3
 - Bash as default shell
-- Update Goss 0.3.5
+- Update Goss 0.3.6
 
 ## [0.3.0] - 2017-03-27
 ### Changed
