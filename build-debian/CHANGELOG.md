@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Dumb-init 1.2.2
+- Upstream update
 
 ## [0.13.1] - 2018-06-25
 ### Changed
