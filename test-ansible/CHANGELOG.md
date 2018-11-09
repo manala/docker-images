@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Dumb-init 1.2.2
+- Update Ansible-lint 3.5.1
 
 ## [2.5.5-2] - 2018-07-02
 ### Added
