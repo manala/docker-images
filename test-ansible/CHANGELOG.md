@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.6.5-1] - 2018-11-13
 ### Changed
 - Update Ansible 2.6.5
 - Update Dumb-init 1.2.2
