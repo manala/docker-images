@@ -6,6 +6,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Changed
+- Update Ansible 2.6.5
 - Update Dumb-init 1.2.2
 - Update Ansible-lint 3.5.1
 
