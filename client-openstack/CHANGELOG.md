@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Update OpenStackClient 3.19.0
 - Update Neutron client 6.14.0
 - Update Swift client 3.8.1
+
+### Added
 - Add Mistral client 3.10.0
+- Add Nova client 11.1.0
+- Add Cinder client 4.1.0
+- Add Glance client 2.14.0
 
 ## [0.2.2] - 2018-06-25
 ### Changed

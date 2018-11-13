@@ -51,7 +51,11 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ENV OPENSTACK_CLIENT_VERSION="3.19.0" \
     NEUTRON_CLIENT_VERSION="6.14.0" \
     SWIFT_CLIENT_VERSION="3.8.1" \
-    MISTRAL_CLIENT_VERSION="3.10.0"
+    MISTRAL_CLIENT_VERSION="3.10.0" \
+    NOVA_CLIENT_VERSION="11.1.0" \
+    CINDER_CLIENT_VERSION="4.1.0" \
+    GLANCE_CLIENT_VERSION="2.14.0"
+
 RUN apk add --no-cache \
       python3 && \
     apk add --no-cache --virtual=python-dependencies \
@@ -60,5 +64,8 @@ RUN apk add --no-cache \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \
       python-swiftclient==${SWIFT_CLIENT_VERSION} \
-      python-mistralclient==${MISTRAL_CLIENT_VERSION} && \
+      python-mistralclient==${MISTRAL_CLIENT_VERSION} \
+      python-novaclient==${NOVA_CLIENT_VERSION} \
+      python-cinderclient==${CINDER_CLIENT_VERSION} \
+      python-glanceclient==${GLANCE_CLIENT_VERSION} && \
     apk del python-dependencies

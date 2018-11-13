@@ -10,6 +10,10 @@
 
 Provide OpenStack client, and related tools.
 
-- OpenStack client
-- OpenStack Neutron client
-- OpenStack Swift client
+- OpenStack client (3.19.0)
+- Neutron (6.14.0)
+- Swift (3.8.1)
+- Mistral (3.10.0)
+- Nova (11.1.0)
+- Cinder (4.1.0)
+- Glance (2.14.0)
