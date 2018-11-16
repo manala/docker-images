@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Let `/usr/sbin/policy-rc.d` returns 0 instead of remove it, so that init scripts are still enabled, and invoke-rc.d stop warning about missing it
 
 ## [2.6.5-1] - 2018-11-13
 ### Changed
