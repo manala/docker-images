@@ -14,8 +14,10 @@ env:
     - DISTRIBUTIONS=debian.stretch
     - DISTRIBUTIONS=centos.7
     - DISTRIBUTIONS=ubuntu.xenial
+    - DISTRIBUTIONS=raspbian.stretch
 
 script:
+  # Register Qemu in the kernel of the host.
   - make build
   - make test
 

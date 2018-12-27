@@ -12,6 +12,8 @@ before_install:
   - curl -L https://goss.rocks/install | sudo sh
 
 script:
+  # Register Qemu in the kernel of the host.
+  - docker run --rm --privileged multiarch/qemu-user-static:register --reset
   - make build
   - make test
 

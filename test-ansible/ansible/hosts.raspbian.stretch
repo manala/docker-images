@@ -1,0 +1,4 @@
+raspbian.stretch ansible_connection=local
+
+[raspbian]
+raspbian.stretch

@@ -53,17 +53,20 @@ command:
   sudo goss --version:
     exit-status: 0
   # Custom
-  pip list:
+  pip list || pip3 list --format=columns:
+    timeout: 15000 # ARM arch response time is very long
     exit-status: 0
     stdout:
       - /Jinja2\s+{{ .Env.JINJA2_VERSION }}/
       - /ansible\s+{{ .Env.ANSIBLE_VERSION }}/
       - /ansible-lint\s+{{ .Env.ANSIBLE_LINT_VERSION }}/
   ansible --version:
+    timeout: 15000 # ARM arch response time is very long
     exit-status: 0
     stdout:
       - ansible {{ .Env.ANSIBLE_VERSION }}
   ansible-lint --version:
+    timeout: 15000 # ARM arch response time is very long
     exit-status: 0
     stdout:
       - ansible-lint {{ .Env.ANSIBLE_LINT_VERSION }}

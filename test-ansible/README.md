@@ -33,6 +33,7 @@ make build@debian.jessie
 make build@debian.stretch
 make build@centos.7
 make build@ubuntu.xenial
+make build@raspbian.stretch
 ```
 
 Dev
@@ -42,6 +43,7 @@ make dev@debian.jessie
 make dev@debian.stretch
 make dev@centos.7
 make dev@ubuntu.xenial
+make dev@raspbian.stretch
 ```
 
 Test
@@ -52,6 +54,7 @@ make test@debian.jessie
 make test@debian.stretch
 make test@centos.7
 make test@ubuntu.xenial
+make test@raspbian.stretch
 ```
 
 Updates:
