@@ -1,13 +1,14 @@
 # Debian
-deb http://httpredir.debian.org/debian jessie main contrib non-free
-deb-src http://httpredir.debian.org/debian jessie main contrib non-free
-deb http://httpredir.debian.org/debian jessie-updates main contrib non-free
-deb-src http://httpredir.debian.org/debian jessie-updates main contrib non-free
-deb http://security.debian.org/ jessie/updates main contrib non-free
-deb-src http://security.debian.org/ jessie/updates main contrib non-free
-deb http://httpredir.debian.org/debian jessie-backports main contrib non-free
-deb-src http://httpredir.debian.org/debian jessie-backports main contrib non-free
-deb http://httpredir.debian.org/debian jessie-backports-sloppy main contrib non-free
-deb-src http://httpredir.debian.org/debian jessie-backports-sloppy main contrib non-free
+deb http://deb.debian.org/debian jessie main contrib non-free
+deb-src http://deb.debian.org/debian jessie main contrib non-free
+deb http://deb.debian.org/debian jessie-updates main contrib non-free
+deb-src http://deb.debian.org/debian jessie-updates main contrib non-free
+deb http://security.debian.org/debian-security jessie/updates main contrib non-free
+deb-src http://security.debian.org/debian-security jessie/updates main contrib non-free
+# Backports
+deb http://deb.debian.org/debian jessie-backports main contrib non-free
+deb-src http://deb.debian.org/debian jessie-backports main contrib non-free
+deb http://deb.debian.org/debian jessie-backports-sloppy main contrib non-free
+deb-src http://deb.debian.org/debian jessie-backports-sloppy main contrib non-free
 # Manala
 deb [arch=amd64] http://debian.manala.io jessie main

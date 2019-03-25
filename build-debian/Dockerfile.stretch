@@ -5,11 +5,11 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
+COPY apt/sources.stretch     /etc/apt/sources.list
+COPY apt/preferences.stretch /etc/apt/preferences.d/preferences
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       apt-utils apt-transport-https gnupg dirmngr
-COPY apt/sources.stretch     /etc/apt/sources.list
-COPY apt/preferences.stretch /etc/apt/preferences.d/preferences
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 1394DEA3 && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \

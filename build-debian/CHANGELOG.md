@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Changed
 - Upstream update
 
+### Fixed
+- Fix apt sources
+
 ## [0.13.2] - 2018-11-08
 ### Changed
 - Update Dumb-init 1.2.2
