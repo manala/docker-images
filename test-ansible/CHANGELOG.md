@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Fix debian wheezy security apt source
 
 ## [2.6.5-3] - 2019-03-25
 ### Fixed
