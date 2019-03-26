@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Remove jessie updates repository (see: https://lists.debian.org/debian-devel-announce/2019/03/msg00006.html)
 
 ## [0.13.3] - 2019-03-25
 ### Changed
