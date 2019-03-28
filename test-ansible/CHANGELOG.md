@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [2.6.5-7] - 2019-03-28
 ### Fixed
 - Unswitch to archive jessie repository
 
