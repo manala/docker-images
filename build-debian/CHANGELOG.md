@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Fixed
 - Unswitch to archive jessie repository
+- Disable jessie repository validity check
 
 ## [0.13.5] - 2019-03-26
 ### Fixed

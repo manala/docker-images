@@ -1,0 +1,3 @@
+# Jessie repositories have been archived, meaning that some of them
+# (backports, for instance) will remain invalid forever.
+Acquire::Check-Valid-Until "false";
