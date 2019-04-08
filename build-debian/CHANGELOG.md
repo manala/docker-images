@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Fixed
 - Archive wheezy security repository
+- Re-add jessie updates repository
 
 ## [0.13.6] - 2019-03-28
 ### Fixed
