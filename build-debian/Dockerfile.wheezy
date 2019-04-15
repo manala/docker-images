@@ -5,8 +5,9 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
-COPY apt/sources.wheezy     /etc/apt/sources.list
-COPY apt/preferences.wheezy /etc/apt/preferences.d/preferences
+COPY apt/sources.wheezy      /etc/apt/sources.list
+COPY apt/preferences.wheezy  /etc/apt/preferences.d/preferences
+COPY apt/conf.archive.wheezy /etc/apt/apt.conf.d/archive
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       apt-utils apt-transport-https gnupg

@@ -5,9 +5,9 @@ MAINTAINER Manala <contact@manala.io>
 USER root
 
 # Packages
-COPY apt/sources.jessie     /etc/apt/sources.list
-COPY apt/preferences.jessie /etc/apt/preferences.d/preferences
-COPY apt/conf.jessie        /etc/apt/apt.conf.d/conf
+COPY apt/sources.jessie      /etc/apt/sources.list
+COPY apt/preferences.jessie  /etc/apt/preferences.d/preferences
+COPY apt/conf.archive.jessie /etc/apt/apt.conf.d/archive
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       apt-utils apt-transport-https gnupg
