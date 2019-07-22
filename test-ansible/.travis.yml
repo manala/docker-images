@@ -12,6 +12,7 @@ env:
     - DISTRIBUTIONS=debian.wheezy
     - DISTRIBUTIONS=debian.jessie
     - DISTRIBUTIONS=debian.stretch
+    - DISTRIBUTIONS=debian.buster
     - DISTRIBUTIONS=centos.7
     - DISTRIBUTIONS=ubuntu.xenial
 
