@@ -10,13 +10,14 @@ COPY apt/preferences.wheezy  /etc/apt/preferences.d/preferences
 COPY apt/conf.archive.wheezy /etc/apt/apt.conf.d/archive
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-      apt-utils apt-transport-https gnupg
+      apt-utils apt-transport-https
+COPY apt/sources.manala.wheezy /etc/apt/sources.list.d/manala.list
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 1394DEA3 && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
 # System
       adduser \
-      sudo apt-transport-https ca-certificates \
+      sudo ca-certificates \
 # Shell
       bash bash-completion \
 # Tools
@@ -74,7 +75,7 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       bsdtar unzip \
       build-essential \
-      devscripts help2man gnupg debian-keyring fakeroot lintian equivs libwww-perl libjson-perl
+      devscripts help2man debian-keyring fakeroot lintian equivs libwww-perl libjson-perl
 
 # Clean
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --purge autoremove && \

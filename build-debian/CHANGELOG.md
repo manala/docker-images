@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - stretch-backports-sloppy repository
 
+### Fixed
+- Manala debian repository integration
+
 ## [0.13.10] - 2019-07-22
 ### Changed
 - Update Goss 0.3.7
