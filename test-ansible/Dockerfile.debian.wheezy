@@ -67,7 +67,7 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 
 # Pip packages
 ENV ANSIBLE_VERSION="2.6.5" \
-    ANSIBLE_LINT_VERSION="3.5.1"
+    ANSIBLE_LINT_VERSION="4.1.0"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       python python-setuptools python-dev libssl-dev && \
     easy_install --index-url https://pypi.python.org/simple/ pip && \

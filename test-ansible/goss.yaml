@@ -64,8 +64,6 @@ command:
       - ansible {{ .Env.ANSIBLE_VERSION }}
   ansible-lint --version:
     exit-status: 0
-    stdout:
-      - ansible-lint {{ .Env.ANSIBLE_LINT_VERSION }}
 
 ##########
 # Groups #

@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - Update Goss 0.3.7
+- Update Ansible-lint 4.1.0
 - Don't force jinja2 version anymore
 
 ## [2.6.5-11] - 2019-04-15
