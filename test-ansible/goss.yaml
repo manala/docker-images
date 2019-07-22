@@ -53,7 +53,7 @@ command:
   sudo goss --version:
     exit-status: 0
   # Custom
-  pip list:
+  pip list --format=columns:
     exit-status: 0
     stdout:
       - /ansible\s+{{ .Env.ANSIBLE_VERSION }}/

@@ -75,7 +75,7 @@ RUN yum -y install \
     pip --no-cache-dir --disable-pip-version-check install \
       ansible==${ANSIBLE_VERSION} \
       ansible-lint==${ANSIBLE_LINT_VERSION} && \
-    yum -y remove python-devel gcc
+    yum -y remove python-setuptools python-devel gcc
 
 # Ansible hosts
 COPY ansible/hosts.centos.7 /etc/ansible/hosts

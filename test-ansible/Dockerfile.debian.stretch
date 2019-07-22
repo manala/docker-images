@@ -68,14 +68,11 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 ENV ANSIBLE_VERSION="2.6.5" \
     ANSIBLE_LINT_VERSION="4.1.0"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-      python python-setuptools python-dev libssl-dev && \
-    easy_install pip && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y purge python-setuptools && \
-    pip install setuptools && \
+      python python-setuptools python-dev libssl-dev python-pip && \
     pip --no-cache-dir --disable-pip-version-check install \
       ansible==${ANSIBLE_VERSION} \
       ansible-lint==${ANSIBLE_LINT_VERSION} && \
-    DEBIAN_FRONTEND=noninteractive apt-get -y purge python-dev libssl-dev
+    DEBIAN_FRONTEND=noninteractive apt-get -y purge python-setuptools python-dev libssl-dev
 
 # Ansible hosts
 COPY ansible/hosts.debian.stretch /etc/ansible/hosts
