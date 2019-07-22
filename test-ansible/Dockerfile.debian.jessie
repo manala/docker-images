@@ -64,8 +64,7 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Pip packages
-ENV JINJA2_VERSION="2.8" \
-    ANSIBLE_VERSION="2.6.5" \
+ENV ANSIBLE_VERSION="2.6.5" \
     ANSIBLE_LINT_VERSION="3.5.1"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       python python-setuptools python-dev libssl-dev && \
@@ -73,7 +72,6 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
     DEBIAN_FRONTEND=noninteractive apt-get -y purge python-setuptools && \
     pip install setuptools && \
     pip --no-cache-dir --disable-pip-version-check install \
-      Jinja2==${JINJA2_VERSION} \
       ansible==${ANSIBLE_VERSION} \
       ansible-lint==${ANSIBLE_LINT_VERSION} && \
     DEBIAN_FRONTEND=noninteractive apt-get -y purge python-dev libssl-dev

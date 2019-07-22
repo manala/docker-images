@@ -56,7 +56,6 @@ command:
   pip list:
     exit-status: 0
     stdout:
-      - /Jinja2\s+{{ .Env.JINJA2_VERSION }}/
       - /ansible\s+{{ .Env.ANSIBLE_VERSION }}/
       - /ansible-lint\s+{{ .Env.ANSIBLE_LINT_VERSION }}/
   ansible --version:
