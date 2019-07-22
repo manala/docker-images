@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- stretch-backports-sloppy repository
 
 ## [0.13.10] - 2019-07-22
 ### Changed
