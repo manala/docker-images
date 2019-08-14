@@ -35,24 +35,12 @@ command:
     stdout:
       - root
   # Custom
-  pip3 list:
+  openstack module list -f shell:
     exit-status: 0
     stdout:
-      - python-openstackclient ({{ .Env.OPENSTACK_CLIENT_VERSION }})
-      - python-neutronclient ({{ .Env.NEUTRON_CLIENT_VERSION }})
-      - python-swiftclient ({{ .Env.SWIFT_CLIENT_VERSION }})
-  openstack --version:
-    exit-status: 0
-    stdout:
-      - openstack {{ .Env.OPENSTACK_CLIENT_VERSION }}
-  neutron --version:
-    exit-status: 0
-    stdout:
-      - {{ .Env.NEUTRON_CLIENT_VERSION }}
-  swift --version:
-    exit-status: 0
-    stdout:
-      - python-swiftclient {{ .Env.SWIFT_CLIENT_VERSION }}
+      - openstackclient="{{ .Env.OPENSTACK_CLIENT_VERSION }}"
+      - swiftclient="{{ .Env.SWIFT_CLIENT_VERSION }}"
+      - mistralclient="{{ .Env.MISTRAL_CLIENT_VERSION }}"
 
 ##########
 # Groups #

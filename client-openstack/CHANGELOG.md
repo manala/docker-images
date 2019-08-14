@@ -5,6 +5,11 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Changed
+- Update OpenStackClient 3.19.0
+- Update Neutron client 6.14.0
+- Update Swift client 3.8.1
+- Add Mistral client 3.10.0
 
 ## [0.2.2] - 2018-06-25
 ### Changed
