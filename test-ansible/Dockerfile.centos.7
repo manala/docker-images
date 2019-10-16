@@ -67,7 +67,7 @@ RUN groupadd -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 
 # Pip packages
 ENV ANSIBLE_VERSION="2.6.5" \
-    ANSIBLE_LINT_VERSION="4.1.0"
+    ANSIBLE_LINT_VERSION="4.1.1a0"
 RUN yum -y install \
       python python-setuptools python-devel gcc && \
     easy_install pip && \
