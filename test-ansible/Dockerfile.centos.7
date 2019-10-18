@@ -12,7 +12,7 @@ RUN yum clean all && yum -y update && \
 # Shell
       bash \
 # Tools
-      less vim wget curl make git
+      less vim wget curl make git sed
 
 # Sudo
 RUN sed -i -e '/secure_path/ s[=.*[&:/usr/local/bin[' /etc/sudoers
@@ -59,7 +59,9 @@ ENV USER_DEFAULT="manala" \
     GROUP_ID="${GROUP_ID:-1000}"
 
 RUN groupadd -g ${GROUP_ID} ${GROUP_DEFAULT} && \
-    useradd --key UMASK=022 --shell /bin/bash --uid ${USER_ID} --gid ${GROUP_DEFAULT} ${USER_DEFAULT}
+    useradd --key UMASK=022 --shell /bin/bash --uid ${USER_ID} --gid ${GROUP_DEFAULT} ${USER_DEFAULT} && \
+    sed -i '46iforce_color_prompt=yes' /home/manala/.bashrc && \
+    echo "\nbind 'set show-all-if-ambiguous on'\nbind '"TAB": menu-complete'\nbind '"TAB": menu-complete-backward'" >> /home/manala/.bashrc
 
 ##########
 # Custom #
