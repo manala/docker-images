@@ -12,7 +12,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && 
       gnupg \
       sudo apt-transport-https ca-certificates \
 # Shell
-      bash bash-completion \
+      bash \
 # Tools
       procps less vim wget curl make git xz-utils
 
