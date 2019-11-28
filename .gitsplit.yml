@@ -3,6 +3,8 @@ cache_url: "./.gitsplit"
 
 # List of splits.
 splits:
+  - prefix: ansible
+    target: git@github.com:manala/docker-image-ansible.git
   # Deprecated
   #- prefix: ansible-debian
   #  target: git@github.com:manala/docker-image-ansible-debian.git

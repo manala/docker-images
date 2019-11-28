@@ -1,0 +1,39 @@
+############
+# Packages #
+############
+
+package:
+  docker:
+    installed: true
+  rsync:
+    installed: true
+
+############
+# Commands #
+############
+
+command:
+  goss --version:
+    exit-status: 0
+    stdout:
+      - goss version v{{ .Env.GOSS_VERSION }}
+  ansible --version:
+    exit-status: 0
+    stdout:
+      - ansible {{ .Env.ANSIBLE_VERSION }}
+  ansible-lint --version:
+    exit-status: 0
+    stdout:
+      - ansible-lint {{ .Env.ANSIBLE_LINT_VERSION }}
+  molecule --version:
+    exit-status: 0
+    stdout:
+      - molecule, version {{ .Env.MOLECULE_VERSION }}
+  yamllint --version:
+    exit-status: 0
+    stdout:
+      - yamllint {{ .Env.YAMLLINT_VERSION }}
+  pip3 list --format freeze:
+    exit-status: 0
+    stdout:
+      - docker-py==
