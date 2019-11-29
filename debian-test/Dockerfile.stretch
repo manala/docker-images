@@ -1,0 +1,104 @@
+FROM debian:stretch-slim
+
+LABEL maintainer="Manala <contact@manala.io>"
+
+ENV GOSS_VERSION="0.3.7"
+
+COPY apt/sources.stretch /etc/apt/sources.list
+
+RUN \
+    ##########
+    # System #
+    ##########
+    \
+    # Disable irrelevants apt-key warnings
+    export APT_KEY_DONT_WARN_ON_DANGEROUS_USAGE="1" \
+    # Disable all debian user interaction
+    && export DEBIAN_FRONTEND="noninteractive" \
+    && apt-get --quiet update \
+    && apt-get --quiet --verbose-versions --yes --no-install-recommends install \
+        apt-utils \
+        apt-transport-https \
+        gnupg \
+        dirmngr \
+        debfoster \
+        ca-certificates \
+        sudo \
+        procps \
+        less \
+        vim-tiny \
+        wget \
+        curl \
+        make \
+        git \
+        xz-utils \
+        python \
+    # Goss
+    && curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh \
+    # Create dirs required by some packages to install
+    && for i in 1 2 3 4 5 6 7 8; do mkdir -p /usr/share/man/man$i; done \
+    \
+    ###########
+    # Systemd #
+    ###########
+    \
+    # See: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=751636)
+    && apt-get --quiet --verbose-versions --yes --no-install-recommends install \
+      systemd \
+      systemd-sysv \
+      dbus \
+      libpam-systemd \
+    # Ensure "multi-user" (and not "graphical") is default target
+    && systemctl set-default multi-user.target \
+    && systemctl mask \
+      systemd-ask-password-wall.path \
+      systemd-ask-password-console.path \
+      systemd-logind.service \
+    # Disable useless mount units
+    && systemctl mask \
+      dev-hugepages.mount \
+      proc-sys-fs-binfmt_misc.automount \
+      sys-fs-fuse-connections.mount \
+      sys-kernel-debug.mount \
+    # Disable local/remote file systems, swap & encrypted volumes target units
+    && systemctl mask \
+      local-fs.target \
+      remote-fs.target \
+      swap.target \
+      cryptsetup.target \
+    # Disable getty (cause login issues in docker privileged mode)
+    && systemctl mask getty.target \
+    # Disable useless mount units
+    && systemctl mask \
+      sys-kernel-config.mount \
+    # Disable system time synchronization
+    && systemctl mask time-sync.target \
+    # Disable useless timers
+    && systemctl mask \
+      timers.target \
+      # systemd-tmpfiles-clean.timer \
+      # apt-daily-upgrade.timer \
+      # apt-daily.timer \
+    \
+    #########
+    # Clean #
+    #########
+    \
+    && rm -rf /var/lib/apt/lists/* \
+    # Remove apt docker related configurations
+    && rm -rf /etc/apt/apt.conf.d/docker-* \
+    # Remove init scripts prevention
+    && rm -rf /usr/sbin/policy-rc.d
+
+# The 'container' environment variable tells systemd that it's running inside a
+# Docker container environment.
+ENV container docker
+
+# A different stop signal is required, so systemd will initiate a shutdown when
+# running 'docker stop <container>'.
+STOPSIGNAL SIGRTMIN+3
+
+CMD ["/sbin/init"]
+
+# Working directory
+WORKDIR /srv

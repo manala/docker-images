@@ -12,6 +12,8 @@ splits:
     target: git@github.com:manala/docker-image-build-debian.git
   - prefix: client-openstack
     target: git@github.com:manala/docker-image-client-openstack.git
+  - prefix: debian-test
+    target: git@github.com:manala/docker-image-debian-test.git
   # Deprecated
   #- prefix: deploy
   #  target: git@github.com:manala/docker-image-deploy.git

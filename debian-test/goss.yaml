@@ -1,0 +1,31 @@
+############
+# Commands #
+############
+
+command:
+  goss --version:
+    exit-status: 0
+    stdout:
+      - goss version v{{ .Env.GOSS_VERSION }}
+
+package:
+  python:
+    installed: true
+
+file:
+  /usr/share/man/man1:
+    exists: true
+  /usr/share/man/man2:
+    exists: true
+  /usr/share/man/man3:
+    exists: true
+  /usr/share/man/man4:
+    exists: true
+  /usr/share/man/man5:
+    exists: true
+  /usr/share/man/man6:
+    exists: true
+  /usr/share/man/man7:
+    exists: true
+  /usr/share/man/man8:
+    exists: true
