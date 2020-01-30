@@ -48,15 +48,17 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Pip packages
-ENV OPENSTACK_CLIENT_VERSION="3.15.0" \
-    NEUTRON_CLIENT_VERSION="6.9.0" \
-    SWIFT_CLIENT_VERSION="3.5.0"
+ENV OPENSTACK_CLIENT_VERSION="3.19.0" \
+    NEUTRON_CLIENT_VERSION="6.14.0" \
+    SWIFT_CLIENT_VERSION="3.8.1" \
+    MISTRAL_CLIENT_VERSION="3.10.0"
 RUN apk add --no-cache \
       python3 && \
     apk add --no-cache --virtual=python-dependencies \
-      build-base linux-headers python3-dev libffi-dev openssl-dev && \
+      build-base linux-headers python3-dev libffi-dev openssl-dev libssl1.0 && \
     pip3 --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \
-      python-swiftclient==${SWIFT_CLIENT_VERSION} && \
+      python-swiftclient==${SWIFT_CLIENT_VERSION} \
+      python-mistralclient==${MISTRAL_CLIENT_VERSION} && \
     apk del python-dependencies
