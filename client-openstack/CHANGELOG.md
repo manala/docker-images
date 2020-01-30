@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.3.0] - 2020-01-30
 ### Changed
 - Update OpenStackClient 3.19.0
 - Update Neutron client 6.14.0
