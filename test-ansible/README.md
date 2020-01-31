@@ -32,6 +32,7 @@ make build@debian.wheezy
 make build@debian.jessie
 make build@debian.stretch
 make build@debian.buster
+make build@raspbian.stretch
 make build@centos.7
 make build@ubuntu.xenial
 ```
@@ -42,6 +43,7 @@ make dev@debian.wheezy
 make dev@debian.jessie
 make dev@debian.stretch
 make dev@debian.buster
+make dev@raspbian.stretch
 make dev@centos.7
 make dev@ubuntu.xenial
 ```
@@ -53,6 +55,7 @@ make test@debian.wheezy
 make test@debian.jessie
 make test@debian.stretch
 make test@debian.buster
+make test@raspbian.stretch
 make test@centos.7
 make test@ubuntu.xenial
 ```

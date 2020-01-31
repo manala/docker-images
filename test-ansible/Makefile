@@ -12,7 +12,7 @@ DOCKER_IMAGE = manala/test-ansible
 DOCKER_TAG  ?= edge
 
 # Distributions
-DISTRIBUTIONS ?= debian.wheezy debian.jessie debian.stretch debian.buster centos.7 ubuntu.xenial
+DISTRIBUTIONS ?= debian.wheezy debian.jessie debian.stretch debian.buster centos.7 ubuntu.xenial raspbian.stretch
 
 DISTRIBUTION_FAMILY  = $(firstword $(subst ., ,$(DISTRIBUTION)))
 DISTRIBUTION_RELEASE = $(lastword $(subst ., ,$(DISTRIBUTION)))
@@ -73,6 +73,10 @@ dev@centos.7: dev
 dev@ubuntu.xenial: DISTRIBUTION = ubuntu.xenial
 dev@ubuntu.xenial: dev
 
+## Dev - Raspbian Stretch
+dev@raspbian.stretch: DISTRIBUTION = raspbian.stretch
+dev@raspbian.stretch: dev
+
 #########
 # Build #
 #########
@@ -114,6 +118,10 @@ build@centos.7: build
 ## Build - Ubuntu Xenial
 build@ubuntu.xenial: DISTRIBUTIONS = ubuntu.xenial
 build@ubuntu.xenial: build
+
+## Build - Raspbian Stretch
+build@raspbian.stretch: DISTRIBUTIONS = raspbian.stretch
+build@raspbian.stretch: build
 
 #########
 # Test #
@@ -160,3 +168,7 @@ test@centos.7: test
 ## Test - Ubuntu Xenial
 test@ubuntu.xenial: DISTRIBUTIONS = ubuntu.xenial
 test@ubuntu.xenial: test
+
+## Test - Raspbian Stretch
+test@raspbian.stretch: DISTRIBUTIONS = raspbian.stretch
+test@raspbian.stretch: test
