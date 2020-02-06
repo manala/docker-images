@@ -55,6 +55,10 @@ dev@jessie: dev
 dev@stretch: DEBIAN_DISTRIBUTION = stretch
 dev@stretch: dev
 
+## Dev - Buster
+dev@buster: DEBIAN_DISTRIBUTION = buster
+dev@buster: dev
+
 #########
 # Build #
 #########
@@ -85,6 +89,10 @@ build@jessie: build
 build@stretch: DEBIAN_DISTRIBUTION = stretch
 build@stretch: build
 
+## Build - Buster
+build@buster: DEBIAN_DISTRIBUTION = buster
+build@buster: build
+
 #########
 # Test #
 #########
@@ -114,3 +122,7 @@ test@jessie: test
 ## Test - Stretch
 test@stretch: DEBIAN_DISTRIBUTION = stretch
 test@stretch: test
+
+## Test - Buster
+test@buster: DEBIAN_DISTRIBUTION = buster
+test@buster: test

@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.13.13] - 2010-02-06
+### Changed
+- Upstream update
+
+### Added
+- Buster support
+
 ## [0.13.12] - 2019-09-17
 ### Changed
 - Upstream update
