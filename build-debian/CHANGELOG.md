@@ -5,8 +5,15 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.13.14] - 2020-02-07
+### Updated
+- chandler version
+
 ### Fixed
 - Changelog entry
+- Travis hook
+- Makefile
 
 ## [0.13.13] - 2020-02-06
 ### Changed

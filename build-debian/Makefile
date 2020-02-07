@@ -12,7 +12,7 @@ DOCKER_IMAGE = manala/build-debian
 DOCKER_TAG  ?= edge
 
 # Debian
-DEBIAN_DISTRIBUTION ?= wheezy jessie stretch
+DEBIAN_DISTRIBUTION ?= wheezy jessie stretch buster
 
 ## Help
 help:
