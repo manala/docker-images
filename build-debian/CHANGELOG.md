@@ -5,8 +5,10 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Fixed
+- Changelog entry
 
-## [0.13.13] - 2010-02-06
+## [0.13.13] - 2020-02-06
 ### Changed
 - Upstream update
 
