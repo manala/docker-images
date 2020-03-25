@@ -57,9 +57,9 @@ ENV OPENSTACK_CLIENT_VERSION="3.19.0" \
     GLANCE_CLIENT_VERSION="2.14.0"
 
 RUN apk add --no-cache \
-      python3 && \
+      python3 libssl1.0 && \
     apk add --no-cache --virtual=python-dependencies \
-      build-base linux-headers python3-dev libffi-dev openssl-dev libssl1.0 && \
+      build-base linux-headers python3-dev libffi-dev openssl-dev && \
     pip3 --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \
