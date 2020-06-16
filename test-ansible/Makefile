@@ -49,10 +49,6 @@ dev:
 		--env DISTRIBUTION_RELEASE=${DISTRIBUTION_RELEASE} \
 		${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)${DISTRIBUTION}
 
-## Dev - Debian Wheezy
-dev@debian.wheezy: DISTRIBUTION = debian.wheezy
-dev@debian.wheezy: dev
-
 ## Dev - Debian Jessie
 dev@debian.jessie: DISTRIBUTION = debian.jessie
 dev@debian.jessie: dev
@@ -64,14 +60,6 @@ dev@debian.stretch: dev
 ## Dev - Debian Buster
 dev@debian.buster: DISTRIBUTION = debian.buster
 dev@debian.buster: dev
-
-## Dev - CentOS 7
-dev@centos.7: DISTRIBUTION = centos.7
-dev@centos.7: dev
-
-## Dev - Ubuntu Xenial
-dev@ubuntu.xenial: DISTRIBUTION = ubuntu.xenial
-dev@ubuntu.xenial: dev
 
 #########
 # Build #
@@ -91,10 +79,6 @@ build:
 		|| EXIT=$$? ;\
 	} exit $$EXIT
 
-## Build - Debian Wheezy
-build@debian.wheezy: DISTRIBUTIONS = debian.wheezy
-build@debian.wheezy: build
-
 ## Build - Debian Jessie
 build@debian.jessie: DISTRIBUTIONS = debian.jessie
 build@debian.jessie: build
@@ -106,14 +90,6 @@ build@debian.stretch: build
 ## Build - Debian Buster
 build@debian.buster: DISTRIBUTIONS = debian.buster
 build@debian.buster: build
-
-## Build - CentOS 7
-build@centos.7: DISTRIBUTIONS = centos.7
-build@centos.7: build
-
-## Build - Ubuntu Xenial
-build@ubuntu.xenial: DISTRIBUTIONS = ubuntu.xenial
-build@ubuntu.xenial: build
 
 #########
 # Test #
@@ -137,10 +113,6 @@ test:
 		|| EXIT=$$? ;\
 	} exit $$EXIT
 
-## Test - Debian Wheezy
-test@debian.wheezy: DISTRIBUTIONS = debian.wheezy
-test@debian.wheezy: test
-
 ## Test - Debian Jessie
 test@debian.jessie: DISTRIBUTIONS = debian.jessie
 test@debian.jessie: test
@@ -152,11 +124,3 @@ test@debian.stretch: test
 ## Test - Debian Buster
 test@debian.buster: DISTRIBUTIONS = debian.buster
 test@debian.buster: test
-
-## Test - CentOS 7
-test@centos.7: DISTRIBUTIONS = centos.7
-test@centos.7: test
-
-## Test - Ubuntu Xenial
-test@ubuntu.xenial: DISTRIBUTIONS = ubuntu.xenial
-test@ubuntu.xenial: test

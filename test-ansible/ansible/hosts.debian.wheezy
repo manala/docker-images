@@ -1,4 +1,0 @@
-debian.wheezy ansible_connection=local
-
-[debian]
-debian.wheezy

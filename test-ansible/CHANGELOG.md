@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Removed
+- Distributions debian.wheezy, centos.7 and ubuntu.xenial
 
 ## [2.6.5-16] - 2020-06-16
 ### Added

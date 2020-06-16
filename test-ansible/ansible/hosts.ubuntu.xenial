@@ -1,4 +1,0 @@
-ubuntu.xenial ansible_connection=local
-
-[ubuntu]
-ubuntu.xenial
