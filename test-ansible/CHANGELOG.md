@@ -11,6 +11,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Fixed
 - Pip version on debian jessie
 
+### Removed
+- Builds on debian.wheezy, centos.7 and ubuntu.xenial
+
 ## [2.6.5-15] - 2019-10-18
 ### Changed
 - Add tab completion

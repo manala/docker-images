@@ -12,7 +12,7 @@ DOCKER_IMAGE = manala/test-ansible
 DOCKER_TAG  ?= edge
 
 # Distributions
-DISTRIBUTIONS ?= debian.wheezy debian.jessie debian.stretch debian.buster centos.7 ubuntu.xenial
+DISTRIBUTIONS ?= debian.jessie debian.stretch debian.buster
 
 DISTRIBUTION_FAMILY  = $(firstword $(subst ., ,$(DISTRIBUTION)))
 DISTRIBUTION_RELEASE = $(lastword $(subst ., ,$(DISTRIBUTION)))
