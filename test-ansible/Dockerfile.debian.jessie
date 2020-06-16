@@ -70,7 +70,7 @@ ENV ANSIBLE_VERSION="2.6.5" \
     ANSIBLE_LINT_VERSION="4.1.1a0"
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       python python-setuptools python-dev libssl-dev && \
-    easy_install pip && \
+    easy_install pip==19.3.1 && \
     DEBIAN_FRONTEND=noninteractive apt-get -y purge python-setuptools && \
     pip install setuptools && \
     pip --no-cache-dir --disable-pip-version-check install \

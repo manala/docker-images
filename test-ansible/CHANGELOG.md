@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Unzip package
 
+### Fixed
+- Pip version on debian jessie
+
 ## [2.6.5-15] - 2019-10-18
 ### Changed
 - Add tab completion
