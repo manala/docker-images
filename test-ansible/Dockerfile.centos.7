@@ -12,7 +12,7 @@ RUN yum clean all && yum -y update && \
 # Shell
       bash \
 # Tools
-      less vim wget curl make git sed
+      less vim wget curl make git sed unzip
 
 # Sudo
 RUN sed -i -e '/secure_path/ s[=.*[&:/usr/local/bin[' /etc/sudoers

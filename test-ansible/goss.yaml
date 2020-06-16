@@ -30,6 +30,8 @@ package:
     installed: true
   git:
     installed: true
+  unzip:
+    installed: true
   # Custom
 
 ############
