@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM alpine:3.12
 
 MAINTAINER Manala <contact@manala.io>
 
@@ -11,10 +11,10 @@ RUN apk add --no-cache \
 # Shell
       bash bash-completion \
 # Tools
-      curl make git dumb-init
+      curl make git dumb-init openssl
 
 # Goss
-ENV GOSS_VERSION="0.3.6"
+ENV GOSS_VERSION="0.3.15"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
 # Entrypoint
@@ -48,16 +48,16 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 ##########
 
 # Pip packages
-ENV OPENSTACK_CLIENT_VERSION="3.19.0" \
-    NEUTRON_CLIENT_VERSION="6.14.0" \
-    SWIFT_CLIENT_VERSION="3.8.1" \
-    MISTRAL_CLIENT_VERSION="3.10.0" \
-    NOVA_CLIENT_VERSION="11.1.0" \
-    CINDER_CLIENT_VERSION="4.1.0" \
-    GLANCE_CLIENT_VERSION="2.14.0"
+ENV OPENSTACK_CLIENT_VERSION="5.4.0" \
+    NEUTRON_CLIENT_VERSION="7.2.1" \
+    SWIFT_CLIENT_VERSION="3.11.0" \
+    MISTRAL_CLIENT_VERSION="4.1.1" \
+    NOVA_CLIENT_VERSION="17.2.1" \
+    CINDER_CLIENT_VERSION="7.2.0" \
+    GLANCE_CLIENT_VERSION="3.2.2"
 
 RUN apk add --no-cache \
-      python3 libssl1.0 && \
+      python3 py3-pip libssl1.1 && \
     apk add --no-cache --virtual=python-dependencies \
       build-base linux-headers python3-dev libffi-dev openssl-dev && \
     pip3 --no-cache-dir --disable-pip-version-check install \

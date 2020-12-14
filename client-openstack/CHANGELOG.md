@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Now based on alpine:3.12
+- Update OpenStackClient 5.4.0
+- Update Neutron client 7.2.1
+- Update Swift client 3.11.0
+- update mistral client 4.1.1
+- update nova client 17.2.1
+- update cinder client 7.2.0
+- update glance client 3.2.2
+- update libssl
+
+### Added
+- Add openssl package
 
 ## [0.3.1] - 2020-03-25
 ### Changed
