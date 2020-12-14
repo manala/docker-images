@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.3.2] - 2020-12-14
+### Changed
 - Now based on alpine:3.12
 - Update OpenStackClient 5.4.0
 - Update Neutron client 7.2.1
