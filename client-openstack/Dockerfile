@@ -11,7 +11,7 @@ RUN apk add --no-cache \
 # Shell
       bash bash-completion \
 # Tools
-      curl make git dumb-init openssl
+      curl make git dumb-init openssl jq gnupg
 
 # Goss
 ENV GOSS_VERSION="0.3.15"

@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+### Added
+- Add gnupg package
+- Add jq package
 
 ## [0.3.2] - 2020-12-14
 ### Changed
