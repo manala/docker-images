@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+
+## [0.3.4] - 2021-08-27
 - Now based on alpine:3.14
 - Update Goss 0.3.15
 - Update OpenStackClient 5.5.0
