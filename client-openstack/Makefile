@@ -1,30 +1,12 @@
 .SILENT:
-.PHONY: help dev build test
+.PHONY: dev build tag test
 
-# Colors
-COLOR_RESET   = \033[0m
-COLOR_INFO    = \033[32m
-COLOR_COMMENT = \033[33m
-COLOR_ERROR   = \033[31m
+include Makefile.mk
 
 # Docker
 DOCKER_IMAGE = manala/client-openstack
 DOCKER_TAG  ?= edge
-
-## Help
-help:
-	printf "${COLOR_COMMENT}Usage:${COLOR_RESET}\n"
-	printf " make [target]\n\n"
-	printf "${COLOR_COMMENT}Available targets:${COLOR_RESET}\n"
-	awk '/^[a-zA-Z\-\_0-9\.@]+:/ { \
-		helpMessage = match(lastLine, /^## (.*)/); \
-		if (helpMessage) { \
-			helpCommand = substr($$1, 0, index($$1, ":")); \
-			helpMessage = substr(lastLine, RSTART + 3, RLENGTH); \
-			printf " ${COLOR_INFO}%-16s${COLOR_RESET} %s\n", helpCommand, helpMessage; \
-		} \
-	} \
-	{ lastLine = $$0 }' ${MAKEFILE_LIST}
+VERSION		 = 0.3.4
 
 #######
 # Dev #
@@ -48,8 +30,53 @@ dev:
 build:
 	docker build \
 		--pull \
-		--tag ${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG},latest) \
+		--tag ${DOCKER_IMAGE} \
 		.
+
+#######
+# Tag #
+#######
+
+## Tag image (VERSION)
+tag:
+	$(call message, Tag image ${COLOR_COMMENT}${DOCKER_IMAGE}:${VERSION})
+	docker tag \
+		${DOCKER_IMAGE} \
+		${DOCKER_IMAGE}:${VERSION}
+	$(call message, Tag image ${COLOR_COMMENT}${DOCKER_IMAGE}:$(call semver_major_minor,${VERSION}))
+	docker tag \
+		${DOCKER_IMAGE} \
+		${DOCKER_IMAGE}:$(call semver_major_minor,${VERSION})
+	$(call message, Tag image ${COLOR_COMMENT}${DOCKER_IMAGE}:$(call semver_major,${VERSION}))
+	docker tag \
+		${DOCKER_IMAGE} \
+		${DOCKER_IMAGE}:$(call semver_major,${VERSION})
+	$(call message, Tag image ${COLOR_COMMENT}${DOCKER_IMAGE}:${DOCKER_TAG})
+	docker tag \
+		${DOCKER_IMAGE} \
+		${DOCKER_IMAGE}:${DOCKER_TAG}
+	$(call message, Tag image ${COLOR_COMMENT}${DOCKER_IMAGE}:latest)
+	docker tag \
+		${DOCKER_IMAGE} \
+		${DOCKER_IMAGE}:${DOCKER_TAG}
+
+########
+# Push #
+########
+
+## Publish ansible image(s)
+push:
+	$(call confirm, Confirm pushing of image $(COLOR_COMMENT)${DOCKER_IMAGE}:${VERSION})
+	docker push \
+		${DOCKER_IMAGE}:${VERSION}
+	docker push \
+		${DOCKER_IMAGE}:$(call semver_major_minor,${VERSION})
+	docker push \
+		${DOCKER_IMAGE}:$(call semver_major,${VERSION})
+	docker push \
+		${DOCKER_IMAGE}:${DOCKER_TAG}
+	docker push \
+		${DOCKER_IMAGE}:latest
 
 #########
 # Test #
