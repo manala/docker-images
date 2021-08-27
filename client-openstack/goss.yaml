@@ -41,6 +41,11 @@ command:
       - openstackclient="{{ .Env.OPENSTACK_CLIENT_VERSION }}"
       - swiftclient="{{ .Env.SWIFT_CLIENT_VERSION }}"
       - mistralclient="{{ .Env.MISTRAL_CLIENT_VERSION }}"
+  # Can't use `file` since Goss doesn't have root access while testing
+  sudo cat /root/.gnupg/gpg-agent.conf:
+    exit-status: 0
+    stdout:
+      - "{{ readFile "gpg-agent/gpg-agent.conf" }}"
 
 ##########
 # Groups #

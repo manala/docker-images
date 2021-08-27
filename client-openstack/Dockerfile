@@ -1,4 +1,4 @@
-FROM alpine:3.12
+FROM alpine:3.14
 
 MAINTAINER Manala <contact@manala.io>
 
@@ -14,7 +14,7 @@ RUN apk add --no-cache \
       curl make git dumb-init openssl jq gnupg
 
 # Goss
-ENV GOSS_VERSION="0.3.15"
+ENV GOSS_VERSION="0.3.16"
 RUN curl -fsSL https://goss.rocks/install | GOSS_VER=v${GOSS_VERSION} sh
 
 # Entrypoint
@@ -47,19 +47,21 @@ RUN addgroup -g ${GROUP_ID} ${GROUP_DEFAULT} && \
 # Custom #
 ##########
 
+COPY gpg-agent/gpg-agent.conf /root/.gnupg/gpg-agent.conf
+
 # Pip packages
-ENV OPENSTACK_CLIENT_VERSION="5.4.0" \
-    NEUTRON_CLIENT_VERSION="7.2.1" \
-    SWIFT_CLIENT_VERSION="3.11.0" \
-    MISTRAL_CLIENT_VERSION="4.1.1" \
-    NOVA_CLIENT_VERSION="17.2.1" \
-    CINDER_CLIENT_VERSION="7.2.0" \
-    GLANCE_CLIENT_VERSION="3.2.2"
+ENV OPENSTACK_CLIENT_VERSION="5.5.0" \
+    NEUTRON_CLIENT_VERSION="7.5.0" \
+    SWIFT_CLIENT_VERSION="3.12.0" \
+    MISTRAL_CLIENT_VERSION="4.2.0" \
+    NOVA_CLIENT_VERSION="17.5.0" \
+    CINDER_CLIENT_VERSION="8.0.0" \
+    GLANCE_CLIENT_VERSION="3.4.0"
 
 RUN apk add --no-cache \
       python3 py3-pip libssl1.1 && \
     apk add --no-cache --virtual=python-dependencies \
-      build-base linux-headers python3-dev libffi-dev openssl-dev && \
+      build-base linux-headers python3-dev libffi-dev openssl-dev cargo && \
     pip3 --no-cache-dir --disable-pip-version-check install \
       python-openstackclient==${OPENSTACK_CLIENT_VERSION} \
       python-neutronclient==${NEUTRON_CLIENT_VERSION} \

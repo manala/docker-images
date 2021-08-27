@@ -5,6 +5,18 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
+- Now based on alpine:3.14
+- Update Goss 0.3.15
+- Update OpenStackClient 5.5.0
+- Update Neutron client 7.5.0
+- Update Swift client 3.12.0
+- Update Mistral client 4.2.0
+- Update Nova client 17.5.0
+- Update Cinder client 8.0.0
+- Update Glance client 3.4.0
+
+### Added
+- Custom timeout for gpg passphrase prompting
 
 ## [0.3.3] - 2020-12-17
 ### Added
