@@ -1,16 +1,16 @@
-FROM debian:stretch
+FROM debian:bullseye
 
 MAINTAINER Manala <contact@manala.io>
 
 USER root
 
 # Packages
-COPY apt/sources.stretch     /etc/apt/sources.list
-COPY apt/preferences.stretch /etc/apt/preferences.d/preferences
+COPY apt/sources.bullseye /etc/apt/sources.list
+COPY apt/preferences.bullseye /etc/apt/preferences.d/preferences
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
       apt-utils apt-transport-https gnupg dirmngr
-COPY apt/sources.manala.stretch /etc/apt/sources.list.d/manala.list
+COPY apt/sources.manala.bullseye /etc/apt/sources.list.d/manala.list
 RUN apt-key adv --recv-keys --keyserver hkp://keyserver.ubuntu.com:80 1394DEA3 && \
     apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y dist-upgrade && \
     DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
@@ -71,7 +71,7 @@ RUN addgroup --gid ${GROUP_ID} ${GROUP_DEFAULT} && \
 
 # Packages
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y --no-install-recommends install \
-      bsdtar unzip \
+      libarchive-tools unzip \
       build-essential \
       devscripts help2man debian-keyring fakeroot lintian equivs libwww-perl libjson-perl
 

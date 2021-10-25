@@ -27,8 +27,14 @@ package:
   git:
     installed: true
   # Custom
+{{ if eq .Env.DEBIAN_DISTRIBUTION "jessie" "stretch" "buster" }}
   bsdtar:
     installed: true
+{{ else }}
+  libarchive-tools:
+    installed: true
+{{ end }}
+
   unzip:
     installed: true
   build-essential:

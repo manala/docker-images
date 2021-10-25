@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
+## [0.13.15] - 2021-10-25
+### Added
+- Bullseye support
+
+### Updated
+- Update Goss 0.3.16
+
 ## [0.13.14] - 2020-02-07
 ### Updated
 - chandler version

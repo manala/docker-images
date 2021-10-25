@@ -59,6 +59,10 @@ dev@stretch: dev
 dev@buster: DEBIAN_DISTRIBUTION = buster
 dev@buster: dev
 
+## Dev - Bullseye
+dev@bullseye: DEBIAN_DISTRIBUTION = bullseye
+dev@bullseye: dev
+
 #########
 # Build #
 #########
@@ -93,6 +97,10 @@ build@stretch: build
 build@buster: DEBIAN_DISTRIBUTION = buster
 build@buster: build
 
+## Build - Bullseye
+build@bullseye: DEBIAN_DISTRIBUTION = bullseye
+build@bullseye: build
+
 #########
 # Test #
 #########
@@ -106,6 +114,7 @@ test:
 			docker run \
 				--rm \
 				--volume `pwd`:/srv \
+				--env DEBIAN_DISTRIBUTION=${DEBIAN_DISTRIBUTION}\
 				${DOCKER_IMAGE}:$(if ${DOCKER_TAG},${DOCKER_TAG}-)${distribution} \
 				goss --gossfile /srv/goss.yaml validate \
 		|| EXIT=$$? ;\
@@ -126,3 +135,7 @@ test@stretch: test
 ## Test - Buster
 test@buster: DEBIAN_DISTRIBUTION = buster
 test@buster: test
+
+## Test - Bullseye
+test@bullseye: DEBIAN_DISTRIBUTION = bullseye
+test@bullseye: test
