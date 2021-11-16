@@ -1,5 +1,0 @@
-command:
-  security-checker --version:
-    exit-status: 0
-    stdout:
-      - SensioLabs Security Checker 4

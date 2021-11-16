@@ -1,4 +1,0 @@
-debian.jessie ansible_connection=local
-
-[debian]
-debian.jessie

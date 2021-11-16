@@ -1,7 +1,0 @@
-Package: *
-Pin: release a=jessie-backports
-Pin-Priority: 600
-
-Package: *
-Pin: release a=jessie-backports-sloppy
-Pin-Priority: 700

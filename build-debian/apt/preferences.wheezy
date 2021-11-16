@@ -1,7 +1,0 @@
-Package: *
-Pin: release a=wheezy-backports
-Pin-Priority: 600
-
-Package: *
-Pin: release a=wheezy-backports-sloppy
-Pin-Priority: 700
