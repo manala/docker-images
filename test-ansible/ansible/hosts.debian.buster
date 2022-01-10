@@ -1,4 +1,0 @@
-debian.buster ansible_connection=local
-
-[debian]
-debian.buster

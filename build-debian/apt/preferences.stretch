@@ -1,7 +1,0 @@
-Package: *
-Pin: release a=stretch-backports
-Pin-Priority: 600
-
-Package: *
-Pin: release a=stretch-backports-sloppy
-Pin-Priority: 700
